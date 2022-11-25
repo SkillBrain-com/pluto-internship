@@ -6,7 +6,6 @@ const AddMates = () => {
   return (
     <div>
       <Container>
-        {/* <AddMatesModal /> */}
         <AddMatesDialog />
       </Container>
     </div>

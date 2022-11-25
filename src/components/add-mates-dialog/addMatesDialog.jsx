@@ -9,6 +9,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import { AddMatesTabs } from "./AddMatesTabs";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -19,7 +20,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
   "& .MuiDialogContent-root": {
     // padding: theme.spacing(1),
-    border: "none",
+    // border: "none",
   },
   "& .MuiDialogActions-root": {
     // padding: theme.spacing(1),
@@ -31,7 +32,10 @@ function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle
+      sx={{ m: 0, p: 2, fontWeight: 600, fontSize: "28px", lineHeight: "34px" }}
+      {...other}
+    >
       {children}
       {onClose ? (
         <IconButton
@@ -80,15 +84,16 @@ export const AddMatesDialog = () => {
         <BootstrapDialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          sx={{ fontWeight: 600, fontSize: "28px", lineHeight: "34px" }}
         >
           Add Team Mates to <br /> Workspace.
         </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>Insert Tab component.</Typography>
-          <Typography gutterBottom>Insert email input component.</Typography>
+        <DialogContent>
+          <AddMatesTabs />
+          <br />
+          <br />
+          <br />
           <Typography gutterBottom>
-            Preview of Users to Add shows up here.
+            Preview of Users to Add shows up here component.
           </Typography>
         </DialogContent>
         <DialogActions>
