@@ -77,8 +77,19 @@ function Test() {
         <div>space</div>
         <Badge
           variant="standard"
-          badgeContent={"In progress"}
+          badgeContent={"Some Text Yunno"}
           color="error"
+        ></Badge>
+        <div>space</div>
+        <Badge
+          variant="standard"
+          badgeContent="In progress"
+          color="info"
+        ></Badge>
+        <Badge
+          variant="standard"
+          badgeContent="Pending"
+          color="warning"
         ></Badge>
       </Container>
     </div>
