@@ -1,0 +1,29 @@
+
+.body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 212px 935px 288px 120px
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* font-family: "Gelion"; de intagrat */
+h1 {
+    font-family: "Gelion";   
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+}
