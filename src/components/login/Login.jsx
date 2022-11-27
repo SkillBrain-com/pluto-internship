@@ -1,15 +1,13 @@
 import React from "react";
 import { useFormik } from 'formik';
-import { useState } from "react";
 import "./Login.css";
 
 const Login = () => {
-    // const [email, useEmail] = useState("");
-    // const [password, usePassword] = useState("");
     const formik = useFormik({
         initialValues: {
             email: "",
-            password: ""
+            password: "",
+            logged: ""
         },
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
@@ -20,8 +18,8 @@ const Login = () => {
         <div className="container">
             <h1>Welcome Back</h1>
             <form className="form-container">
-                <label htmlFor="Email">Email Address</label>
-                <input
+                <label className="label" htmlFor="Email">Email Address</label>
+                <input 
                     id="email"
                     name="email"
                     type="email"
@@ -30,7 +28,7 @@ const Login = () => {
                     onBlur={formik.handleBlur}
                 />
                 <label htmlFor="Email">Enter Your Password</label>
-                <input
+                <input 
                     id="password"
                     name="password"
                     type="password"
@@ -38,7 +36,16 @@ const Login = () => {
                     value={formik.values.password}
                     onBlur={formik.handleBlur}
                 />
-                <button type="submit">Submit</button>
+                <label className="label-checkbox"><input 
+                    id="logged"
+                    name="logged"
+                    type="checkbox"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                    onBlur={formik.handleBlur}
+                    className="checkbox"
+                />Keep me Signed in</label>
+                <button type="submit">Log In</button>
             </form>
         </div>
     );

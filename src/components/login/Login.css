@@ -26,4 +26,54 @@ h1 {
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin-bottom: 32px;
 }
+
+/* font-family: "Gelion"; de intagrat */
+div label {
+    font-family: "Gelion";   
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2C2E3A;
+    width: 384px;
+    height: 16px;
+    margin-bottom: 16px;
+    margin-top: 14px;
+}
+
+div input {
+    padding: 16px;
+    gap: 10px;
+    width: 384px;
+    height: 50px;
+    left: 0px;
+    top: 30px;
+    border: 0.7px solid #A8ABBD;
+    border-radius: 12px;
+}
+
+div a.input:hover{
+    background: #383;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    margin-right: 16px;
+}
+
+.label-checkbox {
+    font-family: 'Gelion';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    justify-content: center;
+}
+
