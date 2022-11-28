@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import "./SideBar.css";
 import avatarPlaceholder from "./images/avatar.png";
 import addAvatar from "./images/add-avatar.png";
@@ -32,7 +33,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
   overflowX: "hidden",
   width: `80px`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `80px`,
   },
 });
 
@@ -56,33 +57,27 @@ const Drawer = styled(MuiDrawer, {
 const SideBar = () => {
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerToggle = () => {
+    setOpen((open) => !open);
   };
 
   return (
     <div sx={{ display: "flex" }}>
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
-        <IconButton onClick={handleDrawerClose}>
-          <ChevronLeftIcon />
-        </IconButton>
-        <IconButton
-          color="inherit"
-          onClick={handleDrawerOpen}
-          sx={{
-            marginRight: 0,
-            ...(open && { display: "none" }),
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
         <div className="sidebar-container">
           <div className="sidebar-left">
+            <IconButton
+              onClick={handleDrawerToggle}
+              sx={{
+                marginRight: 0,
+                color: "#ffffff",
+                backgroundColor: "#3754db",
+                marginBottom: "40px",
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
             <div className="sidebar-avatar sidebar-selected-avatar">
               <img src={avatarPlaceholder} alt="avatarPlaceholder" />
             </div>
