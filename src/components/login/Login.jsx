@@ -1,8 +1,10 @@
 import React from "react";
 import { useFormik } from 'formik';
 import "./Login.css";
+import { useState } from "react";
 
 const Login = () => {
+    const [passwordType, setPasswordType] = useState("password");
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -13,6 +15,15 @@ const Login = () => {
             alert(JSON.stringify(values, null, 2));
         }
     });
+
+    const togglePassword =()=>{
+        if(passwordType==="password")
+        {
+         setPasswordType("text")
+         return;
+        }
+        setPasswordType("password")
+      }
 
     return (
         <div className="container">
@@ -27,15 +38,21 @@ const Login = () => {
                     value={formik.values.email}
                     onBlur={formik.handleBlur}
                 />
-                <label htmlFor="Email">Enter Your Password</label>
+                <label htmlFor="Password">Enter Your Password</label>
                 <input 
                     id="password"
                     name="password"
-                    type="password"
+                    type={passwordType}
                     onChange={formik.handleChange}
                     value={formik.values.password}
                     onBlur={formik.handleBlur}
+                    
                 />
+                     <div className="input-group-btn">
+                     <button className="btn btn-outline-primary" onClick={togglePassword}>
+                     { passwordType==="password"? <i className="bi bi-eye-slash"></i> :<i className="bi bi-eye"></i> }
+                     </button>
+                    </div>
                 <label className="label-checkbox"><input 
                     id="logged"
                     name="logged"
