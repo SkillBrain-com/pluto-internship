@@ -5,14 +5,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import "./SideBar.css";
 import avatarPlaceholder from "./images/avatar.png";
 import addAvatar from "./images/add-avatar.png";
 import overviewIconPlaceholder from "./images/overview-icon-placeholder.png";
 import tasksIconPlaceholder from "./images/tasks-icon-placeholder.png";
 import settingsIconPlaceholder from "./images/settings-icon-placeholder.png";
+import { makeStyles } from "@mui/material/styles";
 
 const drawerWidth = 280;
 
@@ -32,9 +31,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
   }),
   overflowX: "hidden",
   width: `80px`,
-  [theme.breakpoints.up("sm")]: {
-    width: `80px`,
-  },
 });
 
 const Drawer = styled(MuiDrawer, {
@@ -64,7 +60,11 @@ const SideBar = () => {
   return (
     <div sx={{ display: "flex" }}>
       <CssBaseline />
-      <Drawer variant="permanent" open={open}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        PaperProps={{ style: { border: "none" } }}
+      >
         <div className="sidebar-container">
           <div className="sidebar-left">
             <IconButton
@@ -93,10 +93,23 @@ const SideBar = () => {
           </div>
           <div className="sidebar-main">
             <div className="workplace-title">
-              <Typography variant="h6" classes="workplace-main-title">
-                My Space
-              </Typography>
-              <Typography variant="paragraph" classes="workplace-subtitle">
+              <div className="workplace-main-title">
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                    color: "#101c56",
+                  }}
+                >
+                  My Space
+                </Typography>
+              </div>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "#666666",
+                }}
+              >
                 Workplace Title
               </Typography>
             </div>
@@ -106,24 +119,40 @@ const SideBar = () => {
                   src={overviewIconPlaceholder}
                   alt="overview icon placeholder"
                 />
-                <a href="#" className="sidebar-link-item">
-                  <Typography variant="paragraph">Overview</Typography>
-                </a>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#666666",
+                  }}
+                >
+                  Overview
+                </Typography>
               </li>
               <li className="sidebar-menu-item active">
                 <img src={tasksIconPlaceholder} alt="tasks icon placeholder" />
-                <a href="#" className="sidebar-link-item">
-                  <Typography variant="paragraph">Tasks</Typography>
-                </a>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#3754db",
+                    fontWeight: 700,
+                  }}
+                >
+                  Tasks
+                </Typography>
               </li>
               <li className="sidebar-menu-item">
                 <img
                   src={settingsIconPlaceholder}
                   alt="settings icon placeholder"
                 />
-                <a href="#" className="sidebar-link-item">
-                  <Typography variant="paragraph">Settings</Typography>
-                </a>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#666666",
+                  }}
+                >
+                  Settings
+                </Typography>
               </li>
             </ul>
           </div>
