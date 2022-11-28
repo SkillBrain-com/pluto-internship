@@ -2,10 +2,16 @@ import React from "react";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import "./SideBar.css";
+import avatarPlaceholder from "./images/avatar.png";
+import addAvatar from "./images/add-avatar.png";
+import overviewIconPlaceholder from "./images/overview-icon-placeholder.png";
+import tasksIconPlaceholder from "./images/tasks-icon-placeholder.png";
+import settingsIconPlaceholder from "./images/settings-icon-placeholder.png";
 
 const drawerWidth = 280;
 
@@ -36,7 +42,6 @@ const Drawer = styled(MuiDrawer, {
   width: drawerWidth,
   flexShrink: 0,
   whiteSpace: "nowrap",
-  backgroundColor: "blue",
   boxSizing: "border-box",
   ...(open && {
     ...openedMixin(theme),
@@ -77,8 +82,56 @@ const SideBar = () => {
           <MenuIcon />
         </IconButton>
         <div className="sidebar-container">
-          <div className="sidebar-left">hey</div>
-          <div className="sidebar-main">MySpace</div>
+          <div className="sidebar-left">
+            <div className="sidebar-avatar sidebar-selected-avatar">
+              <img src={avatarPlaceholder} alt="avatarPlaceholder" />
+            </div>
+            <div className="sidebar-avatar">
+              <img src={avatarPlaceholder} alt="avatarPlaceholder" />
+            </div>
+            <div className="sidebar-avatar">
+              <img src={avatarPlaceholder} alt="avatarPlaceholder" />
+            </div>
+            <div className="sidebar-add-avatar">
+              <img src={addAvatar} alt="add more" />
+            </div>
+          </div>
+          <div className="sidebar-main">
+            <div className="workplace-title">
+              <Typography variant="h6" classes="workplace-main-title">
+                My Space
+              </Typography>
+              <Typography variant="paragraph" classes="workplace-subtitle">
+                Workplace Title
+              </Typography>
+            </div>
+            <ul className="sidebar-main-menu">
+              <li className="sidebar-menu-item">
+                <img
+                  src={overviewIconPlaceholder}
+                  alt="overview icon placeholder"
+                />
+                <a href="#" className="sidebar-link-item">
+                  <Typography variant="paragraph">Overview</Typography>
+                </a>
+              </li>
+              <li className="sidebar-menu-item active">
+                <img src={tasksIconPlaceholder} alt="tasks icon placeholder" />
+                <a href="#" className="sidebar-link-item">
+                  <Typography variant="paragraph">Tasks</Typography>
+                </a>
+              </li>
+              <li className="sidebar-menu-item">
+                <img
+                  src={settingsIconPlaceholder}
+                  alt="settings icon placeholder"
+                />
+                <a href="#" className="sidebar-link-item">
+                  <Typography variant="paragraph">Settings</Typography>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </Drawer>
     </div>
