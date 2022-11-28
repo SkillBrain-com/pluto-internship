@@ -45,7 +45,8 @@ const Login = () => {
                     onBlur={formik.handleBlur}
                     className="checkbox"
                 />Keep me Signed in</label>
-                <button type="submit">Log In</button>
+                <button className="form-button" type="submit">Log In</button>
+                <a href="#">Forgot Password ?</a>
             </form>
         </div>
     );

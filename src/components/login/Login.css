@@ -64,6 +64,8 @@ div a.input:hover{
     width: 22px;
     height: 22px;
     margin-right: 16px;
+    margin-top: 24px;
+    cursor: pointer;
 }
 
 .label-checkbox {
@@ -75,5 +77,40 @@ div a.input:hover{
     letter-spacing: -0.02em;
     color: #000000;
     justify-content: center;
+}
+
+.form-button {
+    padding: 19px 74px;
+    gap: 10px;
+    width: 204px;
+    height: 56px;
+    left: 120px;
+    top: 606px;
+    background: #3754DB;
+    border-radius: 12px;
+    font-family: 'Gelion';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 64px;
+    cursor: pointer;
+}
+
+div a {
+    margin-top: 52px;
+    font-family: 'Gelion';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    color: #3754DB;
+    text-decoration: none;
 }
 
