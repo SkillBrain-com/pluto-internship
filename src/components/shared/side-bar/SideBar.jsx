@@ -122,6 +122,7 @@ const SideBar = () => {
                   variant="body1"
                   sx={{
                     color: "#666666",
+                    cursor: "pointer",
                   }}
                 >
                   Overview
@@ -134,6 +135,7 @@ const SideBar = () => {
                   sx={{
                     color: "#3754db",
                     fontWeight: 700,
+                    cursor: "pointer",
                   }}
                 >
                   Tasks
@@ -148,6 +150,7 @@ const SideBar = () => {
                   variant="body1"
                   sx={{
                     color: "#666666",
+                    cursor: "pointer",
                   }}
                 >
                   Settings

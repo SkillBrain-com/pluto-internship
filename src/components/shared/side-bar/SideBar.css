@@ -32,6 +32,7 @@
 }
 .sidebar-avatar {
   margin: 0px 0px 15px 0px;
+  cursor: pointer;
 }
 
 .sidebar-selected-avatar > img {
@@ -46,6 +47,7 @@
 .sidebar-add-avatar img {
   width: 36px;
   height: 36px;
+  cursor: pointer;
 }
 .workplace-title {
   padding: 0px 0px 5vh 20px;
