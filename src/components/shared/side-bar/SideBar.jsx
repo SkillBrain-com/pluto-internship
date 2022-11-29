@@ -11,7 +11,6 @@ import addAvatar from "./images/add-avatar.png";
 import overviewIconPlaceholder from "./images/overview-icon-placeholder.png";
 import tasksIconPlaceholder from "./images/tasks-icon-placeholder.png";
 import settingsIconPlaceholder from "./images/settings-icon-placeholder.png";
-import { makeStyles } from "@mui/material/styles";
 
 const drawerWidth = 280;
 
