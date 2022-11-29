@@ -20,9 +20,8 @@
     flex-direction: column;
 }
 
-/* font-family: "Gelion"; de intagrat */
 h1 {
-    font-family: "Gelion";   
+    font-family: 'Gelion', sans-serif; 
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -31,9 +30,8 @@ h1 {
     margin-bottom: 32px;
 }
 
-/* font-family: "Gelion"; de intagrat */
 div label {
-    font-family: "Gelion";   
+    font-family: 'Gelion', sans-serif;   
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -69,7 +67,7 @@ div a.input:hover{
 }
 
 .label-checkbox {
-    font-family: 'Gelion';
+    font-family: 'Gelion', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -88,7 +86,7 @@ div a.input:hover{
     top: 606px;
     background: #3754DB;
     border-radius: 12px;
-    font-family: 'Gelion';
+    font-family: 'Gelion', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -104,7 +102,7 @@ div a.input:hover{
 
 div a {
     margin-top: 52px;
-    font-family: 'Gelion';
+    font-family: 'Gelion', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;

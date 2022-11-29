@@ -17,13 +17,8 @@ const Login = () => {
     });
 
     const togglePassword =()=>{
-        if(passwordType==="password")
-        {
-         setPasswordType("text")
-         return;
-        }
-        setPasswordType("password")
-      }
+        return passwordType === "password" ? setPasswordType("text") : setPasswordType("password");  
+    }
 
     return (
         <div className="container">
@@ -45,15 +40,13 @@ const Login = () => {
                     type={passwordType}
                     onChange={formik.handleChange}
                     value={formik.values.password}
-                    onBlur={formik.handleBlur}
-                    
+                    onBlur={formik.handleBlur}  
                 />
-                     <div className="input-group-btn">
-                     <button className="btn btn-outline-primary" onClick={togglePassword}>
-                     { passwordType==="password"? <i className="bi bi-eye-slash"></i> :<i className="bi bi-eye"></i> }
-                     </button>
+                     <div>
+                        <button onClick={togglePassword}>Eye</button>
                     </div>
-                <label className="label-checkbox"><input 
+                <label className="label-checkbox">
+                <input 
                     id="logged"
                     name="logged"
                     type="checkbox"
@@ -62,7 +55,10 @@ const Login = () => {
                     onBlur={formik.handleBlur}
                     className="checkbox"
                 />Keep me Signed in</label>
-                <button className="form-button" type="submit">Log In</button>
+                <button 
+                    className="form-button" 
+                    type="submit"
+                >Log In</button>
                 <a href="#">Forgot Password ?</a>
             </form>
         </div>
