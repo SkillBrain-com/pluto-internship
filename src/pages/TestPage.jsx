@@ -71,26 +71,46 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
-        <Badge variant="standard" badgeContent={3} color="primary"></Badge>
-        <div>space</div>
-        <Badge variant="standard" badgeContent={3} color="error"></Badge>
-        <div>space</div>
-        <Badge
-          variant="standard"
-          badgeContent={"Some Text Yunno"}
-          color="error"
-        ></Badge>
-        <div>space</div>
-        <Badge
-          variant="standard"
-          badgeContent="In progress"
-          color="info"
-        ></Badge>
-        <Badge
-          variant="standard"
-          badgeContent="Pending"
-          color="warning"
-        ></Badge>
+        <div className="display">
+          <div>
+            <Badge variant="standard" badgeContent={3} color="primary"></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={"Pending"}
+              className="status-pending"
+            ></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={"In Progress"}
+              className="status-inProgress"
+            ></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={"In Review"}
+              className="status-inReview"
+            ></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={"Unassigned"}
+              className="status-unassigned"
+            ></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={"Unassigned"}
+              className="status-unassigned2"
+            ></Badge>
+          </div>
+        </div>
       </Container>
     </div>
   );

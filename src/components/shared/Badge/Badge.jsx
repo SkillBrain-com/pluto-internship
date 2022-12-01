@@ -11,13 +11,30 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     lineHeight: "14px",
     height: "23px",
   },
-  ".MuiBadge-colorInfo": {
-    color: "#3754DB",
-    backgroundColor: "#F2F4FD;",
-  },
-  ".MuiBadge-colorWarning": {
+  "&.status-pending > span": {
     color: "#DF9A00",
-    backgroundColor: "#FFFDF5",
+    background: "#FFFDF5",
+  },
+  "&.status-inProgress > span": {
+    color: "#3754DB",
+    background: "#F2F4FD",
+  },
+  "&.status-inReview > span": {
+    color: "#8937DB",
+    background: "#F7F2FD",
+  },
+  "&.status-completed > span": {
+    color: "#00C271",
+    background: "#F0FFF9",
+  },
+  "&.status-unassigned > span": {
+    color: "#B80020",
+    background: "#FFF0F0",
+  },
+
+  "&.status-unassigned2 > span": {
+    color: "#808080",
+    background: "#F2F2F2",
   },
 }));
 
