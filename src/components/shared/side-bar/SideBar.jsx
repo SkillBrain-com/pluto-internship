@@ -71,7 +71,7 @@ const Drawer = styled(MuiDrawer, {
     color: "#666666",
     cursor: "pointer",
   },
-  "& .active .sidebar-list-item-text": {
+  "& .active .css-19wayj6-MuiTypography-root": {
     fontWeight: 700,
     color: "#3754db",
   },
