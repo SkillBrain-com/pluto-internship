@@ -1,5 +1,4 @@
 import React from "react";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import recoverBackground from "./images/recoverPasswordBg.png";
 
