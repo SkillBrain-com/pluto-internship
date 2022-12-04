@@ -79,35 +79,49 @@ function Test() {
             <Badge
               variant="standard"
               badgeContent={"Pending"}
-              className="status-pending"
+              color="pending"
             ></Badge>
           </div>
           <div>
             <Badge
               variant="standard"
               badgeContent={"In Progress"}
-              className="status-inProgress"
+              color="inProgress"
             ></Badge>
           </div>
           <div>
             <Badge
               variant="standard"
               badgeContent={"In Review"}
-              className="status-inReview"
+              color="inReview"
             ></Badge>
           </div>
           <div>
             <Badge
               variant="standard"
               badgeContent={"Unassigned"}
-              className="status-unassigned"
+              color="unassigned"
             ></Badge>
           </div>
           <div>
             <Badge
               variant="standard"
               badgeContent={"Unassigned"}
-              className="status-unassigned2"
+              color="unassignedGrey"
+            ></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={5}
+              color="primaryLight"
+            ></Badge>
+          </div>
+          <div>
+            <Badge
+              variant="standard"
+              badgeContent={5}
+              color="secondaryLight"
             ></Badge>
           </div>
         </div>
