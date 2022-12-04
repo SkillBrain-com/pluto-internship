@@ -1,13 +1,21 @@
 import React from "react";
 import { useFormik } from 'formik';
 import "./Login.css";
-import { InputLabel } from '@mui/material';
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import { Typography } from '@mui/material';
-import Box, { BoxProps } from '@mui/material/Box';
+import { Box } from '@mui/material';
+import { Checkbox } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
+import { FormGroup } from '@mui/material';
+import { Link } from '@mui/material';
 
 const Login = () => {
+    const [values, setValues] = React.useState({
+        password: "",
+        showPassword: false,
+      });
+
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -20,9 +28,8 @@ const Login = () => {
         // },
     });
 
-    // const togglePassword = () => {
-    //     return passwordType === "password" ? setPasswordType("text") : setPasswordType("password");  
-    // }
+    
+
     return (
         <div>
             <Box
@@ -98,11 +105,60 @@ const Login = () => {
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         error={formik.touched.password && Boolean(formik.errors.password)}
-                        helperText={formik.touched.password && formik.errors.password}
+                        helperText={formik.touched.password && formik.errors.password}  
                     />
-                    <Button color="primary" variant="contained" type="submit">
+                     <FormGroup>
+                        <FormControlLabel 
+                            control={<Checkbox />} 
+                            label={
+                                <Typography 
+                                    sx={{
+                                        color: '##000000',
+                                        fontSize: '16px',
+                                        fontStyle: 'normal',
+                                        fontWeight: '600',
+                                    }}
+                                    variant="h6" 
+                                >Keep me Signed in
+                                </Typography>}
+                            sx={{
+                                '& .MuiSvgIcon-root': { width: '22px', height: '22px' },
+                                mb: '64px',
+                                borderRadius: '4px',
+                                bgColor: '#5B73E1'
+                            }}
+                        />
+                     </FormGroup>
+
+                    <Button 
+                        sx={{
+                            width: '204px',
+                            height: '56px',
+                            bgColor: '#3754DB',
+                            borderRadius: '12px',
+                            gap: '10px',
+                            fontSize: '16px',
+                            color: '#FFFFFF'
+                        }}
+                        variant="contained" 
+                        type="submit"
+                    >
                         Log In
                     </Button>
+                    <Link 
+                        href="#"
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            mt: '52px',
+                            fontSize: '18px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            color: '#3754DB',
+                            textDecoration: 'none'
+                        }}
+                    >Forgot Password ?
+                    </Link>
                 </form>
             </Box>
         </div>
