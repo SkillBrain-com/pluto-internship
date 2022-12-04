@@ -9,23 +9,29 @@ import { Checkbox } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { FormGroup } from '@mui/material';
 import { Link } from '@mui/material';
+import * as yup from 'yup';
 
 const Login = () => {
-    const [values, setValues] = React.useState({
-        password: "",
-        showPassword: false,
+    const validationSchema = yup.object({
+        email: yup
+          .string('Enter your email')
+          .email('Enter a valid email')
+          .required('Email is required'),
+        password: yup
+          .string('Enter your password')
+          .min(8, 'Password should be of minimum 8 characters length')
+          .required('Password is required'),
       });
 
     const formik = useFormik({
         initialValues: {
             email: "",
             password: "",
-            logged: ""
         },
-        // validationSchema: validationSchema,
-        // onSubmit: (values) => {
-        //     alert(JSON.stringify(values, null, 2));
-        // },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            alert(JSON.stringify(values, null, 2));
+        },
     });
 
     
