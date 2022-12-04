@@ -20,7 +20,7 @@ const Login = () => {
           .string('Enter your password')
           .min(8, 'Password should be of minimum 8 characters length')
           .required('Password is required'),
-      });
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -32,8 +32,6 @@ const Login = () => {
             alert(JSON.stringify(values, null, 2));
         },
     });
-
-    
 
     return (
         <div>
@@ -57,6 +55,7 @@ const Login = () => {
                 >
                     Welcome Back.
                 </Typography>
+                
                 <form onSubmit={formik.handleSubmit}>
                     <Typography
                         sx={{
