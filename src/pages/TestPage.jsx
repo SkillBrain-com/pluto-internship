@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Paper, Typography, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
 import Badge from "../components/shared/Badge/Badge";
@@ -71,60 +71,59 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
-        <div className="display">
-          <div>
-            <Badge variant="standard" badgeContent={3} color="primary"></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={"Pending"}
-              color="pending"
-            ></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={"In Progress"}
-              color="inProgress"
-            ></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={"In Review"}
-              color="inReview"
-            ></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={"Unassigned"}
-              color="unassigned"
-            ></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={"Unassigned"}
-              color="unassignedGrey"
-            ></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={5}
-              color="primaryLight"
-            ></Badge>
-          </div>
-          <div>
-            <Badge
-              variant="standard"
-              badgeContent={5}
-              color="secondaryLight"
-            ></Badge>
-          </div>
-        </div>
+
+        <Box ml={4}>
+          <Badge variant="standard" badgeContent={3} color="primary"></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={"Pending"}
+            color="pending"
+          ></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={"In Progress"}
+            color="inProgress"
+          ></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={"In Review"}
+            color="inReview"
+          ></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={"Unassigned"}
+            color="unassigned"
+          ></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={"Unassigned"}
+            color="unassignedGrey"
+          ></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={5}
+            color="primaryLight"
+          ></Badge>
+        </Box>
+        <Box ml={4}>
+          <Badge
+            variant="standard"
+            badgeContent={5}
+            color="secondaryLight"
+          ></Badge>
+        </Box>
       </Container>
     </div>
   );
