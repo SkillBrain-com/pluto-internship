@@ -1,4 +1,5 @@
 import React from "react";
+import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
@@ -8,7 +9,10 @@ import { Checkbox } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { FormGroup } from '@mui/material';
 import { Link } from '@mui/material';
-import * as yup from 'yup';
+import { InputAdornment } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { Visibility } from '@mui/icons-material';
+import { VisibilityOff } from '@mui/icons-material';
 
 const Login = () => {
     const validationSchema = yup.object({
@@ -33,6 +37,23 @@ const Login = () => {
         },
     });
 
+    const [values, setValues] = React.useState({
+        password: "",
+        showPassword: false,
+    });
+      
+    const handleClickShowPassword = () => {
+        setValues({ ...values, showPassword: !values.showPassword });
+    };
+      
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+      
+    const handlePasswordChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+    };
+ 
     return (
         <div>
             <Box
@@ -55,7 +76,7 @@ const Login = () => {
                 >
                     Welcome Back.
                 </Typography>
-                
+
                 <form onSubmit={formik.handleSubmit}>
                     <Typography
                         sx={{
@@ -105,11 +126,21 @@ const Login = () => {
                         fullWidth
                         id="password"
                         name="password"
-                        type="password"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
+                        type={values.showPassword ? "text" : "password"}
+                        value={values.password}
+                        onChange={handlePasswordChange("password")}
                         error={formik.touched.password && Boolean(formik.errors.password)}
-                        helperText={formik.touched.password && formik.errors.password}  
+                        helperText={formik.touched.password && formik.errors.password}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                >
+                                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>
+                        }  
                     />
                      <FormGroup>
                         <FormControlLabel 
