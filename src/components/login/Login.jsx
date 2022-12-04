@@ -1,65 +1,53 @@
 import React from "react";
 import { useFormik } from 'formik';
 import "./Login.css";
-import { useState } from "react";
+import { InputLabel } from '@mui/material';
+import { Button } from "@mui/material";
+import { TextField } from "@mui/material";;
 
 const Login = () => {
-    const [passwordType, setPasswordType] = useState("password");
     const formik = useFormik({
         initialValues: {
             email: "",
             password: "",
             logged: ""
         },
-        onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
-        }
+        // validationSchema: validationSchema,
+        // onSubmit: (values) => {
+        //     alert(JSON.stringify(values, null, 2));
+        // },
     });
 
-    const togglePassword =()=>{
-        return passwordType === "password" ? setPasswordType("text") : setPasswordType("password");  
-    }
-
+    // const togglePassword = () => {
+    //     return passwordType === "password" ? setPasswordType("text") : setPasswordType("password");  
+    // }
     return (
-        <div className="container">
-            <h1>Welcome Back</h1>
-            <form className="form-container">
-                <label className="label" htmlFor="Email">Email Address</label>
-                <input 
+        <div>
+            <form onSubmit={formik.handleSubmit}>
+                <TextField
+                    fullWidth
                     id="email"
                     name="email"
-                    type="email"
-                    onChange={formik.handleChange}
+                    label="Email"
                     value={formik.values.email}
-                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
                 />
-                <label htmlFor="Password">Enter Your Password</label>
-                <input 
+                <TextField
+                    fullWidth
                     id="password"
                     name="password"
-                    type={passwordType}
-                    onChange={formik.handleChange}
+                    label="Password"
+                    type="password"
                     value={formik.values.password}
-                    onBlur={formik.handleBlur}  
+                    onChange={formik.handleChange}
+                    error={formik.touched.password && Boolean(formik.errors.password)}
+                    helperText={formik.touched.password && formik.errors.password}
                 />
-                     <div>
-                        <button onClick={togglePassword}>Eye</button>
-                    </div>
-                <label className="label-checkbox">
-                <input 
-                    id="logged"
-                    name="logged"
-                    type="checkbox"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                    onBlur={formik.handleBlur}
-                    className="checkbox"
-                />Keep me Signed in</label>
-                <button 
-                    className="form-button" 
-                    type="submit"
-                >Log In</button>
-                <a href="#">Forgot Password ?</a>
+                <Button color="primary" variant="contained" fullWidth type="submit">
+                    Submit
+                </Button>
             </form>
         </div>
     );
