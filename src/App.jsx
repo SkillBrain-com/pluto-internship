@@ -1,16 +1,16 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Test from "./pages/TestPage";
 import Tasks from "./pages/Tasks";
 import "./App.css";
+import BasicCard from "./components/shared/card-component/Card-Component";
 
 function App() {
 	return (
 		<div>
-			<Routes>
-				<Route path="/" element={<Tasks />} />
-				<Route path="/test" element={<Test />} />
-			</Routes>
+		
+			<body>
+				<Tasks />
+				<BasicCard />
+			</body>
 		</div>
 	);
 }
