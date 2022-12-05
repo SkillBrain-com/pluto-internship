@@ -55,148 +55,146 @@ const Login = () => {
     };
  
     return (
-        <div>
-            <Box
+        <Box
+            sx={{
+                p: 1,
+                ml: '120px',
+                mt: '212px',
+                mr: '936px',
+                mb: '288px',
+            }}
+        >
+            <Typography 
                 sx={{
-                    p: 1,
-                    ml: '120px',
-                    mt: '212px',
-                    mr: '936px',
-                    mb: '288px',
+                    fontStyle: 'normal',
+                    fontWeight: '600',
+                    fontSize: '24px',
+                    color: '#000000',
+                    mb: '32px'
                 }}
             >
-                <Typography 
+                Welcome Back.
+            </Typography>
+
+            <form onSubmit={formik.handleSubmit}>
+                <Typography
                     sx={{
                         fontStyle: 'normal',
-                        fontWeight: '600',
-                        fontSize: '24px',
-                        color: '#000000',
-                        mb: '32px'
+                        fontWeight: '400',
+                        fontSize: '16px',
+                        color: '#2C2E3A',
+                        mb: '5px'
                     }}
                 >
-                    Welcome Back.
+                    Email Address
                 </Typography>
-
-                <form onSubmit={formik.handleSubmit}>
-                    <Typography
+                <TextField
+                    sx={{
+                        "& .MuiOutlinedInput-root": {
+                            "& > fieldset": { borderRadius: "16px" },
+                        },
+                    }}
+                    fullWidth
+                    id="email"
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    variant="outlined"
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                />
+                <Typography
+                    sx={{
+                        fontStyle: 'normal',
+                        fontWeight: '400',
+                        fontSize: '16px',
+                        color: '#2C2E3A',
+                        mt: '28px',
+                        mb: '5px'
+                    }}
+                >
+                    Enter Your Password
+                </Typography>
+                <TextField
+                    sx={{
+                        "& .MuiOutlinedInput-root": {
+                            "& > fieldset": { borderRadius: "16px" },
+                        },
+                        mb: '46px'
+                    }}
+                    fullWidth
+                    id="password"
+                    name="password"
+                    type={values.showPassword ? "text" : "password"}
+                    value={values.password}
+                    onChange={handlePasswordChange("password")}
+                    error={formik.touched.password && Boolean(formik.errors.password)}
+                    helperText={formik.touched.password && formik.errors.password}
+                    endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                            >
+                                {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>
+                    }  
+                />
+                    <FormGroup>
+                    <FormControlLabel 
+                        control={<Checkbox />} 
+                        label={
+                            <Typography 
+                                sx={{
+                                    color: '##000000',
+                                    fontSize: '16px',
+                                    fontStyle: 'normal',
+                                    fontWeight: '600',
+                                }}
+                                variant="h6" 
+                            >Keep me Signed in
+                            </Typography>}
                         sx={{
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '16px',
-                            color: '#2C2E3A',
-                            mb: '5px'
+                            '& .MuiSvgIcon-root': { width: '22px', height: '22px' },
+                            mb: '64px',
+                            borderRadius: '4px',
+                            bgColor: '#5B73E1'
                         }}
-                    >
-                        Email Address
-                    </Typography>
-                    <TextField
-                        sx={{
-                            "& .MuiOutlinedInput-root": {
-                                "& > fieldset": { borderRadius: "16px" },
-                            },
-                        }}
-                        fullWidth
-                        id="email"
-                        name="email"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                        variant="outlined"
-                        error={formik.touched.email && Boolean(formik.errors.email)}
-                        helperText={formik.touched.email && formik.errors.email}
                     />
-                    <Typography
-                        sx={{
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '16px',
-                            color: '#2C2E3A',
-                            mt: '28px',
-                            mb: '5px'
-                        }}
-                    >
-                        Enter Your Password
-                    </Typography>
-                    <TextField
-                        sx={{
-                            "& .MuiOutlinedInput-root": {
-                                "& > fieldset": { borderRadius: "16px" },
-                            },
-                            mb: '46px'
-                        }}
-                        fullWidth
-                        id="password"
-                        name="password"
-                        type={values.showPassword ? "text" : "password"}
-                        value={values.password}
-                        onChange={handlePasswordChange("password")}
-                        error={formik.touched.password && Boolean(formik.errors.password)}
-                        helperText={formik.touched.password && formik.errors.password}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                >
-                                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                                </IconButton>
-                            </InputAdornment>
-                        }  
-                    />
-                     <FormGroup>
-                        <FormControlLabel 
-                            control={<Checkbox />} 
-                            label={
-                                <Typography 
-                                    sx={{
-                                        color: '##000000',
-                                        fontSize: '16px',
-                                        fontStyle: 'normal',
-                                        fontWeight: '600',
-                                    }}
-                                    variant="h6" 
-                                >Keep me Signed in
-                                </Typography>}
-                            sx={{
-                                '& .MuiSvgIcon-root': { width: '22px', height: '22px' },
-                                mb: '64px',
-                                borderRadius: '4px',
-                                bgColor: '#5B73E1'
-                            }}
-                        />
-                     </FormGroup>
+                    </FormGroup>
 
-                    <Button 
-                        sx={{
-                            width: '204px',
-                            height: '56px',
-                            bgColor: '#3754DB',
-                            borderRadius: '12px',
-                            gap: '10px',
-                            fontSize: '16px',
-                            color: '#FFFFFF'
-                        }}
-                        variant="contained" 
-                        type="submit"
-                    >
-                        Log In
-                    </Button>
-                    <Link 
-                        href="#"
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            mt: '52px',
-                            fontSize: '18px',
-                            fontStyle: 'normal',
-                            fontWeight: '600',
-                            color: '#3754DB',
-                            textDecoration: 'none'
-                        }}
-                    >Forgot Password ?
-                    </Link>
-                </form>
-            </Box>
-        </div>
+                <Button 
+                    sx={{
+                        width: '204px',
+                        height: '56px',
+                        bgColor: '#3754DB',
+                        borderRadius: '12px',
+                        gap: '10px',
+                        fontSize: '16px',
+                        color: '#FFFFFF'
+                    }}
+                    variant="contained" 
+                    type="submit"
+                >
+                    Log In
+                </Button>
+                <Link 
+                    href="#"
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        mt: '52px',
+                        fontSize: '18px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        color: '#3754DB',
+                        textDecoration: 'none'
+                    }}
+                >Forgot Password ?
+                </Link>
+            </form>
+        </Box>
     );
 }
 
