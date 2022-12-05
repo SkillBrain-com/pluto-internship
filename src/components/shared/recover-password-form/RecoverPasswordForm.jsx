@@ -36,7 +36,7 @@ const RecoverPasswordForm = () => {
       }}
     >
       <Typography
-        variantt
+        variant="body1"
         sx={{
           fontWeight: "600",
           fontSize: "24px",
@@ -57,37 +57,120 @@ const RecoverPasswordForm = () => {
         control of your account.
       </Typography>
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
-        <InputLabel for="recover-password">Password</InputLabel>
-        <TextField
-          id="recover-password"
-          name="newPass"
-          value={formik.values.newPass}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          variant="outlined"
-          type="password"
-        />
+        <Box
+          sx={{
+            marginTop: "40px",
+          }}
+        >
+          <InputLabel
+            htmlFor="recover-password"
+            sx={{
+              color: "#2c2e3a",
+              lineHeight: "19px",
+            }}
+          >
+            Password
+          </InputLabel>
+          <TextField
+            id="recover-password"
+            name="newPass"
+            value={formik.values.newPass}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            variant="outlined"
+            type="password"
+            sx={{
+              width: "100%",
+              marginTop: "14px",
+              "& .MuiOutlinedInput-root": {
+                "& > fieldset": {
+                  border: "0.7px solid #A8ABBD",
+                  borderRadius: "12px",
+                  padding: "16px",
+                },
+              },
+            }}
+          />
 
-        {formik.errors.newPass && formik.touched.newPass && (
-          <Box>{formik.errors.newPass}</Box>
-        )}
-        <InputLabel for="recover-password-confirm">Password Confirm</InputLabel>
-        <TextField
-          id="recover-password-confirm"
-          name="confirmPass"
-          value={formik.values.confirmPass}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          variant="outlined"
-          type="password"
-        />
+          {formik.errors.newPass && formik.touched.newPass && (
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "12px",
+                lineHeight: "14px",
+                color: "#6E7391",
+              }}
+            >
+              {formik.errors.newPass}
+            </Typography>
+          )}
+        </Box>
+        <Box
+          sx={{
+            marginTop: "26px",
+          }}
+        >
+          <InputLabel
+            htmlFor="recover-password-confirm"
+            sx={{
+              color: "#2c2e3a",
+              lineHeight: "19px",
+            }}
+          >
+            Password Confirm
+          </InputLabel>
+          <TextField
+            id="recover-password-confirm"
+            name="confirmPass"
+            value={formik.values.confirmPass}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            variant="outlined"
+            type="password"
+            sx={{
+              width: "100%",
+              marginTop: "14px",
+              "& .MuiOutlinedInput-root": {
+                "& > fieldset": {
+                  border: "0.7px solid #A8ABBD",
+                  borderRadius: "12px",
+                  padding: "16px",
+                },
+              },
+            }}
+          />
 
-        {formik.errors.confirmPass && formik.touched.confirmPass && (
-          <Box>{formik.errors.confirmPass}</Box>
-        )}
-        <Button variant="contained" color="primary" type="submit">
-          Save
-        </Button>
+          {formik.errors.confirmPass && formik.touched.confirmPass && (
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "12px",
+                lineHeight: "14px",
+                color: "#6E7391",
+              }}
+            >
+              {formik.errors.confirmPass}
+            </Typography>
+          )}
+        </Box>
+        <Box
+          sx={{
+            marginTop: "26px",
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            sx={{
+              height: "48px",
+              width: "100px",
+              textTransform: "none",
+            }}
+          >
+            Save
+          </Button>
+        </Box>
       </form>
     </Box>
   );
