@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+  Typography,
+} from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const RecoverPasswordForm = () => {
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   const formik = useFormik({
     initialValues: {
       newPass: "",
@@ -71,25 +92,31 @@ const RecoverPasswordForm = () => {
           >
             Password
           </InputLabel>
-          <TextField
+          <OutlinedInput
             id="recover-password"
             name="newPass"
             value={formik.values.newPass}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             variant="outlined"
-            type="password"
+            type={showPassword ? "text" : "password"}
             sx={{
               width: "100%",
               marginTop: "14px",
-              "& .MuiOutlinedInput-root": {
-                "& > fieldset": {
-                  border: "0.7px solid #A8ABBD",
-                  borderRadius: "12px",
-                  padding: "16px",
-                },
-              },
+              border: "0.7px solid #A8ABBD",
+              borderRadius: "12px",
             }}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
           />
 
           {formik.errors.newPass && formik.touched.newPass && (
@@ -119,25 +146,31 @@ const RecoverPasswordForm = () => {
           >
             Password Confirm
           </InputLabel>
-          <TextField
+          <OutlinedInput
             id="recover-password-confirm"
             name="confirmPass"
             value={formik.values.confirmPass}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             variant="outlined"
-            type="password"
+            type={showPassword ? "text" : "password"}
             sx={{
               width: "100%",
               marginTop: "14px",
-              "& .MuiOutlinedInput-root": {
-                "& > fieldset": {
-                  border: "0.7px solid #A8ABBD",
-                  borderRadius: "12px",
-                  padding: "16px",
-                },
-              },
+              border: "0.7px solid #A8ABBD",
+              borderRadius: "12px",
             }}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
           />
 
           {formik.errors.confirmPass && formik.touched.confirmPass && (
