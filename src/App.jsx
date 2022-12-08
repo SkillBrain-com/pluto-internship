@@ -6,6 +6,7 @@ import "./App.css";
 import AddMates from "./pages/AddMates";
 import { CreateAccount } from "./pages/CreateAccount";
 import { Login } from "./pages/Login";
+import Avatars from "./pages/Avatars";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/addmates" element={<AddMates />} />
         <Route path="/account" element={<CreateAccount />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/avatars" element={<Avatars />} />
       </Routes>
     </div>
   );
