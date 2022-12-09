@@ -4,6 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
 
+
 function Test() {
   const theme = useTheme();
   return (
@@ -81,6 +82,7 @@ function Test() {
       </RecoverPasswordWrapper>
     </div>
   );
+
 }
 
 export default Test;
