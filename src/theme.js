@@ -30,6 +30,7 @@ const theme = createTheme({
       secondary: "#62667E",
       disabled: "#C2C4CF",
     },
+
     inProgress: {
       main: "#F2F4FD",
       contrastText: "#3754DB",
@@ -42,6 +43,7 @@ const theme = createTheme({
       main: "#F0FFF9",
       contrastText: "#00C271",
     },
+
     pending: {
       main: "#FFFDF5",
       contrastText: "#DF9A00",
@@ -49,6 +51,18 @@ const theme = createTheme({
     unassigned: {
       main: "#FFF0F0",
       contrastText: "#B80020",
+    },
+    unassignedGrey: {
+      main: "#F2F2F2",
+      contrastText: "#808080",
+    },
+    primaryLight: {
+      main: "#FFF2F4",
+      contrastText: "#B80020",
+    },
+    secondaryLight: {
+      main: "#EEF0FC",
+      contrastText: "#3754DB",
     },
   },
   typography: {
@@ -83,6 +97,7 @@ const theme = createTheme({
               }
           `,
     },
+
     MuiBadge: {
       styleOverrides: {
         status: {

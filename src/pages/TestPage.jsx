@@ -1,7 +1,9 @@
 import React from "react";
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Paper, Typography, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
+import Badge from "../components/shared/Badge/Badge";
+
 import SideBar from "../components/shared/side-bar/SideBar";
 import Chart from "../assets/icons/icon/filled/Chart";
 import Chat from "../assets/icons/icon/filled/Chat";
@@ -13,7 +15,9 @@ import RecoverPasswordWrapper from "../components/shared/recover-password-wrappe
 function Test() {
   const theme = useTheme();
   return (
-    <div>
+
+    <div>  
+
       <Container
         sx={{
           border: theme.palette.primary.main,
@@ -77,6 +81,7 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
+
         <SideBar />
         <Chart />
         <Chat />
