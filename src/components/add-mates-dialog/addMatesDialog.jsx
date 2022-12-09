@@ -1,23 +1,55 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "../shared/button/Button";
-import DialogTitle from "./DialogTitle";
+import { styled } from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "./DialogActions";
-import IconButton from "./IconButton";
+import DialogActions from "@mui/material/DialogActions";
+import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { AddMatesTabs } from "./AddMatesTabs";
-import { BootstrapDialog } from "./addMatesDialog.styles";
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialog-paper": {
+    padding: theme.spacing(3),
+    width: "500px",
+    height: "645px",
+    borderRadius: "20px",
+  },
+  "& .MuiDialogContent-root": {
+    // padding: theme.spacing(1),
+    // border: "none",
+  },
+  "& .MuiDialogActions-root": {
+    // padding: theme.spacing(1),
+    justifyContent: "flex-start",
+  },
+}));
+
 
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle {...other}>
+    <DialogTitle
+      sx={{ m: 0, p: 2, fontWeight: 600, fontSize: "28px", lineHeight: "34px" }}
+      {...other}
+    >
       {children}
       {onClose ? (
-        <IconButton onClick={onClose}>
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -45,7 +77,13 @@ export const AddMatesDialog = () => {
       <Button variant="contained" onClick={handleClickOpen}>
         Open Add Mates Form
       </Button>
-      <BootstrapDialog onClose={handleClose} open={open}>
+      <BootstrapDialog
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        sx={{ p: "36px" }}
+      >
+
         <BootstrapDialogTitle
           id="customized-dialog-title"
           onClose={handleClose}

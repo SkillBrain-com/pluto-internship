@@ -1,7 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
-import Tab from "./Tab";
+
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 

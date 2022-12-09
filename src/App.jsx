@@ -6,7 +6,7 @@ import Tasks from "./pages/Tasks";
 import "./App.css";
 import AddMates from "./pages/AddMates";
 import { CreateAccount } from "./pages/CreateAccount";
-import { Login } from "./pages/Login";
+import { LoginPage } from "./pages/Login";
 import Avatars from "./pages/Avatars";
 import { Alerts } from "./pages/Alerts";
 
@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/test" element={<Test />} />
         <Route path="/addmates" element={<AddMates />} />
         <Route path="/account" element={<CreateAccount />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/avatars" element={<Avatars />} />
         <Route path="/alerts" element={<Alerts />} />
       </Routes>
