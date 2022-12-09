@@ -11,6 +11,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { AddMatesTabs } from "./AddMatesTabs";
 
+import { openModal, closeModal } from '../../store/app/app.slice'
+import { useDispatch, useSelector } from 'react-redux'
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
     padding: theme.spacing(3),
@@ -63,18 +66,17 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export const AddMatesDialog = () => {
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const open = useSelector((state) => state.app.modal.isOpen)
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+
   const handleClose = () => {
-    setOpen(false);
+    dispatch(closeModal());
   };
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen}>
+      <Button variant="contained" onClick={() => dispatch(openModal(true, "EDIT_MODAL"))}>
         Open Add Mates Form
       </Button>
       <BootstrapDialog
@@ -83,6 +85,8 @@ export const AddMatesDialog = () => {
         open={open}
         sx={{ p: "36px" }}
       >
+
+        
 
         <BootstrapDialogTitle
           id="customized-dialog-title"
