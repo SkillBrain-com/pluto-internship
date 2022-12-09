@@ -1,9 +1,11 @@
 import { Stack } from "@mui/material";
 import { Avatar } from "../components/avatar/Avatar";
+import { PoseaTasksList } from "../components/tasks-list/PoseaTasksList";
 
 const Avatars = () => {
   return (
-    <div>
+    <Stack spacing={2} padding="30px">
+      <PoseaTasksList />
       <Stack direction="row" spacing={2} sx={{ margin: 5 }}>
         <Stack direction="column">
           <Stack direction="column">
@@ -88,7 +90,7 @@ const Avatars = () => {
           </Stack>
         </Stack>
       </Stack>
-    </div>
+    </Stack>
   );
 };
 
