@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
+import SideBar from "../components/shared/side-bar/SideBar";
 import Chart from "../assets/icons/icon/filled/Chart";
 import Chat from "../assets/icons/icon/filled/Chat";
 import Notification from "../assets/icons/icon/filled/Notification";
@@ -76,6 +77,7 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
+        <SideBar />
         <Chart />
         <Chat />
         <Notification />
@@ -90,6 +92,7 @@ function Test() {
       </RecoverPasswordWrapper>
     </div>
   );
+
 
 }
 
