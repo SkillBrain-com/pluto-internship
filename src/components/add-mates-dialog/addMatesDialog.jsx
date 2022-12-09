@@ -28,6 +28,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
+
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
@@ -48,6 +49,7 @@ function BootstrapDialogTitle(props) {
             color: (theme) => theme.palette.grey[500],
           }}
         >
+
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -81,6 +83,7 @@ export const AddMatesDialog = () => {
         open={open}
         sx={{ p: "36px" }}
       >
+
         <BootstrapDialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
