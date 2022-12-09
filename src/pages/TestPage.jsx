@@ -6,6 +6,8 @@ import Chart from "../assets/icons/icon/filled/Chart";
 import Chat from "../assets/icons/icon/filled/Chat";
 import Notification from "../assets/icons/icon/filled/Notification";
 import Overview from "../assets/icons/icon/filled/Overview";
+import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
+
 
 function Test() {
   const theme = useTheme();
@@ -79,8 +81,16 @@ function Test() {
         <Notification />
         <Overview />
       </Container>
+      <RecoverPasswordWrapper>
+        <Typography variant="body1" gutterBottom>
+          Content of the recover password form,
+          <br />
+          or forgot password form will be placed here
+        </Typography>
+      </RecoverPasswordWrapper>
     </div>
   );
+
 }
 
 export default Test;
