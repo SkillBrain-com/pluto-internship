@@ -93,6 +93,8 @@ const Login = () => {
                         "& .MuiOutlinedInput-root": {
                             "& > fieldset": { borderRadius: "16px" },
                         },
+                        width: '384px',
+                        height: '50px'
                     }}
                     fullWidth
                     id="email"
@@ -120,7 +122,9 @@ const Login = () => {
                         "& .MuiOutlinedInput-root": {
                             "& > fieldset": { borderRadius: "16px" },
                         },
-                        mb: '46px'
+                        mb: '46px',
+                        width: '384px',
+                        height: '50px'
                     }}
                     fullWidth
                     id="password"
