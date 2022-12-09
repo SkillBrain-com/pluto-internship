@@ -10,7 +10,7 @@ import Chat from "../assets/icons/icon/filled/Chat";
 import Notification from "../assets/icons/icon/filled/Notification";
 import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
-
+import Stack from '@mui/material/Stack';
 
 function Test() {
   const theme = useTheme();
@@ -81,7 +81,9 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
-
+        <Stack spacing={2}>
+          <Badge variant="standard" color="inProgress">test</Badge>
+        </Stack>
         <SideBar />
         <Chart />
         <Chat />

@@ -7,7 +7,7 @@ import Tasks from "./pages/Tasks";
 import "./App.css";
 import AddMates from "./pages/AddMates";
 import { CreateAccount } from "./pages/CreateAccount";
-import { LoginPage } from "./pages/Login";
+import  LoginPage  from "./pages/Login";
 import Avatars from "./pages/Avatars";
 import { Alerts } from "./pages/Alerts";
 
