@@ -4,14 +4,23 @@ import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
 import Badge from "../components/shared/Badge/Badge";
 
+import SideBar from "../components/shared/side-bar/SideBar";
+import Chart from "../assets/icons/icon/filled/Chart";
+import Chat from "../assets/icons/icon/filled/Chat";
+import Notification from "../assets/icons/icon/filled/Notification";
+import Overview from "../assets/icons/icon/filled/Overview";
+import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
+
+
 function Test() {
   const theme = useTheme();
   return (
 
     <div>  
+
       <Container
         sx={{
-          border: `1px solid ${theme.palette.primary.main}`,
+          border: theme.palette.primary.main,
         }}
       >
         <Paper>
@@ -73,9 +82,23 @@ function Test() {
           Test
         </Button>
 
+        <SideBar />
+        <Chart />
+        <Chat />
+        <Notification />
+        <Overview />
       </Container>
+      <RecoverPasswordWrapper>
+        <Typography variant="body1" gutterBottom>
+          Content of the recover password form,
+          <br />
+          or forgot password form will be placed here
+        </Typography>
+      </RecoverPasswordWrapper>
     </div>
   );
+
+
 }
 
 export default Test;
