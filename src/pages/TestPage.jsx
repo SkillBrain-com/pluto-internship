@@ -7,10 +7,11 @@ import Badge from "../components/shared/Badge/Badge";
 function Test() {
   const theme = useTheme();
   return (
-    <div>
+
+    <div>  
       <Container
         sx={{
-          border: theme.palette.primary.main,
+          border: `1px solid ${theme.palette.primary.main}`,
         }}
       >
         <Paper>
@@ -72,58 +73,6 @@ function Test() {
           Test
         </Button>
 
-        <Box ml={4}>
-          <Badge variant="standard" badgeContent={3} color="primary"></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={"Pending"}
-            color="pending"
-          ></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={"In Progress"}
-            color="inProgress"
-          ></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={"In Review"}
-            color="inReview"
-          ></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={"Unassigned"}
-            color="unassigned"
-          ></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={"Unassigned"}
-            color="unassignedGrey"
-          ></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={5}
-            color="primaryLight"
-          ></Badge>
-        </Box>
-        <Box ml={4}>
-          <Badge
-            variant="standard"
-            badgeContent={5}
-            color="secondaryLight"
-          ></Badge>
-        </Box>
       </Container>
     </div>
   );
