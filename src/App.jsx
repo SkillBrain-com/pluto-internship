@@ -10,6 +10,7 @@ import { CreateAccount } from "./pages/CreateAccount";
 import  LoginPage  from "./pages/Login";
 import Avatars from "./pages/Avatars";
 import { Alerts } from "./pages/Alerts";
+import { AddMatesDialog } from './components/add-mates-dialog/addMatesDialog'
 
 
 const App = () => {
