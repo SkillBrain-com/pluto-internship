@@ -10,14 +10,12 @@ import Chat from "../assets/icons/icon/filled/Chat";
 import Notification from "../assets/icons/icon/filled/Notification";
 import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
 
 function Test() {
   const theme = useTheme();
   return (
-
-    <div>  
-
+    <div>
       <Container
         sx={{
           border: theme.palette.primary.main,
@@ -81,8 +79,51 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
-        <Stack spacing={2}>
-          <Badge variant="standard" color="inProgress">test</Badge>
+        <Stack direction="column" spacing={5} alignItems="flex-start">
+          <Badge variant="standard" badgeContent={3} color="primary"></Badge>
+          <Badge variant="standard" badgeContent={3} color="secondary"></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"Pending"}
+            color="pending"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"In Progress"}
+            color="inProgress"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"In Review"}
+            color="inReview"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"Unassigned"}
+            color="unassigned"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"Unassigned"}
+            color="unassignedGrey"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={5}
+            color="primaryLight"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={5}
+            color="secondaryLight"
+          ></Badge>
         </Stack>
         <SideBar />
         <Chart />
@@ -99,8 +140,6 @@ function Test() {
       </RecoverPasswordWrapper>
     </div>
   );
-
-
 }
 
 export default Test;
