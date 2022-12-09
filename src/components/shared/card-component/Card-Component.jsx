@@ -35,7 +35,7 @@ export default function BasicCard() {
         </Typography>
       </CardContent>
       
-      <CardActions sx={{top: 168, left: 32}}>
+      <CardActions sx={{display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "9rem" }}>
         <Button size="small" sx={{
           padding: "11 74",
           width: 147,
