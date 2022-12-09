@@ -15,17 +15,37 @@ export default function BasicCard() {
     justifyContent: "flex-start",
     alignItems: "flex-start",
     padding: "32"}}>
-      <CardContent>
-        <Typography variant="h5" sx={{ fontSize: 24, alignItems: "center" }} color="text.primary" gutterBottom >
+      <CardContent sx={{top: 32, left: 33}}>
+        <Typography variant="h5" sx={{ 
+          fontSize: 24, 
+          alignItems: "center" 
+          }} 
+          color="text.primary" 
+          gutterBottom >
           Card
         </Typography>
-        <Typography variant="body2" sx ={{alignItems: "center", fontSize: 16}} color="text.primary" > 
+        <Typography variant="body2" sx ={{
+          alignItems: "center", 
+          fontSize: 16, 
+          width: 286, 
+          height: 72
+        }} 
+          color="text.primary" > 
         Emmanuel, always have in mind tht you are a great person. A man of valor.No matter  you would excel.
         </Typography>
       </CardContent>
-      <br />
-      <CardActions>
-        <Button size="small">Button</Button>
+      
+      <CardActions sx={{top: 168, left: 32}}>
+        <Button size="small" sx={{
+          padding: "11 74",
+          width: 147,
+          height: 39,
+          color: 'primary.contrastText',
+          bgcolor: 'text.primary',
+          borderRadius: 12
+        }}>
+          Button
+          </Button>
         <InfoOutlinedIcon sx ={{
         width: 40, 
         height: 40, 

@@ -8,7 +8,6 @@ function App() {
 		<div>
 		
 			<body>
-				<Tasks />
 				<BasicCard />
 			</body>
 		</div>
