@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
+import * as Yup from "yup";
 
 const ForgotPasswordForm = () => {
   const formik = useFormik({
@@ -8,17 +9,9 @@ const ForgotPasswordForm = () => {
       newPass: "",
       confirmPass: "",
     },
-    validate: (values) => {
-      const errors = {};
-      if (!values.email) {
-        errors.email = "Required";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      ) {
-        errors.email = "Invalid email address";
-      }
-      return errors;
-    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Invalid email address").required("Required"),
+    }),
     onSubmit: (values) => {},
   });
 
