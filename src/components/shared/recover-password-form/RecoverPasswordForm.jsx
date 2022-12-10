@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -7,11 +7,11 @@ import {
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  TextField,
   Typography,
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import * as Yup from "yup";
 
 const RecoverPasswordForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -29,24 +29,14 @@ const RecoverPasswordForm = () => {
       newPass: "",
       confirmPass: "",
     },
-    validate: (values) => {
-      const errors = {};
-      const passwordRegex = /(?=.*[0-9])/;
-      if (!values.newPass) {
-        errors.newPass = "*Required";
-      } else if (values.newPass.length < 8) {
-        errors.newPass = "*Password must be 8 characters long.";
-      } else if (!passwordRegex.test(values.newPass)) {
-        errors.newPass = "*Invalid password. Must contain at least one number.";
-      }
-
-      if (values.newPass && values.confirmPass) {
-        if (values.newPass !== values.confirmPass) {
-          errors.confirmPass = "Passwords did not match";
-        }
-      }
-      return errors;
-    },
+    validationSchema: Yup.object({
+      newPass: Yup.string()
+        .required("Please enter your password.")
+        .min(8, "Your password is too short."),
+      confirmPass: Yup.string()
+        .required("Please retype your password.")
+        .oneOf([Yup.ref("newPass")], "Your passwords do not match."),
+    }),
     onSubmit: (values) => {},
   });
 
