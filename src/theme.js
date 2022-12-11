@@ -205,12 +205,13 @@ const theme = createTheme({
         },
       },
     },
+
     MuiDataGrid: {
       styleOverrides: {
         root: {
           fontFamily: "Gelion",
           fontWeight: "500",
-          fontStyle: "normal!",
+          fontStyle: "normal",
           fontSize: "16px",
           lineHeight: "19px",
           border: "none",
@@ -232,6 +233,7 @@ const theme = createTheme({
           color: "#808080",
         },
         cell: { borderBottom: "none" },
+        positive: { color: "#1b5e20" },
       },
     },
   },

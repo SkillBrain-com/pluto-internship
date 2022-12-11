@@ -1,22 +1,9 @@
-import {
-  NoEncryption,
-  ReportGmailerrorred,
-  YoutubeSearchedForOutlined,
-} from "@mui/icons-material";
-import {
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  Paper,
-  Box,
-} from "@mui/material";
+import { Box } from "@mui/material";
+// import { green } from "@mui/material/colors";
+import { DataGrid, GridCellParams } from "@mui/x-data-grid";
+import { clsx } from "clsx";
 
-import { DataGrid } from "@mui/x-data-grid";
-
-const columns: GridColDef = [
+const columns: GridColDef[] = [
   { field: "id", headerName: "No.", width: 40 },
   {
     field: "img",
@@ -42,6 +29,13 @@ const columns: GridColDef = [
     field: "status",
     headerName: "Status",
     width: 60,
+    cellClassName: (params) => {
+      console.log(params);
+      return clsx({
+        negative: params.value != "Active",
+        positive: params.value == "Active",
+      });
+    },
   },
   { field: "takeAction", headerName: "TakeAction", width: 145.33 },
 ];
@@ -68,7 +62,7 @@ const rows = [
     img: "Snow",
     fullName: "Jon",
     email: "alec@gmail.com",
-    status: "Active",
+    status: "Inactive",
     takeAction: "Take Action",
   },
   {
@@ -107,13 +101,25 @@ const rows = [
 
 const DataGridComponent = () => {
   return (
-    <Box sx={{ height: 400, width: 713 }}>
+    <Box
+      sx={{
+        height: 400,
+        width: 713,
+      }}
+    >
       <DataGrid
         rows={rows}
         columns={columns}
         pageSize={7}
         rowsPerPageOptions={[7]}
-        experimentalFeatures={{ newEditingApi: true }}
+        sx={{
+          "& .positive .MuiDataGrid-cellContent": {
+            color: "green !important",
+          },
+          "& .negative .MuiDataGrid-cellContent": {
+            color: "red !important",
+          },
+        }}
       />
     </Box>
   );
