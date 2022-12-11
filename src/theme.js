@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material/styles";
 import GelionRegular from "./assets/fonts/Gelion Regular.woff";
 import GelionBold from "./assets/fonts/Gelion Bold.woff";
 import GelionLight from "./assets/fonts/Gelion Light.woff";
+import { NoEncryption } from "@mui/icons-material";
 
 const theme = createTheme({
   palette: {
@@ -202,6 +203,35 @@ const theme = createTheme({
         filledSuccess: {
           color: "#fff",
         },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          fontFamily: "Gelion",
+          fontWeight: "500",
+          fontStyle: "normal!",
+          fontSize: "16px",
+          lineHeight: "19px",
+          border: "none",
+        },
+
+        columnHeaders: {
+          borderBottom: "none",
+        },
+
+        columnSeparator: {
+          visibility: "hidden",
+        },
+
+        cellContent: {
+          fontWeight: "400",
+          fontStyle: "normal",
+          fontSize: "14px",
+          lineHeight: "17px",
+          color: "#808080",
+        },
+        cell: { borderBottom: "none" },
       },
     },
   },

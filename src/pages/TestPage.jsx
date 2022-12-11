@@ -10,14 +10,13 @@ import Chat from "../assets/icons/icon/filled/Chat";
 import Notification from "../assets/icons/icon/filled/Notification";
 import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
+import TableComponent from "../components/shared/table-component/TableComponent";
 
 function Test() {
   const theme = useTheme();
   return (
-
-    <div>  
-
+    <div>
       <Container
         sx={{
           border: theme.palette.primary.main,
@@ -82,7 +81,9 @@ function Test() {
           Test
         </Button>
         <Stack spacing={2}>
-          <Badge variant="standard" color="inProgress">test</Badge>
+          <Badge variant="standard" color="inProgress">
+            test
+          </Badge>
         </Stack>
         <SideBar />
         <Chart />
@@ -97,10 +98,12 @@ function Test() {
           or forgot password form will be placed here
         </Typography>
       </RecoverPasswordWrapper>
+      <Box ml={20}>
+        <Typography variant="h3">Table Component</Typography>
+        <TableComponent />
+      </Box>
     </div>
   );
-
-
 }
 
 export default Test;
