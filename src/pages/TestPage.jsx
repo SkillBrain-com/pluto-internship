@@ -11,6 +11,7 @@ import Notification from "../assets/icons/icon/filled/Notification";
 import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
 import Stack from "@mui/material/Stack";
+import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
 
 function Test() {
   const theme = useTheme();
@@ -132,11 +133,7 @@ function Test() {
         <Overview />
       </Container>
       <RecoverPasswordWrapper>
-        <Typography variant="body1" gutterBottom>
-          Content of the recover password form,
-          <br />
-          or forgot password form will be placed here
-        </Typography>
+        <ForgotPasswordForm />
       </RecoverPasswordWrapper>
     </div>
   );
