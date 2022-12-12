@@ -1,7 +1,16 @@
 import React from "react";
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Paper, Typography, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
+import Badge from "../components/shared/Badge/Badge";
+
+import SideBar from "../components/shared/side-bar/SideBar";
+import Chart from "../assets/icons/icon/filled/Chart";
+import Chat from "../assets/icons/icon/filled/Chat";
+import Notification from "../assets/icons/icon/filled/Notification";
+import Overview from "../assets/icons/icon/filled/Overview";
+import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
+import Stack from "@mui/material/Stack";
 import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
 
 function Test() {
@@ -71,8 +80,61 @@ function Test() {
         <Button disabled size="small" variant="contained">
           Test
         </Button>
-        <ForgotPasswordForm />
+        <Stack direction="column" spacing={5} alignItems="flex-start">
+          <Badge variant="standard" badgeContent={3} color="primary"></Badge>
+          <Badge variant="standard" badgeContent={3} color="secondary"></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"Pending"}
+            color="pending"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"In Progress"}
+            color="inProgress"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"In Review"}
+            color="inReview"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"Unassigned"}
+            color="unassigned"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={"Unassigned"}
+            color="unassignedGrey"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={5}
+            color="primaryLight"
+          ></Badge>
+
+          <Badge
+            variant="standard"
+            badgeContent={5}
+            color="secondaryLight"
+          ></Badge>
+        </Stack>
+        <SideBar />
+        <Chart />
+        <Chat />
+        <Notification />
+        <Overview />
       </Container>
+      <RecoverPasswordWrapper>
+        <ForgotPasswordForm />
+      </RecoverPasswordWrapper>
     </div>
   );
 }
