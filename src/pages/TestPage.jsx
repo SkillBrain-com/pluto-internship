@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Paper, Typography, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
+import RecoverPasswordForm from "../components/shared/recover-password-form/RecoverPasswordForm";
 import Badge from "../components/shared/Badge/Badge";
 
 import SideBar from "../components/shared/side-bar/SideBar";
@@ -134,6 +135,9 @@ function Test() {
       </Container>
       <RecoverPasswordWrapper>
         <ForgotPasswordForm />
+      </RecoverPasswordWrapper>
+      <RecoverPasswordWrapper>
+        <RecoverPasswordForm />
       </RecoverPasswordWrapper>
     </div>
   );
