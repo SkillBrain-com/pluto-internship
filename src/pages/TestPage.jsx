@@ -13,6 +13,7 @@ import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
 import Stack from "@mui/material/Stack";
 import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
+import CheckBox from "../components/shared/check-box/CheckBox";
 
 function Test() {
   const theme = useTheme();
@@ -132,6 +133,13 @@ function Test() {
         <Chat />
         <Notification />
         <Overview />
+        <Stack direction="column" spacing={1} alignItems="center">
+          <CheckBox />
+          <CheckBox disabled />
+          <CheckBox disabled disabledChecked />
+          <CheckBox indeterminate />
+          <CheckBox indeterminate disabled />
+        </Stack>
       </Container>
       <RecoverPasswordWrapper>
         <ForgotPasswordForm />
