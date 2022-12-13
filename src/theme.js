@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
-import GelionRegular from "./assets/fonts/Gelion Regular.woff";
-import GelionBold from "./assets/fonts/Gelion Bold.woff";
-import GelionLight from "./assets/fonts/Gelion Light.woff";
+import GelionRegular from "./assets/fonts/Gelion Regular.ttf";
+import GelionBold from "./assets/fonts/Gelion Bold.ttf";
+import GelionLight from "./assets/fonts/Gelion Light.ttf";
 
 const theme = createTheme({
   palette: {
