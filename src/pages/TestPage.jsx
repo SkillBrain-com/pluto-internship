@@ -14,6 +14,7 @@ import RecoverPasswordWrapper from "../components/shared/recover-password-wrappe
 import Stack from "@mui/material/Stack";
 import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
 import CheckBox from "../components/shared/check-box/CheckBox";
+import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
 
 function Test() {
   const theme = useTheme();
@@ -139,6 +140,7 @@ function Test() {
           <CheckBox disabled disabledChecked />
           <CheckBox indeterminate />
           <CheckBox indeterminate disabled />
+          <ToggleSwitch />
         </Stack>
       </Container>
       <RecoverPasswordWrapper>

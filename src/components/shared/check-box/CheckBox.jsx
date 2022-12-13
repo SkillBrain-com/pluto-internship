@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Checkbox } from "@mui/material";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
 const StyledCheckbox = styled(Checkbox)(({ theme }) => ({
   "&": {
