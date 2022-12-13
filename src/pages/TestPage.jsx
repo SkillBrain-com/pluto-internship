@@ -13,7 +13,7 @@ import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
 import Stack from "@mui/material/Stack";
 import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
-
+import Card from '../components/shared/card-component/Card-Component'
 function Test() {
   const theme = useTheme();
   return (
@@ -127,6 +127,9 @@ function Test() {
             color="secondaryLight"
           ></Badge>
         </Stack>
+        <br />
+        <Card />
+        <br />
         <SideBar />
         <Chart />
         <Chat />
