@@ -13,9 +13,10 @@ import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
 import Stack from "@mui/material/Stack";
 import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
-import Card from '../components/shared/card-component/Card-Component'
+import Card from "../components/shared/card-component/Card-Component";
 import CheckBox from "../components/shared/check-box/CheckBox";
 import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
+import TaskDetailsCard from "../components/shared/task-details-card/TaskDetailsCard";
 
 function Test() {
   const theme = useTheme();
@@ -145,6 +146,14 @@ function Test() {
           <CheckBox indeterminate />
           <CheckBox indeterminate disabled />
           <ToggleSwitch />
+        </Stack>
+        <Stack
+          direction="column"
+          spacing={4}
+          alignItems="center"
+          sx={{ backgroundColor: "#f5f7fe" }}
+        >
+          <TaskDetailsCard />
         </Stack>
       </Container>
       <RecoverPasswordWrapper>
