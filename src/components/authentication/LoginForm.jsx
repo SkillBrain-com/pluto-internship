@@ -4,6 +4,7 @@ import { HalfPage } from "../shared/layout/HalfPage";
 import Button from "../shared/button/Button";
 import CheckBox from "@mui/material/Checkbox";
 import { useState } from "react";
+import RecoverPasswordForm from "../shared/recover-password-form/RecoverPasswordForm";
 
 export const LoginForm = (props) => {
   const { align, hasLogin } = props;
@@ -79,7 +80,7 @@ export const LoginForm = (props) => {
 
         <Stack>
           <Link
-            href="#"
+            href="/forgot"
             underline="none"
             sx={{
               fontWeight: "600",
