@@ -20,11 +20,30 @@ const StyledCard = styled(Box)(({ theme }) => ({
     width: "94%",
     maxWidth: "780px",
     backgroundColor: "#fff",
-    margin: "20px auto 20px 40px",
+    margin: "20px auto 20px 0px",
     borderRadius: "16px",
     padding: "32px 40px 32px 26px",
     display: "grid",
     gridTemplateColumns: "auto 120px",
+  },
+  "& .card-details-content-text": {
+    color: "#808080",
+    padding: "20px 20px 0px 0px",
+  },
+  "& .MuiCardActions-root": {
+    display: "flex",
+    gap: "20px",
+    justifyContent: "flex-start",
+  },
+  "& .dates-div": {
+    height: "206px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    borderRight: "0.6px solid #D5D5D5",
+    width: "100px",
+    position: "relative",
   },
   "& .empty-cercle": {
     position: "absolute",
@@ -36,9 +55,13 @@ const StyledCard = styled(Box)(({ theme }) => ({
     bottom: "0px",
     right: "-15px",
   },
+  "& .date-title": {
+    color: "#808080",
+    fontSize: "12px",
+  },
 }));
 
-const TaskDetailsCard = () => {
+const TaskDetailsCard = ({ status, userRole }) => {
   return (
     <StyledCard>
       <Box>
@@ -48,21 +71,16 @@ const TaskDetailsCard = () => {
           </Typography>
           <Badge
             variant="standard"
-            badgeContent={"In Progress"}
+            badgeContent={status}
             color="inProgress"
             sx={{ marginLeft: "40px" }}
           ></Badge>
-          <Typography
-            variant="body1"
-            sx={{ color: "#808080", padding: "20px 20px 0px 0px" }}
-          >
+          <Typography variant="body1" className="card-details-content-text">
             I am to create a simple design system to use to teach aspiring UI /
             UX Designers in my forth-coming cass on the 2nd of october 20201
           </Typography>
         </CardContent>
-        <CardActions
-          sx={{ display: "flex", gap: "20px", justifyContent: "flex-start" }}
-        >
+        <CardActions>
           <Button
             size="medium"
             variant="contained"
@@ -82,34 +100,17 @@ const TaskDetailsCard = () => {
         </CardActions>
       </Box>
       <Box>
-        <Box
-          sx={{
-            height: "206px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            borderRight: "0.6px solid #D5D5D5",
-            width: "100px",
-            position: "relative",
-          }}
-        >
+        <Box className="dates-div">
           <img src={emptyCercle} className="empty-cercle" />
           <img src={fullCercle} className="full-cercle" />
           <Box>
-            <Typography
-              variant="subtitle1"
-              sx={{ color: "#808080", fontSize: "12px" }}
-            >
+            <Typography variant="subtitle1" className="date-title">
               Date Created
             </Typography>
             <Typography variant="subtitle2">24/11/22</Typography>
           </Box>
           <Box>
-            <Typography
-              variant="subtitle1"
-              sx={{ color: "#808080", fontSize: "12px" }}
-            >
+            <Typography variant="subtitle1" className="date-title">
               Due Date
             </Typography>
             <Typography variant="subtitle2">29/12/22</Typography>

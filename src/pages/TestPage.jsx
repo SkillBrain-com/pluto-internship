@@ -150,10 +150,29 @@ function Test() {
         <Stack
           direction="column"
           spacing={4}
-          alignItems="center"
+          alignItems="flex-start"
+          padding="40px"
           sx={{ backgroundColor: "#f5f7fe" }}
         >
-          <TaskDetailsCard />
+          <TaskDetailsCard status="Unasigned" userRole="developer" />
+          <TaskDetailsCard status="Unasigned" userRole="assigner" />
+          <TaskDetailsCard status="Unasigned" userRole="other" />
+
+          <TaskDetailsCard status="Pending" userRole="developer" />
+          <TaskDetailsCard status="Pending" userRole="assigner" />
+          <TaskDetailsCard status="Pending" userRole="other" />
+
+          <TaskDetailsCard status="In Progress" userRole="developer" />
+          <TaskDetailsCard status="In Progress" userRole="assigner" />
+          <TaskDetailsCard status="In Progress" userRole="other" />
+
+          <TaskDetailsCard status="In Review" userRole="developer" />
+          <TaskDetailsCard status="In Review" userRole="assigner" />
+          <TaskDetailsCard status="In Review" userRole="other" />
+
+          <TaskDetailsCard status="Completed" userRle="developer" />
+          <TaskDetailsCard status="Completed" userRole="assigner" />
+          <TaskDetailsCard status="Completed" userRole="other" />
         </Stack>
       </Container>
       <RecoverPasswordWrapper>
