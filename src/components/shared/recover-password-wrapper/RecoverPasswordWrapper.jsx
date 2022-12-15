@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import recoverBackground from "./images/recoverPasswordBg.png";
+import recoverBackground from "../../../assets/images/recoverPasswordBg.png";
 
 const RecoverPasswordWrapper = (props) => {
   return (

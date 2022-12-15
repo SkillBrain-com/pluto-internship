@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Paper, Typography, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
-import RecoverPasswordForm from "../components/shared/recover-password-form/RecoverPasswordForm";
+import RecoverPassword from "../components/shared/recover-password/RecoverPassword";
 import Badge from "../components/shared/Badge/Badge";
 
 import SideBar from "../components/shared/side-bar/SideBar";
@@ -12,10 +12,11 @@ import Notification from "../assets/icons/icon/filled/Notification";
 import Overview from "../assets/icons/icon/filled/Overview";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
 import Stack from "@mui/material/Stack";
-import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
-import Card from '../components/shared/card-component/Card-Component'
+import ForgotPassword from "../components/shared/forgot-password/ForgotPassword";
+import Card from "../components/shared/card-component/Card-Component";
 import CheckBox from "../components/shared/check-box/CheckBox";
 import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
+import Login from "../components/login/Login";
 
 function Test() {
   const theme = useTheme();
@@ -148,11 +149,12 @@ function Test() {
         </Stack>
       </Container>
       <RecoverPasswordWrapper>
-        <ForgotPasswordForm />
+        <ForgotPassword />
       </RecoverPasswordWrapper>
       <RecoverPasswordWrapper>
-        <RecoverPasswordForm />
+        <RecoverPassword />
       </RecoverPasswordWrapper>
+      <Login />
     </div>
   );
 }

@@ -1,13 +1,17 @@
 import { Stack } from "@mui/material";
 import RecoverPasswordWrapper from "../components/shared/recover-password-wrapper/RecoverPasswordWrapper";
-import ForgotPasswordForm from "../components/shared/forgot-password-form/ForgotPasswordForm";
+import ForgotPassword from "../components/shared/forgot-password/ForgotPassword";
 
 export const ForgotPasswordPage = () => {
   return (
     <Stack spacing={3} padding="30px">
-      <Stack direction="row" spacing={10}>
+      <Stack
+        sx={{
+          border: "1px solid",
+        }}
+      >
         <RecoverPasswordWrapper>
-          <ForgotPasswordForm />
+          <ForgotPassword />
         </RecoverPasswordWrapper>
       </Stack>
     </Stack>
