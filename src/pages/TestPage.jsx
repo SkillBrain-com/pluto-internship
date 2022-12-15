@@ -154,7 +154,6 @@ function Test() {
           padding="40px"
           sx={{ backgroundColor: "#f5f7fe" }}
         >
-          <TaskDetailsCard status="Unasigned" userRole="developer" />
           <TaskDetailsCard status="Unasigned" userRole="assigner" />
           <TaskDetailsCard status="Unasigned" userRole="other" />
 
@@ -170,9 +169,7 @@ function Test() {
           <TaskDetailsCard status="In Review" userRole="assigner" />
           <TaskDetailsCard status="In Review" userRole="other" />
 
-          <TaskDetailsCard status="Completed" userRle="developer" />
-          <TaskDetailsCard status="Completed" userRole="assigner" />
-          <TaskDetailsCard status="Completed" userRole="other" />
+          <TaskDetailsCard status="Completed" />
         </Stack>
       </Container>
       <RecoverPasswordWrapper>
