@@ -55,6 +55,75 @@ const StyledCard = styled(Box)(({ theme }) => ({
   },
 }));
 
+const renderRoles = (status, userRole) => {
+  if (status === "Pending" && userRole === "developer") {
+    return (
+      <Badge
+        variant="standard"
+        badgeContent="Assigned to you"
+        color="inProgress"
+        sx={{ marginLeft: "100px" }}
+      ></Badge>
+    );
+  }
+  if (status === "In Progress" && userRole === "developer") {
+    return (
+      <Badge
+        variant="standard"
+        badgeContent="Assigned to you"
+        color="inProgress"
+        sx={{ marginLeft: "100px" }}
+      ></Badge>
+    );
+  }
+  if (status === "In Review" && userRole === "developer") {
+    return (
+      <Badge
+        variant="standard"
+        badgeContent="Assigned to you"
+        color="inProgress"
+        sx={{ marginLeft: "100px" }}
+      ></Badge>
+    );
+  }
+  if (status === "Pending" && userRole === "assigner") {
+    return (
+      <Badge
+        variant="standard"
+        badgeContent="Assigned"
+        color="inProgress"
+        sx={{ marginLeft: "100px" }}
+      ></Badge>
+    );
+  }
+  if (status === "In Progress" && userRole === "assigner") {
+    return (
+      <Badge
+        variant="standard"
+        badgeContent="Assigned"
+        color="inProgress"
+        sx={{ marginLeft: "100px" }}
+      ></Badge>
+    );
+  }
+  if (status === "In Review" && userRole === "assigner") {
+    return (
+      <Typography
+        variant="subtitle2"
+        sx={{
+          marginLeft: "50px",
+          fontWeight: 500,
+          fontSize: "12px",
+          display: "inline-block",
+          letterSpacing: "-0.02em",
+        }}
+      >
+        - By you
+      </Typography>
+    );
+  }
+};
+
 const renderSwitch = (status, userRole) => {
   switch (status) {
     case "Unasigned":
@@ -96,12 +165,15 @@ const renderSwitch = (status, userRole) => {
       }
       if (userRole === "assigner") {
         return (
-          <CardActions className="card-actions">
-            <Button size="medium" variant="outlined">
-              Re-assign task
-            </Button>
-            <TaskActions trash edit message />
-          </CardActions>
+          <>
+            <AvatarWithName userName="Adeeko Emmanuel" userRole="assigner" />
+            <CardActions className="card-actions">
+              <Button size="medium" variant="outlined">
+                Re-assign task
+              </Button>
+              <TaskActions trash edit message />
+            </CardActions>
+          </>
         );
       }
       if (userRole === "other") {
@@ -231,12 +303,15 @@ const TaskDetailsCard = ({ status, userRole }) => {
           <Typography variant="h6" gutterBottom>
             Create a Design System for Enum Workspace.
           </Typography>
-          <Badge
-            variant="standard"
-            badgeContent={status}
-            color="inProgress"
-            sx={{ marginLeft: "40px" }}
-          ></Badge>
+          <Box>
+            <Badge
+              variant="standard"
+              badgeContent={status}
+              color="inProgress"
+              sx={{ marginLeft: "40px" }}
+            ></Badge>
+            {renderRoles(status, userRole)}
+          </Box>
           <Typography variant="body1" className="card-details-content-text">
             I am to create a simple design system to use to teach aspiring UI /
             UX Designers in my forth-coming cass on the 2nd of october 20201
