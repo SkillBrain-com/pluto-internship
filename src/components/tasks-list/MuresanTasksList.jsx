@@ -18,6 +18,9 @@ export const MuresanTasksList = () => {
       <Link underline="hover" href="../recover">
         Recover Password
       </Link>
+      <Link underline="hover" href="../taskdetails">
+        Task Details Card
+      </Link>
 
       <Link underline="hover" href="../test">
         Test

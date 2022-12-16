@@ -10,6 +10,7 @@ import { Alerts } from "./pages/Alerts";
 import { Inputs } from "./pages/Inputs";
 import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import { RecoverPasswordPage } from "./pages/RecoverPasswordPage";
+import { TaskDetailsCardPage } from "./pages/TaskDetailsCardPage";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/inputs" element={<Inputs />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
         <Route path="/recover" element={<RecoverPasswordPage />} />
+        <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
       </Routes>
     </div>
   );
