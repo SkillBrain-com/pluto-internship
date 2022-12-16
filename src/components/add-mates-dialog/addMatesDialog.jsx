@@ -13,6 +13,7 @@ import { AddMatesTabs } from "./AddMatesTabs";
 
 import { openModal, closeModal } from '../../store/app/app.slice'
 import { useDispatch, useSelector } from 'react-redux'
+import { Bungalow } from "@mui/icons-material";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {

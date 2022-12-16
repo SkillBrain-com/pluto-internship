@@ -20,7 +20,7 @@ import activeBackground from "./images/selected-list-item.png";
 
 const drawerWidth = 280;
 
-const openedMixin = (theme: Theme): CSSObject => ({
+const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -29,7 +29,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
   overflowX: "hidden",
 });
 
-const closedMixin = (theme: Theme): CSSObject => ({
+const closedMixin = (theme) => ({
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,

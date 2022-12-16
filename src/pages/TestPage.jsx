@@ -17,7 +17,6 @@ import ForgotPassword from "../components/shared/forgot-password/ForgotPassword"
 import Card from "../components/shared/card-component/Card-Component";
 import CheckBox from "../components/shared/check-box/CheckBox";
 import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
-import Login from "../components/login/Login";
 
 
 function Test() {
@@ -149,30 +148,7 @@ function Test() {
           <CheckBox indeterminate disabled />
           <ToggleSwitch />
         </Stack>
-        <Stack
-          direction="column"
-          spacing={4}
-          alignItems="flex-start"
-          padding="40px"
-          sx={{ backgroundColor: "#f5f7fe" }}
-        >
-          <TaskDetailsCard status="Unasigned" userRole="assigner" />
-          <TaskDetailsCard status="Unasigned" userRole="other" />
-
-          <TaskDetailsCard status="Pending" userRole="developer" />
-          <TaskDetailsCard status="Pending" userRole="assigner" />
-          <TaskDetailsCard status="Pending" userRole="other" />
-
-          <TaskDetailsCard status="In Progress" userRole="developer" />
-          <TaskDetailsCard status="In Progress" userRole="assigner" />
-          <TaskDetailsCard status="In Progress" userRole="other" />
-
-          <TaskDetailsCard status="In Review" userRole="developer" />
-          <TaskDetailsCard status="In Review" userRole="assigner" />
-          <TaskDetailsCard status="In Review" userRole="other" />
-
-          <TaskDetailsCard status="Completed" />
-        </Stack>
+       
       </Container>
       <RecoverPasswordWrapper>
         <ForgotPassword />
@@ -180,7 +156,6 @@ function Test() {
       <RecoverPasswordWrapper>
         <RecoverPassword />
       </RecoverPasswordWrapper>
-      <Login />
     </div>
   );
 }
