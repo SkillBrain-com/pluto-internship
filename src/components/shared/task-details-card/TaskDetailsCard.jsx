@@ -1,19 +1,12 @@
 import React from "react";
-import {
-  Typography,
-  Box,
-  CardActions,
-  CardContent,
-  IconButton,
-} from "@mui/material";
+import { Typography, Box, CardActions, CardContent } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Badge from "../Badge/Badge";
 import Button from "../button/Button";
+import TaskActions from "../task-actions/TaskActions";
+import AvatarWithName from "../../avatar/AvatarWithName";
 import emptyCercle from "./images/cercle-empty.png";
 import fullCercle from "./images/cercle-full.png";
-import deletePlaceholder from "./images/delete-placeholder.png";
-import editPlaceholder from "./images/edit-placeholder.png";
-import messagePlaceholder from "./images/message-placeholder.png";
 import completedCheck from "./images/completed.png";
 
 const StyledCard = styled(Box)(({ theme }) => ({
@@ -80,15 +73,7 @@ const renderSwitch = (status, userRole) => {
             <Button size="medium" variant="contained">
               Assign this task
             </Button>
-            <IconButton>
-              <img src={deletePlaceholder} alt="Delete" />
-            </IconButton>
-            <IconButton>
-              <img src={editPlaceholder} alt="Edit" />
-            </IconButton>
-            <IconButton>
-              <img src={messagePlaceholder} alt="Message" />
-            </IconButton>
+            <TaskActions trash edit message />
           </CardActions>
         );
       }
@@ -96,12 +81,17 @@ const renderSwitch = (status, userRole) => {
     case "Pending":
       if (userRole === "developer") {
         return (
-          <CardActions className="card-actions">
-            <p>Avatar plus name here</p>
-            <Button size="medium" variant="contained">
-              Work on it
-            </Button>
-          </CardActions>
+          <>
+            <AvatarWithName
+              userName="Adeeko Emmanuel Blu"
+              userRole="developer"
+            />
+            <CardActions className="card-actions">
+              <Button size="medium" variant="contained">
+                Work on it
+              </Button>
+            </CardActions>
+          </>
         );
       }
       if (userRole === "assigner") {
@@ -110,15 +100,7 @@ const renderSwitch = (status, userRole) => {
             <Button size="medium" variant="outlined">
               Re-assign task
             </Button>
-            <IconButton>
-              <img src={deletePlaceholder} alt="Delete" />
-            </IconButton>
-            <IconButton>
-              <img src={editPlaceholder} alt="Edit" />
-            </IconButton>
-            <IconButton>
-              <img src={messagePlaceholder} alt="Message" />
-            </IconButton>
+            <TaskActions trash edit message />
           </CardActions>
         );
       }
@@ -135,16 +117,21 @@ const renderSwitch = (status, userRole) => {
     case "In Progress":
       if (userRole === "developer") {
         return (
-          <CardActions className="card-actions">
-            <p>Avatar plus name here</p>
-            <Button
-              size="medium"
-              variant="contained"
-              sx={{ backgroundColor: "#8937DB" }}
-            >
-              Send for Review
-            </Button>
-          </CardActions>
+          <>
+            <AvatarWithName
+              userName="Adeeko Emmanuel Blu"
+              userRole="developer"
+            />
+            <CardActions className="card-actions">
+              <Button
+                size="medium"
+                variant="contained"
+                sx={{ backgroundColor: "#8937DB" }}
+              >
+                Send for Review
+              </Button>
+            </CardActions>
+          </>
         );
       }
       if (userRole === "assigner") {
@@ -157,12 +144,7 @@ const renderSwitch = (status, userRole) => {
             >
               Mark As Done
             </Button>
-            <IconButton>
-              <img src={deletePlaceholder} alt="Delete" />
-            </IconButton>
-            <IconButton>
-              <img src={editPlaceholder} alt="Edit" />
-            </IconButton>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -183,36 +165,35 @@ const renderSwitch = (status, userRole) => {
     case "In Review":
       if (userRole === "developer") {
         return (
-          <CardActions className="card-actions">
-            <p>Avatar plus name here</p>
-            <Typography variant="subtitle2" sx={{ color: "#001E99" }}>
-              The assigner of your task gets to tell if if it’s done or not.
-              Kindly check back later.
-            </Typography>
-          </CardActions>
+          <>
+            <AvatarWithName
+              userName="Adeeko Emmanuel Blu"
+              userRole="developer"
+            />
+            <CardActions className="card-actions">
+              <Typography variant="subtitle2" sx={{ color: "#001E99" }}>
+                The assigner of your task gets to tell if if it’s done or not.
+                Kindly check back later.
+              </Typography>
+            </CardActions>
+          </>
         );
       }
       if (userRole === "assigner") {
         return (
-          <CardActions className="card-actions">
-            <p>Avatar plus text here</p>
-            <Button
-              size="medium"
-              variant="contained"
-              sx={{ backgroundColor: "#00C271" }}
-            >
-              Mark As Done
-            </Button>
-            <IconButton>
-              <img src={deletePlaceholder} alt="Delete" />
-            </IconButton>
-            <IconButton>
-              <img src={editPlaceholder} alt="Edit" />
-            </IconButton>
-            <IconButton>
-              <img src={messagePlaceholder} alt="EMessage" />
-            </IconButton>
-          </CardActions>
+          <>
+            <AvatarWithName userName="Adeeko Emmanuel" userRole="assigner" />
+            <CardActions className="card-actions">
+              <Button
+                size="medium"
+                variant="contained"
+                sx={{ backgroundColor: "#00C271" }}
+              >
+                Mark As Done
+              </Button>
+              <TaskActions trash edit message />
+            </CardActions>
+          </>
         );
       }
       if (userRole === "other") {
@@ -234,12 +215,7 @@ const renderSwitch = (status, userRole) => {
           >
             This task has been completed
           </Typography>
-          <IconButton>
-            <img src={deletePlaceholder} alt="Delete" />
-          </IconButton>
-          <IconButton>
-            <img src={editPlaceholder} alt="Edit" />
-          </IconButton>
+          <TaskActions trash edit />
         </CardActions>
       );
     default:
