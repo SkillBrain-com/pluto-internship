@@ -55,6 +55,23 @@ const StyledCard = styled(Box)(({ theme }) => ({
   },
 }));
 
+const selectBadgeColor = (status) => {
+  switch (status) {
+    case "Unasigned":
+      return "unassigned";
+    case "Pending":
+      return "pending";
+    case "In Progress":
+      return "inProgress";
+    case "In Review":
+      return "inReview";
+    case "Completed":
+      return "completed";
+    default:
+      return "inProgress";
+  }
+};
+
 const renderRoles = (status, userRole) => {
   if (status === "Pending" && userRole === "developer") {
     return (
@@ -307,7 +324,7 @@ const TaskDetailsCard = ({ status, userRole }) => {
             <Badge
               variant="standard"
               badgeContent={status}
-              color="inProgress"
+              color={selectBadgeColor(status)}
               sx={{ marginLeft: "40px" }}
             ></Badge>
             {renderRoles(status, userRole)}
