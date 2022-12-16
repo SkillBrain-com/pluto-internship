@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material/styles";
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -196,6 +195,33 @@ const theme = createTheme({
         },
         filledSuccess: {
           color: "#fff",
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: "12px",
+          margin: "12px 0px 4px 0px",
+          width: "100%",
+          backgroundColor: "#fbfbfe",
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "#2c2e3a",
+          lineHeight: "19px",
+          marginTop: "32px",
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          marginLeft: 0,
+          color: "#6E7391",
         },
       },
     },
