@@ -12,7 +12,8 @@ import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import { RecoverPasswordPage } from "./pages/RecoverPasswordPage";
 import { TaskDetailsCardPage } from "./pages/TaskDetailsCardPage";
 import Dashboard from "./pages/Dashboard";
-import { Settings } from "@mui/icons-material";
+import Settings from "./pages/Settings";
+import Overview from "./pages/Overview";
 import Tasks from "./pages/Tasks";
 import SearchBar from "./components/shared/searchBar";
 
@@ -25,18 +26,19 @@ const App = () => {
 
         <Route path="/addmates" element={<AddMates />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/createaccount" element={<CreateAccount />} /> 
+        <Route path="/createaccount" element={<CreateAccount />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
         <Route path="/recover" element={<RecoverPasswordPage />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/settings" element={<Overview />} />
         <Route path="/tasks" element={<Tasks />} />
 
         {/* <Route path="/avatars" element={<Avatars />} /> */}
         {/* <Route path="/alerts" element={<Alerts />} /> */}
         {/* <Route path="/inputs" element={<Inputs />} /> */}
-     
+
         {/* <Route path="/taskdetails" element={<TaskDetailsCardPage />} /> */}
       </Routes>
     </div>
