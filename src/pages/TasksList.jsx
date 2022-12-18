@@ -2,6 +2,7 @@ import { Stack, Typography } from "@mui/material";
 import { useState } from "react";
 import { PoseaTasksList } from "../components/tasks-list/PoseaTasksList";
 import { MuresanTasksList } from "../components/tasks-list/MuresanTasksList";
+import { ButaTasksList } from "../components/tasks-list/ButaTasksList";
 
 function TasksList() {
   return (
@@ -17,6 +18,10 @@ function TasksList() {
         <Stack spacing={1} paddingTop="16px">
           <Typography variant="h6">Student: Alexandra Muresan</Typography>
           <MuresanTasksList />
+        </Stack>
+        <Stack spacing={1} paddingTop="16px">
+          <Typography variant="h6">Student: Alexandra Buta</Typography>
+          <ButaTasksList />
         </Stack>
       </Stack>
     </Stack>

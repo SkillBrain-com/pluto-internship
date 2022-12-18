@@ -16,6 +16,7 @@ import { Settings } from "@mui/icons-material";
 import Tasks from "./pages/Tasks";
 import SearchBar from "./components/shared/searchBar";
 import Users from "./pages/Users";
+import Badges from "./pages/Badges";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/tasks" element={<Tasks />} />
 
         <Route path="/users" element={<Users />} />
+        <Route path="/badges" element={<Badges />} />
 
         {/* <Route path="/avatars" element={<Avatars />} /> */}
         {/* <Route path="/alerts" element={<Alerts />} /> */}
