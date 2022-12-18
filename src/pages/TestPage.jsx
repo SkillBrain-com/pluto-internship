@@ -17,7 +17,7 @@ import ForgotPassword from "../components/shared/forgot-password/ForgotPassword"
 import Card from "../components/shared/card-component/Card-Component";
 import CheckBox from "../components/shared/check-box/CheckBox";
 import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
-
+import TableComponent from "../components/shared/table-component/TableComponent";
 
 function Test() {
   const theme = useTheme();
@@ -148,7 +148,10 @@ function Test() {
           <CheckBox indeterminate disabled />
           <ToggleSwitch />
         </Stack>
-       
+        <Stack sx={{ marginLeft: "10px" }}>
+          <Typography>Table Component</Typography>
+          <TableComponent>Test</TableComponent>
+        </Stack>
       </Container>
       <RecoverPasswordWrapper>
         <ForgotPassword />
