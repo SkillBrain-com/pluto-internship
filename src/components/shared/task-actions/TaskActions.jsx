@@ -1,14 +1,14 @@
 import React from "react";
 import { IconButton } from "@mui/material";
-import deletePlaceholder from "../task-details-card/images/delete-placeholder.png";
-import editPlaceholder from "../task-details-card/images/edit-placeholder.png";
-import messagePlaceholder from "../task-details-card/images/message-placeholder.png";
+import TrashBin from "../../../assets/icons/TrashBin";
+import EditPen from "../../../assets/icons/EditPen";
+import MessageBox from "../../../assets/icons/MessegeBox";
 
 const renderTrashIcon = (icon) => {
   if (icon) {
     return (
       <IconButton>
-        <img src={deletePlaceholder} alt="Delete" />
+        <TrashBin />
       </IconButton>
     );
   }
@@ -18,7 +18,7 @@ const renderEditIcon = (icon) => {
   if (icon) {
     return (
       <IconButton>
-        <img src={editPlaceholder} alt="Edit" />
+        <EditPen />
       </IconButton>
     );
   }
@@ -28,7 +28,7 @@ const renderMessageIcon = (icon) => {
   if (icon) {
     return (
       <IconButton>
-        <img src={messagePlaceholder} alt="Message" />
+        <MessageBox />
       </IconButton>
     );
   }

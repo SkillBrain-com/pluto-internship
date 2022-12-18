@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import {
   Typography,
@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Avatar } from "../../avatar/Avatar";
 import avatarPlaceholder from "./images/avatar.png";
 import addAvatar from "./images/add-avatar.png";
 import overviewIconPlaceholder from "./images/overview-icon-placeholder.png";
@@ -139,13 +140,11 @@ const SideBar = () => {
               <MenuIcon />
             </IconButton>
             <Box className="sidebar-project-avatar sidebar-selected-project-avatar">
-              <img
-                src={avatarPlaceholder}
-                alt="avatarPlaceholder"
-                sx={{
-                  width: "38px",
-                  height: "38px,",
-                }}
+              <Avatar
+                variant="image"
+                src="/avatars/girl.png"
+                size="xs"
+                sx={{ width: "38px", height: "38px" }}
               />
             </Box>
             <Box className="sidebar-project-avatar">

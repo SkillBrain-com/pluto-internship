@@ -13,7 +13,6 @@ import { RecoverPasswordPage } from "./pages/RecoverPasswordPage";
 import { TaskDetailsCardPage } from "./pages/TaskDetailsCardPage";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
-import Overview from "./pages/Overview";
 import Tasks from "./pages/Tasks";
 import SearchBar from "./components/shared/searchBar";
 
@@ -32,7 +31,6 @@ const App = () => {
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/settings" element={<Overview />} />
         <Route path="/tasks" element={<Tasks />} />
 
         {/* <Route path="/avatars" element={<Avatars />} /> */}
