@@ -18,6 +18,9 @@ export const CreateAccount = () => {
           "@media (max-width: 1014px)": {
             order: 2,
           },
+          "@media (min-width: 1015px) && (orientation: portrait)": {
+            order: 2,
+          },
         }}
       >
         <Media align="left" hasCreate={false} />
@@ -26,6 +29,9 @@ export const CreateAccount = () => {
         sx={{
           order: 2,
           "@media (max-width: 1014px)": {
+            order: 1,
+          },
+          "@media (min-width: 1015px) && (orientation: portrait)": {
             order: 1,
           },
         }}
