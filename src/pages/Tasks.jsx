@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageLayout from "../components/shared/page-layout/PageLayout";
+import TaskViewer from "../components/shared/task-viewer/TaskViewer";
 
 const Tasks = () => {
   const [fakeStatus, setFakeStatus] = useState([
@@ -32,6 +33,7 @@ const Tasks = () => {
         Titlu , search bar , taburi + taskviewer + right bar cu calder pick si
         numele tau si mail
       </p>
+      <TaskViewer />
 
       {/* la click pe task => redirect in TaskCardDetailsPage link task/1 etc  */}
       {/* + Create task modala de create #florin  si edit si delete */}
