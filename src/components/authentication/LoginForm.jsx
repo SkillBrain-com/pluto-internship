@@ -8,7 +8,7 @@ export const LoginForm = (props) => {
   const { align, hasLogin } = props;
 
   return (
-    <HalfPage sx={{ backgroundColor: "#fff", justifyContent: "flex-start" }}>
+    <HalfPage sx={{ background: "#fff", alignItems: "center" }}>
       <Stack
         direction="row"
         justifyContent="end"
@@ -17,7 +17,12 @@ export const LoginForm = (props) => {
         <Button variant="login">Log In</Button>
       </Stack>
 
-      <Stack sx={{ width: "384px", paddingTop: "140px" }}>
+      <Stack
+        sx={{
+          width: "100%",
+          maxWidth: "350px",
+        }}
+      >
         <Typography
           sx={{
             fontWeight: "700",

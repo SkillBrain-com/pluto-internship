@@ -7,7 +7,13 @@ import SignupForm from "./SignupForm";
 export const AuthForm = (props) => {
   const { align, hasLogin } = props;
   return (
-    <HalfPage sx={{ backgroundColor: "#fff", justifyContent: "flex-start" }}>
+    <HalfPage
+      sx={{
+        background: "#fff",
+        justifyContent: "flex-start",
+        alignItems: "center",
+      }}
+    >
       <Stack
         direction="row"
         justifyContent="end"
@@ -18,7 +24,14 @@ export const AuthForm = (props) => {
         </Button>
       </Stack>
 
-      <Stack sx={{ width: "384px", paddingTop: "140px" }}>
+      <Stack
+        sx={{
+          width: "100%",
+          maxWidth: "350px",
+          justifyContent: "center",
+          height: "100%",
+        }}
+      >
         <Typography
           sx={{
             fontWeight: "700",

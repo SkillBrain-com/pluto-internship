@@ -1,27 +1,37 @@
-import { Stack, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { Media } from "../components/authentication/Media";
 import { AuthForm } from "../components/authentication/AuthForm";
-import { PoseaTasksList } from "../components/tasks-list/PoseaTasksList";
 
 export const CreateAccount = () => {
   return (
-    <Box sx={{
-  width:"100%",
-  display: "flex",
-  justifyContent: "center",
-  padding: "20px",}}>
-      <Stack
-        spacing={3}
-        direction="row"
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+      }}
+    >
+      <Box
         sx={{
-          width: "1440px",
-          height: "1024px",
-          padding: "20px",
+          order: 1,
+          "@media (max-width: 1014px)": {
+            order: 2,
+          },
         }}
       >
         <Media align="left" hasCreate={false} />
-        <AuthForm align="left" hasLogin={true} />
-      </Stack>
       </Box>
+      <Box
+        sx={{
+          order: 2,
+          "@media (max-width: 1014px)": {
+            order: 1,
+          },
+        }}
+      >
+        <AuthForm align="left" hasLogin={true} />
+      </Box>
+    </Box>
   );
 };
