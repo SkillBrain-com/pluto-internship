@@ -2,6 +2,19 @@ import { Box, Stack, Typography } from "@mui/material";
 import Button from "../shared/button/Button";
 import PropTypes from "prop-types";
 import { HalfPage } from "../shared/layout/HalfPage";
+import loginLeft from "../../assets/images/login-left.png";
+import loginRight from "../../assets/images/login-right.png";
+
+const selectBackgroundImage = (align) => {
+  switch (align) {
+    case "left":
+      return `#fff url(${loginLeft}) no-repeat center right`;
+    case "right":
+      return `#fff url(${loginRight}) no-repeat center left`;
+    default:
+      return `#fff url(${loginLeft}) no-repeat center right`;
+  }
+};
 
 export const Media = (props) => {
   const { align, hasCreate } = props;
@@ -13,6 +26,10 @@ export const Media = (props) => {
           flexDirection: "column",
           justifyContent: "space-between",
           height: "100%",
+          width: "100%",
+          padding: "24px 100px 100px 100px",
+          background: selectBackgroundImage(align),
+          backgroundSize: "cover",
         }}
       >
         <Stack
