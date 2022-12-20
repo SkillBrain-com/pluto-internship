@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Test from "./pages/TestPage";
 import TasksList from "./pages/TasksList";
-import AddMates from "./pages/AddMates";
+import Tabs from "./pages/Tabs";
 import { CreateAccount } from "./pages/CreateAccount";
 import LoginPage from "./pages/Login";
 import Avatars from "./pages/Avatars";
@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/" element={<TasksList />} />
         <Route path="/test" element={<Test />} />
 
-        <Route path="/addmates" element={<AddMates />} />
+        <Route path="/tabs" element={<Tabs />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createaccount" element={<CreateAccount />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />

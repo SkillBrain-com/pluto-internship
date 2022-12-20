@@ -18,8 +18,8 @@ export const PoseaTasksList = () => {
       <Link underline="hover" href="../alerts">
         Alerts
       </Link>
-      <Link underline="hover" href="../addmates">
-        Add Mates
+      <Link underline="hover" href="../tabs">
+        Tabs
       </Link>
       <Link underline="hover" href="../account">
         Create Account
