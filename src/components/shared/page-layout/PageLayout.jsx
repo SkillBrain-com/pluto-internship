@@ -6,16 +6,18 @@ import SideBar from "../side-bar/SideBar";
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
-    gridTemplateColumns: "80px auto 260px",
+    gridTemplateColumns: "auto 260px",
     gap: "20px",
     width: "100%",
     backgroundColor: "#F5F7FE",
     minHeight: "100vh",
-    "@media (min-width: 1921px)": {
-      gridTemplateColumns: "290px auto 260px",
-    },
+  },
+  "& .page-main-container": {
+    display: "flex",
+    gap: "20px",
   },
   "& .page-main-col": {
+    width: "100%",
     "@media (min-width: 2561px)": {
       marginRight: "210px",
     },
@@ -25,12 +27,12 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const PageLayout = (props) => {
   return (
     <StyledBox>
-      <Box>
+      <Box className="page-main-container">
         <SideBar />
-      </Box>
-      <Box className="page-main-col">
-        <Box>Search bar</Box>
-        {props.children}
+        <Box className="page-main-col">
+          <Box>Search bar</Box>
+          {props.children}
+        </Box>
       </Box>
       <Box>Right Sidebar</Box>
     </StyledBox>
