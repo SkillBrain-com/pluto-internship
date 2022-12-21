@@ -2,12 +2,13 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Test from "./pages/TestPage";
 import TasksList from "./pages/TasksList";
-import AddMates from "./pages/AddMates";
+import Tabs from "./pages/Tabs";
 import { CreateAccount } from "./pages/CreateAccount";
 import LoginPage from "./pages/Login";
 import Avatars from "./pages/Avatars";
 import { Alerts } from "./pages/Alerts";
 import { Inputs } from "./pages/Inputs";
+import { Modals } from "./pages/Modals";
 import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import { RecoverPasswordPage } from "./pages/RecoverPasswordPage";
 import { TaskDetailsCardPage } from "./pages/TaskDetailsCardPage";
@@ -23,7 +24,7 @@ const App = () => {
         <Route path="/" element={<TasksList />} />
         <Route path="/test" element={<Test />} />
 
-        <Route path="/addmates" element={<AddMates />} />
+        <Route path="/tabs" element={<Tabs />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createaccount" element={<CreateAccount />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
@@ -32,12 +33,13 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/modals" element={<Modals />} />
 
-        {/* <Route path="/avatars" element={<Avatars />} /> */}
+        <Route path="/avatars" element={<Avatars />} />
         {/* <Route path="/alerts" element={<Alerts />} /> */}
-        {/* <Route path="/inputs" element={<Inputs />} /> */}
+        <Route path="/inputs" element={<Inputs />} />
 
-        {/* <Route path="/taskdetails" element={<TaskDetailsCardPage />} /> */}
+        <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
       </Routes>
     </div>
   );

@@ -4,6 +4,7 @@ import MuiDrawer from "@mui/material/Drawer";
 import {
   Typography,
   Box,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -11,12 +12,16 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import avatarPlaceholder from "./images/avatar.png";
-import addAvatar from "./images/add-avatar.png";
-import overviewIconPlaceholder from "./images/overview-icon-placeholder.png";
-import tasksIconPlaceholder from "./images/tasks-icon-placeholder.png";
-import settingsIconPlaceholder from "./images/settings-icon-placeholder.png";
-import activeBackground from "./images/selected-list-item.png";
+import avatarPlaceholder from "../../../assets/images/avatar.png";
+import addAvatar from "../../../assets/images/add-avatar.png";
+import activeBackground from "../../../assets/images/selected-list-item.png";
+import SvgOverview from "../../../assets/icons/icon/stroke/Overview";
+import SvgTasks from "../../../assets/icons/icon/stroke/Tasks";
+import SvgSettings from "../../../assets/icons/icon/stroke/Settings";
+import SvgOverviewFilled from "../../../assets/icons/icon/filled/Overview";
+import SvgTasksFilled from "../../../assets/icons/icon/filled/Tasks";
+import SvgSettingsFilled from "../../../assets/icons/icon/filled/Settings";
+import { useLocation } from "react-router-dom";
 
 const drawerWidth = 280;
 
@@ -71,7 +76,7 @@ const Drawer = styled(MuiDrawer, {
     color: "#666666",
     cursor: "pointer",
   },
-  "& .active .css-19wayj6-MuiTypography-root": {
+  "& .active .sidebar-list-item-text": {
     fontWeight: 700,
     color: "#3754db",
   },
@@ -97,6 +102,10 @@ const SideBar = () => {
   const handleDrawerToggle = () => {
     setOpen((open) => !open);
   };
+
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -214,44 +223,71 @@ const SideBar = () => {
                 padding: 0,
               }}
             >
-              <ListItem className="sidebar-list-item">
+              <ListItem
+                className={
+                  splitLocation[1] === "dashboard"
+                    ? "sidebar-list-item active"
+                    : "sidebar-list-item"
+                }
+              >
                 <ListItemIcon className="sidebar-list-item-icon">
-                  <img
-                    src={overviewIconPlaceholder}
-                    alt="overview icon placeholder"
-                  />
+                  {splitLocation[1] === "dashboard" ? (
+                    <SvgOverviewFilled />
+                  ) : (
+                    <SvgOverview />
+                  )}
                 </ListItemIcon>
-                <ListItemText
-                  primary="Overview"
+                <Link
+                  underline="hover"
+                  href="../dashboard"
                   className="sidebar-list-item-text"
-                />
+                >
+                  Overview
+                </Link>
               </ListItem>
-              <ListItem className="sidebar-list-item active">
+              <ListItem
+                className={
+                  splitLocation[1] === "tasks"
+                    ? "sidebar-list-item active"
+                    : "sidebar-list-item"
+                }
+              >
                 <ListItemIcon className="sidebar-list-item-icon">
-                  <img
-                    src={tasksIconPlaceholder}
-                    alt="tasks icon placeholder"
-                  />
+                  {splitLocation[1] === "tasks" ? (
+                    <SvgTasksFilled />
+                  ) : (
+                    <SvgTasks />
+                  )}
                 </ListItemIcon>
-                <ListItemText
-                  primary="Tasks"
+                <Link
+                  underline="hover"
+                  href="../tasks"
                   className="sidebar-list-item-text"
-                  sx={{
-                    fontWeight: 700,
-                  }}
-                />
+                >
+                  Tasks
+                </Link>
               </ListItem>
-              <ListItem className="sidebar-list-item">
+              <ListItem
+                className={
+                  splitLocation[1] === "settings"
+                    ? "sidebar-list-item active"
+                    : "sidebar-list-item"
+                }
+              >
                 <ListItemIcon className="sidebar-list-item-icon">
-                  <img
-                    src={settingsIconPlaceholder}
-                    alt="settings icon placeholder"
-                  />
+                  {splitLocation[1] === "settings" ? (
+                    <SvgSettingsFilled />
+                  ) : (
+                    <SvgSettings />
+                  )}
                 </ListItemIcon>
-                <ListItemText
-                  primary="Settings"
+                <Link
+                  underline="hover"
+                  href="../settings"
                   className="sidebar-list-item-text"
-                />
+                >
+                  Settings
+                </Link>
               </ListItem>
             </List>
           </Box>

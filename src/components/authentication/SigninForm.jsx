@@ -14,6 +14,9 @@ import Button from "../shared/button/Button";
 import CheckBox from "@mui/material/Checkbox";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useDispatch, useSelector } from "react-redux";
+import { logInAction } from "../../store/app/app.slice"
+
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -23,6 +26,10 @@ const validationSchema = Yup.object({
 });
 
 const SigninForm = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.app.auth.isLoading)
+
+
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
@@ -43,7 +50,7 @@ const SigninForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      dispatch(logInAction(values));
     },
   });
 
