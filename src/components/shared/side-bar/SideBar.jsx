@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import {
   Typography,
@@ -153,7 +153,7 @@ const SideBar = () => {
                 alt="avatarPlaceholder"
                 sx={{
                   width: "38px",
-                  height: "38px,",
+                  height: "38px",
                 }}
               />
             </Box>
