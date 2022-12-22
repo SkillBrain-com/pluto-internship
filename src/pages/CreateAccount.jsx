@@ -5,11 +5,14 @@ import { PoseaTasksList } from "../components/tasks-list/PoseaTasksList";
 
 export const CreateAccount = () => {
   return (
-    <Box sx={{
-  width:"100%",
-  display: "flex",
-  justifyContent: "center",
-  padding: "20px",}}>
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        padding: "20px",
+      }}
+    >
       <Stack
         spacing={3}
         direction="row"
@@ -22,6 +25,6 @@ export const CreateAccount = () => {
         <Media align="left" hasCreate={false} />
         <AuthForm align="left" hasLogin={true} />
       </Stack>
-      </Box>
+    </Box>
   );
 };
