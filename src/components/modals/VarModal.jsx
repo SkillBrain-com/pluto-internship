@@ -7,15 +7,15 @@ import LogOutModal from "./LogOutModal";
 import AddMatesModal from "./AddMatesModal";
 import EditProfileModal from "./EditProfileModal";
 import UploadProfilePictureModal from "./UploadProfilePictureModal";
-import { modalTypes, modalTypesArr } from "../../store/app/constants";
+import { modalTypes } from "../../store/app/constants";
 import { openModal, closeModal } from "../../store/app/app.slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const VarModal = (props) => {
   const { variant } = props;
   const dispatch = useDispatch();
-  const open = useSelector((state) => state.app.modal.isOpen);
-  const modalType = useSelector((state) => state.app.modal.modalType);
+  const open = useSelector((state) => state.app.ui.modal.isOpen);
+  const modalType = useSelector((state) => state.app.ui.modal.modalType);
 
   const handleClose = () => {
     dispatch(closeModal());
@@ -101,5 +101,5 @@ const VarModal = (props) => {
 export default VarModal;
 
 VarModal.propTypes = {
-  variant: PropTypes.oneOf(modalTypesArr).isRequired,
+  variant: PropTypes.oneOf(Object.keys(modalTypes)).isRequired,
 };
