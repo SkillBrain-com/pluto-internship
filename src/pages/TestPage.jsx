@@ -17,10 +17,7 @@ import ForgotPassword from "../components/shared/forgot-password/ForgotPassword"
 import Card from "../components/shared/card-component/Card-Component";
 import CheckBox from "../components/shared/check-box/CheckBox";
 import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
-<<<<<<< HEAD
 import TableComponent from "../components/shared/table-component/TableComponent";
-=======
->>>>>>> main
 import TaskDetailsCard from "../components/shared/task-details-card/TaskDetailsCard";
 
 function Test() {
