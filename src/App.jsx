@@ -36,6 +36,7 @@ const App = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/modals" element={<Modals />} />
+<<<<<<< HEAD
 
 
         <Route path="/users" element={<Users />} />
@@ -46,6 +47,14 @@ const App = () => {
 
         <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
 
+=======
+
+        <Route path="/avatars" element={<Avatars />} />
+        <Route path="/alerts" element={<Alerts />} />
+        <Route path="/inputs" element={<Inputs />} />
+
+        <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
+>>>>>>> main
       </Routes>
     </div>
   );
