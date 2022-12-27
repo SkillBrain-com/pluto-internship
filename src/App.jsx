@@ -16,6 +16,7 @@ import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
 import SearchBar from "./components/shared/searchBar";
+import SidebarRightPage from "./pages/SidebarRightPage";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/inputs" element={<Inputs />} />
 
         <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
+        <Route path="/sidebarright" element={<SidebarRightPage />} />
       </Routes>
     </div>
   );
