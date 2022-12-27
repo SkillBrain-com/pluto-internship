@@ -5,9 +5,9 @@ import Badge from "../Badge/Badge";
 import Button from "../button/Button";
 import TaskActions from "../task-actions/TaskActions";
 import AvatarWithName from "../../avatar/AvatarWithName";
-import emptyCercle from "./images/cercle-empty.png";
-import fullCercle from "./images/cercle-full.png";
-import completedCheck from "./images/completed.png";
+import emptyCercle from "../../../assets/images/cercle-empty.png";
+import fullCercle from "../../../assets/images/cercle-full.png";
+import completedCheck from "../../../assets/images/completed.png";
 
 const StyledCard = styled(Box)(({ theme }) => ({
   "&": {

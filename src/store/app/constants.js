@@ -1,10 +1,11 @@
 export const modalTypes = {
-    createTask: "CREATE_TASK",
-    editTask: "EDIT_TASK",
-    deleteTask: "DELETE_TASK",
-    logOut: "LOG_OUT",
-    logIn: "LOG_IN",
-    createProfile: "CREATE_PROFILE_FORM",
-    editProfile: "EDIT_PROFILE_FORM",
-    uploadPicture: "UPLOAD_PICTURE"
-}
+  createTask: "Create Task",
+  editTask: "Edit Task",
+  deleteTask: "Delete Task",
+  logOut: "Log Out",
+  logIn: "LOG_IN",
+  createProfile: "CREATE_PROFILE_FORM",
+  editProfile: "Edit Profile",
+  uploadPicture: "Upload Picture",
+  addTeam: "Add Team",
+};

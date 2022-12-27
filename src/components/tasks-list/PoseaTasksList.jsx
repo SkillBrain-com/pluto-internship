@@ -18,10 +18,10 @@ export const PoseaTasksList = () => {
       <Link underline="hover" href="../alerts">
         Alerts
       </Link>
-      <Link underline="hover" href="../addmates">
-        Add Mates
+      <Link underline="hover" href="../tabs">
+        Tabs
       </Link>
-      <Link underline="hover" href="../account">
+      <Link underline="hover" href="../createaccount">
         Create Account
       </Link>
       <Link underline="hover" href="../login">
@@ -30,8 +30,8 @@ export const PoseaTasksList = () => {
       <Link underline="hover" href="../inputs">
         Input
       </Link>
-      <Link underline="hover" href="../test">
-        Test
+      <Link underline="hover" href="../modals">
+        Modals
       </Link>
     </Breadcrumbs>
   );

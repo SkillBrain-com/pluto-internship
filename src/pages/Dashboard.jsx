@@ -1,22 +1,12 @@
-
-import { Stack, Box } from "@mui/material";
-import SideBar from "../components/shared/side-bar/SideBar";
-
+import React from "react";
+import PageLayout from "../components/shared/page-layout/PageLayout";
 
 const Dashboard = () => {
-
-    return (
-        <Box sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            marginLeft: "120px",
-            marginRight: "120px",
-        }}>
-            <SideBar />
-            <h1>Dash</h1>
-        </Box>
-    )
-}
+  return (
+    <PageLayout>
+      <h1>Dashboard here</h1>
+    </PageLayout>
+  );
+};
 
 export default Dashboard;
