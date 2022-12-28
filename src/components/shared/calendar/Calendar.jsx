@@ -32,6 +32,44 @@ const CustomPickersDay = styled(PickersDay, {
   }),
 }));
 
+const StyledStaticDatePicker = styled(StaticDatePicker)(({ theme }) => ({
+  "& .css-nk89i7-MuiPickersCalendarHeader-root": {
+    display: "flex",
+    flexDirection: "column",
+  },
+  "& .css-6xarxk-MuiButtonBase-root-MuiPickersDay-root": {
+    fontSize: "10px",
+    color: "#666666",
+    lineHeight: "12px",
+  },
+  "& .css-6xarxk-MuiButtonBase-root-MuiPickersDay-root": {
+    backgroundColor: "#F5F7FE",
+  },
+  "& .css-gm57ev-MuiTypography-root-MuiDayPicker-weekDayLabel": {
+    fontSize: "10px",
+    color: "#666666",
+    lineHeight: "12px",
+  },
+  "& .css-i4bv87-MuiSvgIcon-root": {
+    backgroundColor: "#000000",
+    borderRadius: "50%",
+  },
+  "& .css-i4bv87-MuiSvgIcon-root > path": {
+    color: "white",
+  },
+  "& .css-xelq0e-MuiPickerStaticWrapper-content": {
+    width: "218px",
+    backgroundColor: "#F5F7FE",
+    borderRadius: "12px",
+  },
+  "& .css-ghi3gg-MuiDayPicker-weekContainer": {
+    width: "218px",
+  },
+  "& .css-qklzlb-MuiDayPicker-header": {
+    width: "218px",
+  },
+}));
+
 const CustomDay = () => {
   const [value, setValue] = React.useState(dayjs("2022-04-07"));
 
@@ -60,7 +98,7 @@ const CustomDay = () => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <StaticDatePicker
+      <StyledStaticDatePicker
         displayStaticWrapperAs="desktop"
         label="Week picker"
         value={value}
@@ -70,6 +108,7 @@ const CustomDay = () => {
         renderDay={renderWeekPickerDay}
         renderInput={(params) => <TextField {...params} />}
         inputFormat="'Week of' MMM d"
+        LeftArrowButton={{ color: "red" }}
       />
     </LocalizationProvider>
   );

@@ -14,9 +14,7 @@ const SidebarRightPage = () => {
         backgroundColor: "#F6F8FD",
       }}
     >
-      <SidebarRight>
-        <Calendar></Calendar>
-      </SidebarRight>
+      <SidebarRight></SidebarRight>
     </Box>
   );
 };

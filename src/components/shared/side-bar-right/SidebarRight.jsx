@@ -1,6 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Calendar from "../calendar/Calendar";
+import { Style } from "@mui/icons-material";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   width: "258px",
@@ -11,7 +13,11 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const SidebarRight = () => {
-  return <StyledBox />;
+  return (
+    <StyledBox>
+      <Calendar></Calendar>
+    </StyledBox>
+  );
 };
 
 export default SidebarRight;

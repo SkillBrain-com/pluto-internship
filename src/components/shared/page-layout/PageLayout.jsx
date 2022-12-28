@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SideBar from "../side-bar/SideBar";
+import SidebarRight from "../side-bar-right/SidebarRight";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
@@ -34,7 +35,7 @@ const PageLayout = (props) => {
           {props.children}
         </Box>
       </Box>
-      <Box>Right Sidebar</Box>
+      <SidebarRight />
     </StyledBox>
   );
 };
