@@ -17,6 +17,8 @@ import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
 import SearchBar from "./components/shared/searchBar";
 import SidebarRightPage from "./pages/SidebarRightPage";
+import Users from "./pages/Users";
+import Badges from "./pages/Badges";
 
 const App = () => {
   return (
@@ -36,6 +38,8 @@ const App = () => {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/modals" element={<Modals />} />
 
+        <Route path="/users" element={<Users />} />
+        <Route path="/badges" element={<Badges />} />
         <Route path="/avatars" element={<Avatars />} />
         <Route path="/alerts" element={<Alerts />} />
         <Route path="/inputs" element={<Inputs />} />
