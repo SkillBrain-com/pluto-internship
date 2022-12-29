@@ -2,6 +2,69 @@ import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TaskCard from "../task-card/TaskCard";
+import EmptyListMessage from "../empty-list-message/EmptyListMessage";
+
+const fakeDataEmpty = [];
+const fakeData = [
+  {
+    id: "T-1",
+    title: "Create a Design System for Enum Workspace.",
+    status: "In Progress",
+    dueDate: new Date(2022, 5, 23),
+  },
+  {
+    id: "T-2",
+    title: "12 Create a Design System for Enum Workspace.",
+    status: "In Progress",
+    dueDate: new Date(2022, 7, 24),
+  },
+  {
+    id: "T-3",
+    title: "13 Create a Design System for Enum Workspace.",
+    status: "Completed",
+    dueDate: new Date(2022, 6, 13),
+  },
+  {
+    id: "T-4",
+    title: "14 Create a Design System for Enum Workspace.",
+    status: "Pending",
+    dueDate: new Date(2022, 5, 23),
+  },
+  {
+    id: "T-5",
+    title: "15 Create a Design System for Enum Workspace.",
+    status: "Completed",
+    dueDate: new Date(2022, 6, 13),
+  },
+  {
+    id: "T-6",
+    title: "Create a Design System for Enum Workspace.",
+    status: "Unasigned",
+    dueDate: new Date(2022, 5, 23),
+  },
+  {
+    id: "T-7",
+    title: "16 Create a Design System for Enum Workspace.",
+    status: "In Review",
+    dueDate: new Date(2022, 5, 23),
+  },
+];
+
+const renderTasks = (data) => {
+  if (data.length > 0) {
+    let displayedItems = data.map((item) => (
+      <TaskCard
+        key={item.id}
+        id={item.id}
+        status={item.status}
+        title={item.title}
+      />
+    ));
+    return displayedItems;
+  } else {
+    return <EmptyListMessage />;
+  }
+};
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
@@ -13,59 +76,12 @@ const StyledBox = styled(Box)(({ theme }) => ({
     minHeight: "100vh",
     gap: "auto",
     rowGap: "20px",
+    position: "relative",
   },
 }));
 
 const TaskViewer = () => {
-  return (
-    <StyledBox>
-      <TaskCard status="Unasigned" title="Design a system for Enum workspace" />
-      <TaskCard
-        status="Pending"
-        title="Design a system for Enum workspace doi"
-      />
-      <TaskCard
-        status="In Progress"
-        title="Design a system for Enum workspace trei"
-      />
-      <TaskCard
-        status="In Review"
-        title="Design a system for Enum workspace patru"
-      />
-      <TaskCard
-        status="Completed"
-        title="Design a system for Enum workspace cinci"
-      />
-      <TaskCard
-        status="Pending"
-        title="Design a system for Enum workspace sase"
-      />
-      <TaskCard
-        status="In Progress"
-        title="Design a system for Enum workspace sapte"
-      />
-      <TaskCard
-        status="Completed"
-        title="Design a system for Enum workspace opt"
-      />
-      <TaskCard
-        status="In Review"
-        title="Design a system for Enum workspace noua"
-      />
-      <TaskCard
-        status="Unasigned"
-        title="Design a system for Enum workspace zece"
-      />
-      <TaskCard
-        status="In Progress"
-        title="Design a system for Enum workspace unsprezece"
-      />
-      <TaskCard
-        status="Completed"
-        title="Design a system for Enum workspace doisprezece"
-      />
-    </StyledBox>
-  );
+  return <StyledBox>{renderTasks(fakeDataEmpty)}</StyledBox>;
 };
 
 export default TaskViewer;

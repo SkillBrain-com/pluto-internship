@@ -79,12 +79,12 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const TaskCard = ({ status, title }) => {
+const TaskCard = ({ status, title, id }) => {
   return (
     <StyledBox>
       <Box className="card-header">
         <Box>
-          <Typography className="card-id">T-01</Typography>
+          <Typography className="card-id">{id}</Typography>
         </Box>
         <Badge
           variant="standard"
