@@ -81,7 +81,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const TaskViewer = () => {
-  return <StyledBox>{renderTasks(fakeDataEmpty)}</StyledBox>;
+  return <StyledBox>{renderTasks(fakeData)}</StyledBox>;
 };
 
 export default TaskViewer;
