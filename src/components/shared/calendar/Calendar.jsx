@@ -57,17 +57,25 @@ const StyledStaticDatePicker = styled(StaticDatePicker)(({ theme }) => ({
   "& .css-i4bv87-MuiSvgIcon-root > path": {
     color: "white",
   },
-  "& .css-xelq0e-MuiPickerStaticWrapper-content": {
-    width: "218px",
-    backgroundColor: "#F5F7FE",
-    borderRadius: "12px",
-  },
-  "& .css-ghi3gg-MuiDayPicker-weekContainer": {
-    width: "218px",
-  },
-  "& .css-qklzlb-MuiDayPicker-header": {
-    width: "218px",
-  },
+  // "& .css-1hdrvp3-MuiPickerStaticWrapper-root": {
+  //   width: "218px",
+  //   backgroundColor: "#F5F7FE",
+  //   borderRadius: "12px",
+  // },
+  // "& .css-ghi3gg-MuiDayPicker-weekContainer": {
+  //   width: "218px",
+  // },
+  // "& .css-qklzlb-MuiDayPicker-header": {
+  //   width: "218px",
+  // },
+  // "& .css-epd502": {
+  //   width: "218px",
+  //   margin: 0,
+  //   backgroundColor: "#F5F7FE",
+  // },
+  // "& .css-xelq0e-MuiPickerStaticWrapper-content": {
+  //   width: "218px",
+  // },
 }));
 
 const CustomDay = () => {
@@ -106,7 +114,9 @@ const CustomDay = () => {
           setValue(newValue);
         }}
         renderDay={renderWeekPickerDay}
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params) => (
+          <TextField {...params} sx={{ width: "100%" }} />
+        )}
         inputFormat="'Week of' MMM d"
         LeftArrowButton={{ color: "red" }}
       />
