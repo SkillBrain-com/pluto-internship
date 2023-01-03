@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Calendar from "../calendar/Calendar";
 import CalendarReact from "../calendar-react/CalendarReact";
 import { Avatar } from "../../avatar/Avatar";
 import Button from "../button/Button";
@@ -21,9 +20,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const StyledAvatar = styled(Avatar)(({ theme }) => ({
   marginBottom: "96px !important",
 }));
-
-const Username = "Alexandra Buta";
-const Email = "email@email.com";
 
 const NameTypography = styled(Typography)(({ theme }) => ({
   fontWeight: "700",
@@ -55,22 +51,22 @@ const MyProfileButton = styled(Button)(({ theme }) => ({
   whiteSpace: "nowrap",
 }));
 
-const SidebarRight = () => {
+const SidebarRight = (props) => {
+  const name = props.userInfo.fullName.split(" ");
   return (
     <Box>
       <StyledBox>
         <StyledAvatar
           variant="initials"
-          firstName="Alexandra"
-          lastName="Buta"
+          firstName={name[0]}
+          lastName={name[1]}
         />
 
-        <NameTypography>{Username}</NameTypography>
-        <MailTypography>{Email}</MailTypography>
+        <NameTypography>{props.userInfo.fullName}</NameTypography>
+        <MailTypography>{props.userInfo.email}</MailTypography>
         <MyProfileButton size="medium" variant="contained">
           My Profile
         </MyProfileButton>
-        <Calendar></Calendar>
         <CalendarReact></CalendarReact>
       </StyledBox>
     </Box>

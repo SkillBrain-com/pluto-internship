@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SideBar from "../side-bar/SideBar";
 import SidebarRight from "../side-bar-right/SidebarRight";
+import { useSelector } from "react-redux";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
@@ -26,6 +27,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const PageLayout = (props) => {
+  const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
   return (
     <StyledBox>
       <Box className="page-main-container">
@@ -35,7 +37,7 @@ const PageLayout = (props) => {
           {props.children}
         </Box>
       </Box>
-      <SidebarRight />
+      <SidebarRight userInfo={data} />
     </StyledBox>
   );
 };
