@@ -4,13 +4,18 @@ import SearchBar from "../searchBar";
 import SvgNotification from "../../../assets/icons/icon/stroke/Notification";
 import AccountSettingsCard from "./AccountSettingsCard";
 import Button from "../button/Button"
+import { ColorButton } from "../button/Button";
 import NotificationSettingsCard from "./NotificationSettingsCard";
+import VarModal from "../../modals/VarModal";
 
 
 
-
-const AccountSettingsWrapper = (props) => {
+const AccountSettingsWrapper = () => {
    
+    const pushLogOutBtn = () => {
+        <VarModal variant="logOut"/>
+    }
+
     return (
     
     <Box
@@ -43,7 +48,7 @@ const AccountSettingsWrapper = (props) => {
                 top: "25px",
             }}>
 
-            <SearchBar />
+            {/* <SearchBar /> */}
 
             <Box 
             sx={{
@@ -58,28 +63,27 @@ const AccountSettingsWrapper = (props) => {
         </Box>
         
         <Box 
-            sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: "15px 74px",
-                gap: "10px",
+             sx={{
+                position:"absolute", 
+                left:"650px",
+                top:"100px",
 
-                position: "absolute",
-                width: "125px",
-                height: "49px",
-                left: "706px",
-                top: "177px",
-
-                background: "#B80020",
-                borderRadius: "12px",
+                //  background: "red",
+            //     borderRadius: "12px",
             }}>
-                    <Button sx={{color: "white"}} variant="logout">
-                        Log Out
-                    </Button>
+                    <ColorButton 
+                        onClick={pushLogOutBtn()}
+                        sx={{   width: "160px", 
+                                borderRadius: "12px", 
+                                height:"54px" }} 
+                        variant="contained">
+                            
+                            Log Out
+                    </ColorButton>
 
         </Box>
+        
+        
         <Box 
             sx={{
                 display: "flex",
@@ -97,8 +101,7 @@ const AccountSettingsWrapper = (props) => {
                 }}>
                 {/* <SearchBar /> */}
                 <h1>Settings</h1>
-            
-
+               
                 <AccountSettingsCard />
                 <NotificationSettingsCard />
             </Box>

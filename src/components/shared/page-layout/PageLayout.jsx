@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SideBar from "../side-bar/SideBar";
+import AccountSettingsWrapper from "../account-settings-wrapper/AccountSettingsWrapper";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
@@ -29,9 +30,11 @@ const PageLayout = (props) => {
     <StyledBox>
       <Box className="page-main-container">
         <SideBar />
+        
         <Box className="page-main-col">
           <Box>Search bar</Box>
           {props.children}
+          <AccountSettingsWrapper />
         </Box>
       </Box>
       <Box>Right Sidebar</Box>

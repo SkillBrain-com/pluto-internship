@@ -1,10 +1,11 @@
 import React from "react";
 import PageLayout from "../components/shared/page-layout/PageLayout";
+import AccountSettingsWrapper from "../components/shared/account-settings-wrapper/AccountSettingsWrapper";
 
 const Settings = () => {
   return (
     <PageLayout>
-      <h1>SETIING PAGE</h1>
+      <AccountSettingsWrapper />
     </PageLayout>
   );
 };
