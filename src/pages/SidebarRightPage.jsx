@@ -1,7 +1,6 @@
 import React from "react";
 import SidebarRight from "../components/shared/side-bar-right/SidebarRight";
 import { Box } from "@mui/system";
-import Calendar from "../components/shared/calendar/Calendar";
 
 const SidebarRightPage = () => {
   return (
