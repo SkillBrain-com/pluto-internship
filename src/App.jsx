@@ -19,6 +19,7 @@ import SearchBar from "./components/shared/searchBar";
 import SidebarRightPage from "./pages/SidebarRightPage";
 import Users from "./pages/Users";
 import Badges from "./pages/Badges";
+import TasksBoard from "./pages/TasksBoard";
 
 const App = () => {
   return (
@@ -43,7 +44,7 @@ const App = () => {
         <Route path="/avatars" element={<Avatars />} />
         <Route path="/alerts" element={<Alerts />} />
         <Route path="/inputs" element={<Inputs />} />
-
+        <Route path="/tasks-board" element={<TasksBoard />} />
         <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
         <Route path="/sidebarright" element={<SidebarRightPage />} />
       </Routes>

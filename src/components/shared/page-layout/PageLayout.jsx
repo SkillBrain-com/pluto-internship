@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
-    gridTemplateColumns: "auto 260px",
+    gridTemplateColumns: "auto 280px",
     gap: "20px",
     width: "100%",
     backgroundColor: "#F5F7FE",
