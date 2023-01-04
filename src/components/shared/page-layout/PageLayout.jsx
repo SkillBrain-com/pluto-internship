@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import SideBar from "../side-bar/SideBar";
 import SidebarRight from "../side-bar-right/SidebarRight";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
@@ -27,7 +28,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const PageLayout = (props) => {
-  const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
+  // const [data, setData] = useState([]);
+  // setData( useSelector((state) => state.app.auth.loggedUser.userInfo));
+  const data = useSelector((state) => state.app.auth.loggedUser.userInfo)
   return (
     <StyledBox>
       <Box className="page-main-container">

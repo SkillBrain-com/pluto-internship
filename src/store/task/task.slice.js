@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = "https://semicolon-task-manager.herokuapp.com";
 
 const initialState = {
   isLoading: false,
