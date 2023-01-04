@@ -9,7 +9,7 @@ import { useState } from "react";
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
-    gridTemplateColumns: "auto 260px",
+    gridTemplateColumns: "auto 280px",
     gap: "20px",
     width: "100%",
     backgroundColor: "#F5F7FE",
@@ -30,7 +30,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const PageLayout = (props) => {
   // const [data, setData] = useState([]);
   // setData( useSelector((state) => state.app.auth.loggedUser.userInfo));
-  const data = useSelector((state) => state.app.auth.loggedUser.userInfo)
+  const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
   return (
     <StyledBox>
       <Box className="page-main-container">
