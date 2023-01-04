@@ -1,5 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
+import ToggleSwitch from "../toggle-switch/ToggleSwitch";
 
 
 const NotificationSettingsCard = () => {
@@ -44,7 +45,62 @@ const NotificationSettingsCard = () => {
                     background: "#FFFFFF",
                     borderRadius: "16px",
                 }}>
-                   
+                <Box 
+                    sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "12px",
+                        width: "735px",
+                        height: "56px",
+                        marginTop: "20px",
+                        marginLeft: "20px",
+
+                        background: "#FBFBFE",
+                        border: "0.2px solid #A6A5A5",
+                        borderRadius: "16px",
+
+                        /* Inside auto layout */
+
+                        flex: "none",
+                        order: "0",
+                        alignSelf: "stretch",
+                        flexGrow: "0",
+                    }}>
+                        <span>
+                            <strong>Allow Desktop Notification</strong>
+                            <ToggleSwitch defaultChecked/>
+                        </span>
+                    </Box>   
+                    <Box 
+                    sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "12px",
+                        width: "735px",
+                        height: "56px",
+                        marginTop: "20px",
+                        marginLeft: "20px",
+
+                        background: "#FBFBFE",
+                        border: "0.2px solid #A6A5A5",
+                        borderRadius: "16px",
+
+                        /* Inside auto layout */
+
+                        flex: "none",
+                        order: "0",
+                        alignSelf: "stretch",
+                        flexGrow: "0",
+                    }}>
+                        <span>
+                            <strong>Send Critical Notification to My Email</strong>
+                            <ToggleSwitch />
+                        </span>
+                    </Box>  
 
             </Box>
 
