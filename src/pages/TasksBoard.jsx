@@ -14,11 +14,13 @@ const TasksBoard = () => {
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchTasksAction());
-  }, []);
+  }, [dispatch]);
 
   const tasks = useSelector((state) => state.entities.tasks.data);
   const theTask = tasks.filter((tasks, id) => tasks.id === id);
-  console.log("THE TASK:", theTask);
+  console.log("tasks:", tasks);
+  console.log("THE id:", id);
+  console.log("FILTERED TASKs:", theTask);
   return (
     <PageLayout>
       <Breadcrumbs
