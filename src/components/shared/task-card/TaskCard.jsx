@@ -97,7 +97,9 @@ const TaskCard = ({ status, title, id }) => {
         <Typography className="card-title">{title}</Typography>
       </Box>
       <Box className="card-footer">
-        <Link className="card-link">View Task </Link>
+        <Link className="card-link" href="/tasks-board/:id">
+          View Task{" "}
+        </Link>
         <img
           src={arrowRight}
           alt="view task"
