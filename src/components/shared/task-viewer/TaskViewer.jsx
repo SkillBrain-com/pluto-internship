@@ -7,46 +7,34 @@ import EmptyListMessage from "../empty-list-message/EmptyListMessage";
 const fakeDataEmpty = [];
 const fakeData = [
   {
-    id: "T-1",
+    id: "1",
     title: "Create a Design System for Enum Workspace.",
     status: "In Progress",
     dueDate: new Date(2022, 5, 23),
   },
   {
-    id: "T-2",
+    id: "2",
     title: "12 Create a Design System for Enum Workspace.",
     status: "In Progress",
     dueDate: new Date(2022, 7, 24),
   },
   {
-    id: "T-3",
+    id: "3",
     title: "13 Create a Design System for Enum Workspace.",
     status: "Completed",
     dueDate: new Date(2022, 6, 13),
   },
   {
-    id: "T-4",
+    id: "4",
     title: "14 Create a Design System for Enum Workspace.",
     status: "Pending",
     dueDate: new Date(2022, 5, 23),
   },
   {
-    id: "T-5",
+    id: "5",
     title: "15 Create a Design System for Enum Workspace.",
     status: "Completed",
     dueDate: new Date(2022, 6, 13),
-  },
-  {
-    id: "T-6",
-    title: "Create a Design System for Enum Workspace.",
-    status: "Unasigned",
-    dueDate: new Date(2022, 5, 23),
-  },
-  {
-    id: "T-7",
-    title: "16 Create a Design System for Enum Workspace.",
-    status: "In Review",
-    dueDate: new Date(2022, 5, 23),
   },
 ];
 

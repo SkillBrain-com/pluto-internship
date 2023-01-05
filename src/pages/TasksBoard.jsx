@@ -1,14 +1,24 @@
 import React from "react";
-import { Breadcrumbs, Box, IconButton, Link, Typography } from "@mui/material";
+import { Breadcrumbs, IconButton, Link, Typography } from "@mui/material";
 import PageLayout from "../components/shared/page-layout/PageLayout";
 import TaskDetailsCard from "../components/shared/task-details-card/TaskDetailsCard";
 import arrowLeft from "../assets/images/arrow-left.png";
 import { Link as RouterLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { fetchTasksAction } from "../store/task/task.slice";
+import { useDispatch, useSelector } from "react-redux";
 
 const TasksBoard = () => {
   const { id } = useParams();
 
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchTasksAction());
+  }, []);
+
+  const tasks = useSelector((state) => state.entities.tasks.data);
+  const theTask = tasks.filter((tasks, id) => tasks.id === id);
+  console.log("THE TASK:", theTask);
   return (
     <PageLayout>
       <Breadcrumbs
@@ -46,7 +56,14 @@ const TasksBoard = () => {
           }}
         />
       </IconButton>
-      <TaskDetailsCard status="Unasigned" userRole="other" />
+      <TaskDetailsCard
+        title={theTask[0].title}
+        description={theTask[0].description}
+        createdAt={theTask[0].createdAt}
+        dueDate={theTask[0].dueDate}
+        status="Unasigned"
+        userRole="other"
+      />
     </PageLayout>
   );
 };

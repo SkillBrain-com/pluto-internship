@@ -312,13 +312,20 @@ const renderSwitch = (status, userRole) => {
   }
 };
 
-const TaskDetailsCard = ({ status, userRole }) => {
+const TaskDetailsCard = ({
+  title,
+  description,
+  createdAt,
+  dueDate,
+  status,
+  userRole,
+}) => {
   return (
     <StyledCard>
       <Box>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            Create a Design System for Enum Workspace.
+            {title}
           </Typography>
           <Box>
             <Badge
@@ -330,8 +337,7 @@ const TaskDetailsCard = ({ status, userRole }) => {
             {renderRoles(status, userRole)}
           </Box>
           <Typography variant="body1" className="card-details-content-text">
-            I am to create a simple design system to use to teach aspiring UI /
-            UX Designers in my forth-coming cass on the 2nd of october 20201
+            {description}
           </Typography>
         </CardContent>
         {renderSwitch(status, userRole)}
@@ -344,13 +350,13 @@ const TaskDetailsCard = ({ status, userRole }) => {
             <Typography variant="subtitle1" className="date-title">
               Date Created
             </Typography>
-            <Typography variant="subtitle2">24/11/22</Typography>
+            <Typography variant="subtitle2">{createdAt}</Typography>
           </Box>
           <Box>
             <Typography variant="subtitle1" className="date-title">
               Due Date
             </Typography>
-            <Typography variant="subtitle2">29/12/22</Typography>
+            <Typography variant="subtitle2">{dueDate}</Typography>
           </Box>
         </Box>
       </Box>
