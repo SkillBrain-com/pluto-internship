@@ -4,8 +4,11 @@ import PageLayout from "../components/shared/page-layout/PageLayout";
 import TaskDetailsCard from "../components/shared/task-details-card/TaskDetailsCard";
 import arrowLeft from "../assets/images/arrow-left.png";
 import { Link as RouterLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const TasksBoard = () => {
+  const { id } = useParams();
+
   return (
     <PageLayout>
       <Breadcrumbs
@@ -31,7 +34,7 @@ const TasksBoard = () => {
         >
           Tasks
         </Link>
-        <Typography>Tasks name</Typography>
+        <Typography variant="body2">{id}</Typography>
       </Breadcrumbs>
       <IconButton sx={{ padding: "20px" }} component={RouterLink} to="/tasks">
         <img
