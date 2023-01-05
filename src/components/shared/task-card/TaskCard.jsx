@@ -6,18 +6,35 @@ import arrowRight from "../../../assets/images/arrow-right.png";
 
 const selectBadgeColor = (status) => {
   switch (status) {
-    case "Unasigned":
+    case "UNNASIGNED":
       return "unassigned";
-    case "Pending":
+    case "PENDING":
       return "pending";
-    case "In Progress":
+    case "IN_PROGRESS":
       return "inProgress";
-    case "In Review":
+    case "IN_REVIEW":
       return "inReview";
-    case "Completed":
+    case "COMPLETED":
       return "completed";
     default:
       return "inProgress";
+  }
+};
+
+const renderBadgeStatus = (status) => {
+  switch (status) {
+    case "UNNASIGNED":
+      return "Unasigned";
+    case "PENDING":
+      return "Pending";
+    case "IN_PROGRESS":
+      return "In Progress";
+    case "IN_REVIEW":
+      return "In Review";
+    case "COMPLETED":
+      return "Completed";
+    default:
+      return "In Progress";
   }
 };
 
@@ -88,7 +105,7 @@ const TaskCard = ({ status, title, id }) => {
         </Box>
         <Badge
           variant="standard"
-          badgeContent={status}
+          badgeContent={renderBadgeStatus(status)}
           color={selectBadgeColor(status)}
           sx={{ marginRight: "40px", marginTop: "5px" }}
         ></Badge>

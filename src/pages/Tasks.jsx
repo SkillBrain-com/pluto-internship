@@ -1,31 +1,17 @@
+import React from "react";
 import { useState } from "react";
 import PageLayout from "../components/shared/page-layout/PageLayout";
 import TaskViewer from "../components/shared/task-viewer/TaskViewer";
+import { fetchTasksAction } from "../store/task/task.slice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Tasks = () => {
-  const [fakeStatus, setFakeStatus] = useState([
-    "Progress",
-    "In progress",
-    "Complete",
-  ]);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchTasksAction());
+  }, [dispatch]);
 
-  const [fakeTask, SetFakeTask] = useState([
-    {
-      id: 1,
-      name: "Create task 1",
-      status: fakeStatus[0],
-    },
-    {
-      id: 2,
-      name: "Create task 2",
-      status: fakeStatus[1],
-    },
-    {
-      id: 3,
-      name: "Create task 3",
-      status: fakeStatus[2],
-    },
-  ]);
+  const tasks = useSelector((state) => state.entities.tasks.data);
 
   return (
     <PageLayout>
@@ -33,7 +19,7 @@ const Tasks = () => {
         Titlu , search bar , taburi + taskviewer + right bar cu calder pick si
         numele tau si mail
       </p>
-      <TaskViewer />
+      <TaskViewer tasksData={tasks} />
 
       {/* la click pe task => redirect in TaskCardDetailsPage link task/1 etc  */}
       {/* + Create task modala de create #florin  si edit si delete */}
