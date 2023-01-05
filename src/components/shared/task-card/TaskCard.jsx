@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { Typography, Box, Link } from "@mui/material";
+import { Typography, Box, Link, IconButton } from "@mui/material";
 import Badge from "../Badge/Badge";
 import arrowRight from "../../../assets/images/arrow-right.png";
 
@@ -97,17 +97,26 @@ const TaskCard = ({ status, title, id }) => {
         <Typography className="card-title">{title}</Typography>
       </Box>
       <Box className="card-footer">
-        <Link className="card-link" href="/tasks-board/:id">
-          View Task{" "}
-        </Link>
-        <img
-          src={arrowRight}
-          alt="view task"
+        <Link
+          className="card-link"
+          href={`/tasks-board/${id}`}
           sx={{
-            width: "20px",
-            height: "20px",
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            gap: "15px",
           }}
-        />
+        >
+          View Task
+          <img
+            src={arrowRight}
+            alt="view task"
+            sx={{
+              width: "20px",
+              height: "20px",
+            }}
+          />
+        </Link>
       </Box>
     </StyledBox>
   );
