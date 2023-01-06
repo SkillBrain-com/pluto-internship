@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Breadcrumbs, IconButton, Link, Typography } from "@mui/material";
 import PageLayout from "../components/shared/page-layout/PageLayout";
 import TaskDetailsCard from "../components/shared/task-details-card/TaskDetailsCard";
@@ -9,18 +9,20 @@ import { fetchTasksAction } from "../store/task/task.slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const TasksBoard = () => {
-  const { id } = useParams();
+  const params = useParams();
+  console.log("PARAMS:", params.id);
 
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchTasksAction());
   }, [dispatch]);
 
-  const tasks = useSelector((state) => state.entities.tasks.data);
-  const theTask = tasks.filter((tasks, id) => tasks.id === id);
+  const tasks = useSelector((state) =>
+    state.entities.tasks.data.find((item) => item.id === parseInt(params.id))
+  );
+
   console.log("tasks:", tasks);
-  console.log("THE id:", id);
-  console.log("FILTERED TASKs:", theTask);
+
   return (
     <PageLayout>
       <Breadcrumbs
@@ -46,7 +48,7 @@ const TasksBoard = () => {
         >
           Tasks
         </Link>
-        <Typography variant="body2">{id}</Typography>
+        <Typography variant="body2">{params.id}</Typography>
       </Breadcrumbs>
       <IconButton sx={{ padding: "20px" }} component={RouterLink} to="/tasks">
         <img
@@ -59,10 +61,10 @@ const TasksBoard = () => {
         />
       </IconButton>
       <TaskDetailsCard
-        title={theTask[0].title}
-        description={theTask[0].description}
-        createdAt={theTask[0].createdAt}
-        dueDate={theTask[0].dueDate}
+        title={tasks.title}
+        description={tasks.description}
+        createdAt={tasks.createdAt}
+        dueDate={tasks.dueDate}
         status="Unasigned"
         userRole="other"
       />
