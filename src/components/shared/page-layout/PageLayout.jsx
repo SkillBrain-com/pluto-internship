@@ -30,7 +30,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const PageLayout = (props) => {
   // const [data, setData] = useState([]);
   // setData( useSelector((state) => state.app.auth.loggedUser.userInfo));
-  const data = useSelector((state) => state.app.auth.loggedUser.userInfo)
+  const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
   return (
     <StyledBox>
       <Box className="page-main-container">

@@ -4,40 +4,6 @@ import { styled } from "@mui/material/styles";
 import TaskCard from "../task-card/TaskCard";
 import EmptyListMessage from "../empty-list-message/EmptyListMessage";
 
-const fakeDataEmpty = [];
-const fakeData = [
-  {
-    id: "1",
-    title: "Create a Design System for Enum Workspace.",
-    status: "In Progress",
-    dueDate: new Date(2022, 5, 23),
-  },
-  {
-    id: "2",
-    title: "12 Create a Design System for Enum Workspace.",
-    status: "In Progress",
-    dueDate: new Date(2022, 7, 24),
-  },
-  {
-    id: "3",
-    title: "13 Create a Design System for Enum Workspace.",
-    status: "Completed",
-    dueDate: new Date(2022, 6, 13),
-  },
-  {
-    id: "4",
-    title: "14 Create a Design System for Enum Workspace.",
-    status: "Pending",
-    dueDate: new Date(2022, 5, 23),
-  },
-  {
-    id: "5",
-    title: "15 Create a Design System for Enum Workspace.",
-    status: "Completed",
-    dueDate: new Date(2022, 6, 13),
-  },
-];
-
 const renderTasks = (data) => {
   if (data.length > 0) {
     let displayedItems = data.map((item) => (
@@ -68,8 +34,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const TaskViewer = () => {
-  return <StyledBox>{renderTasks(fakeData)}</StyledBox>;
+const TaskViewer = ({ tasksData }) => {
+  return <StyledBox>{renderTasks(tasksData)}</StyledBox>;
 };
 
 export default TaskViewer;
