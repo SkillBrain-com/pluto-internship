@@ -4,6 +4,16 @@ import Badge from "@mui/material/Badge";
 import PropTypes from "prop-types";
 import { AntTab } from "./AntTab.styles";
 import { AntTabs } from "./AntTabs.styles";
+import { useDispatch, useSelector } from "react";
+import { fetchTasksAction } from "../../store/task/task.slice";
+
+const CountPendingTasks = (data) => {
+  let pending = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data.status === "Pending") pending = pending + 1;
+  }
+  return pending;
+};
 
 const STATIC_TAB_LIST = [
   "Tab 1",
@@ -31,6 +41,16 @@ export default function CustomTabs({ type }) {
     setValue(newValue);
   };
 
+  //trying to count pending tasks
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchTasksAction());
+  }, [dispatch]);
+
+  const tasks = useSelector((state) => state.entities.tasks.data);
+  const pendingTasks = CountPendingTasks(tasks);
+  //trying to count pending tasks
+
   return type ? (
     <Box>
       <AntTabs value={value} onChange={handleChange}>
@@ -39,7 +59,7 @@ export default function CustomTabs({ type }) {
             <AntTab
               key={item.id}
               label={item.id}
-              icon={<Badge badgeContent={item.nr} color="primary" />}
+              icon={<Badge badgeContent={pendingTasks} color="primary" />}
               iconPosition="end"
             />
           );
