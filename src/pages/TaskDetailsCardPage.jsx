@@ -11,22 +11,105 @@ export const TaskDetailsCardPage = () => {
       padding="40px"
       sx={{ backgroundColor: "#f5f7fe" }}
     >
-      <TaskDetailsCard status="Unasigned" userRole="assigner" />
-      <TaskDetailsCard status="Unasigned" userRole="other" />
+      <TaskDetailsCard
+        status="Unasigned"
+        userRole="assigner"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="Unasigned"
+        userRole="other"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
 
-      <TaskDetailsCard status="Pending" userRole="developer" />
-      <TaskDetailsCard status="Pending" userRole="assigner" />
-      <TaskDetailsCard status="Pending" userRole="other" />
+      <TaskDetailsCard
+        status="Pending"
+        userRole="developer"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="Pending"
+        userRole="assigner"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="Pending"
+        userRole="other"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
 
-      <TaskDetailsCard status="In Progress" userRole="developer" />
-      <TaskDetailsCard status="In Progress" userRole="assigner" />
-      <TaskDetailsCard status="In Progress" userRole="other" />
+      <TaskDetailsCard
+        status="In Progress"
+        userRole="developer"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="In Progress"
+        userRole="assigner"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="In Progress"
+        userRole="other"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
 
-      <TaskDetailsCard status="In Review" userRole="developer" />
-      <TaskDetailsCard status="In Review" userRole="assigner" />
-      <TaskDetailsCard status="In Review" userRole="other" />
+      <TaskDetailsCard
+        status="In Review"
+        userRole="developer"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="In Review"
+        userRole="assigner"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
+      <TaskDetailsCard
+        status="In Review"
+        userRole="other"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
 
-      <TaskDetailsCard status="Completed" />
+      <TaskDetailsCard
+        status="Completed"
+        title="Create a design system form Enum Workspce"
+        description="Lorem ipsum sit dolor met lorem ipsum"
+        createdAt="22/03/22"
+        dueDate="30/01/23"
+      />
     </Stack>
   );
 };
