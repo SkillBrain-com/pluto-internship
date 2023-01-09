@@ -20,6 +20,10 @@ export const ButaTasksList = () => {
         Badge component
       </Link>
 
+      <Link underline="hover" href="../dashboard">
+        Sidebar Right
+      </Link>
+
       <Link underline="hover" href="../test">
         Test
       </Link>

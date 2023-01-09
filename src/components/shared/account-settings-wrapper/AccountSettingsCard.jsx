@@ -1,11 +1,11 @@
+
 import React from "react";
 import { Box } from "@mui/material";
 import SvgProfile from "../../../assets/icons/Profile";
 import SvgMessage from "../../../assets/icons/Message";
-import Button from "../button/Button"
 
 
-const AccountSettingsCard = () => {
+const AccountSettingsCard = (props) => {
 
     return (
         <Box
@@ -73,7 +73,7 @@ const AccountSettingsCard = () => {
                         order: "0",
                         flexGrow: "0",
                     }}>
-                        <SvgProfile /> <p>FullName</p>
+                        <SvgProfile /> <p>{props.userData.fullName}</p>
                         
 
                 </Box>
@@ -99,7 +99,7 @@ const AccountSettingsCard = () => {
                         flexGrow: "0",
                     }}>
                         <SvgMessage />
-                        <p>Email</p>
+                        <p>{props.userData.email}</p>
                         
                 </Box>
                 <Box sx={{
@@ -125,17 +125,6 @@ const AccountSettingsCard = () => {
                         flexGrow: "0",
                 }}>
                     <p>Password</p>
-                </Box>
-                <Box 
-                    sx={{
-                        position:"absolute",
-                        left:"600px",
-                        marginTop:"35px"
-                    }}>
-                        <Button 
-                        sx={{width:"130px"}} variant="contained">
-                            Edit
-                        </Button>
                 </Box>
             </Box>
         </Box>

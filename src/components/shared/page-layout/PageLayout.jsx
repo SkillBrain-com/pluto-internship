@@ -2,12 +2,15 @@ import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SideBar from "../side-bar/SideBar";
-import AccountSettingsWrapper from "../account-settings-wrapper/AccountSettingsWrapper";
+import SidebarRight from "../side-bar-right/SidebarRight";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
-    gridTemplateColumns: "auto 260px",
+    gridTemplateColumns: "auto 280px",
     gap: "20px",
     width: "100%",
     backgroundColor: "#F5F7FE",
@@ -26,6 +29,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const PageLayout = (props) => {
+  // const [data, setData] = useState([]);
+  // setData( useSelector((state) => state.app.auth.loggedUser.userInfo));
+  const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
   return (
     <StyledBox>
       <Box className="page-main-container">
@@ -34,10 +40,10 @@ const PageLayout = (props) => {
         <Box className="page-main-col">
           <Box>Search bar</Box>
           {props.children}
-          <AccountSettingsWrapper />
+          {/* <AccountSettingsWrapper /> */}
         </Box>
       </Box>
-      <Box>Right Sidebar</Box>
+      <SidebarRight userInfo={data} />
     </StyledBox>
   );
 };
