@@ -7,6 +7,7 @@ import LogOutModal from "./LogOutModal";
 import AddMatesModal from "./AddMatesModal";
 import EditProfileModal from "./EditProfileModal";
 import UploadProfilePictureModal from "./UploadProfilePictureModal";
+import AssignTaskModal from "./AssignTaskModal";
 import { modalTypes } from "../../store/app/constants";
 import { openModal, closeModal } from "../../store/app/app.slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -74,6 +75,14 @@ const VarModal = (props) => {
       case modalTypes.uploadPicture:
         return (
           <UploadProfilePictureModal
+            handleClose={handleClose}
+            open={open}
+            variant={modalType}
+          />
+        );
+      case modalTypes.assignTask:
+        return (
+          <AssignTaskModal
             handleClose={handleClose}
             open={open}
             variant={modalType}

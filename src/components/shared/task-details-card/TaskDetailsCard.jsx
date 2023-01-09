@@ -5,6 +5,7 @@ import Badge from "../Badge/Badge";
 import Button from "../button/Button";
 import TaskActions from "../task-actions/TaskActions";
 import AvatarWithName from "../../avatar/AvatarWithName";
+import VarModal from "../../modals/VarModal";
 import emptyCercle from "../../../assets/images/cercle-empty.png";
 import fullCercle from "../../../assets/images/cercle-full.png";
 import completedCheck from "../../../assets/images/completed.png";
@@ -156,9 +157,10 @@ const renderSwitch = (status, userRole) => {
       if (userRole === "assigner") {
         return (
           <CardActions className="card-actions">
-            <Button size="medium" variant="contained">
+            {/* <Button size="medium" variant="contained">
               Assign this task
-            </Button>
+            </Button> */}
+            <VarModal variant="assignTask" />
             <TaskActions trash edit message />
           </CardActions>
         );

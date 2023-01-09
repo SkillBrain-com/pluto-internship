@@ -8,4 +8,5 @@ export const modalTypes = {
   editProfile: "Edit Profile",
   uploadPicture: "Upload Picture",
   addTeam: "Add Team",
+  assignTask: "Assign Task",
 };
