@@ -72,7 +72,44 @@ const selectBadgeColor = (status) => {
   }
 };
 
-const renderRoles = (status, userRole) => {
+const calculateUserRoles = (a, b, c, status) => {
+  switch (status) {
+    case "Unasigned":
+      if (a === c) return "assigner";
+      else return "other";
+    case "Pending":
+      if (a === b) {
+        return "developer";
+      } else {
+        if (a === c) {
+          return "assigner";
+        } else return "other";
+      }
+    case "In Progress":
+      if (a === c) {
+        return "assigner";
+      } else {
+        if (a === b) {
+          return "developer";
+        } else return "other";
+      }
+    case "In Review":
+      if (a === c) {
+        return "assigner";
+      } else {
+        if (a === b) {
+          return "developer";
+        } else return "other";
+      }
+    case "Completed":
+      return "other";
+    default:
+      return "other";
+  }
+};
+
+const renderRoles = (status, currentUser, assignedTo, createdBy) => {
+  const userRole = calculateUserRoles(currentUser, assignedTo, createdBy);
   if (status === "Pending" && userRole === "developer") {
     return (
       <Badge
@@ -141,7 +178,8 @@ const renderRoles = (status, userRole) => {
   }
 };
 
-const renderSwitch = (status, userRole) => {
+const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
+  const userRole = calculateUserRoles(currentUser, assignedTo, createdBy);
   switch (status) {
     case "Unasigned":
       if (userRole === "other") {
@@ -318,14 +356,16 @@ const TaskDetailsCard = ({
   createdAt,
   dueDate,
   status,
-  userRole,
+  currentUser,
+  assignedTo,
+  createdBy,
 }) => {
   return (
     <StyledCard>
       <Box>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            {title}
+            {title} {currentUser.id}
           </Typography>
           <Box>
             <Badge
@@ -334,13 +374,13 @@ const TaskDetailsCard = ({
               color={selectBadgeColor(status)}
               sx={{ marginLeft: "40px" }}
             ></Badge>
-            {renderRoles(status, userRole)}
+            {renderRoles(status, currentUser, assignedTo, createdBy)}
           </Box>
           <Typography variant="body1" className="card-details-content-text">
             {description}
           </Typography>
         </CardContent>
-        {renderSwitch(status, userRole)}
+        {renderSwitch(status, currentUser, assignedTo, createdBy)}
       </Box>
       <Box>
         <Box className="dates-div">

@@ -43,7 +43,13 @@ const TasksBoard = () => {
     state.entities.tasks.data.find((item) => item.id === parseInt(params.id))
   );
 
-  console.log("tasks:", tasks);
+  const currentUser = useSelector(
+    (state) => state.app.auth.loggedUser.userInfo
+  );
+
+  console.log("current user:", currentUser);
+
+  console.log("Taasks:", tasks);
 
   return (
     <PageLayout>
@@ -88,6 +94,9 @@ const TasksBoard = () => {
         createdAt={renderDate(tasks.createdAt)}
         dueDate={renderDate(tasks.dueDate)}
         status={renderBadgeStatus(tasks.status)}
+        currentUser={currentUser}
+        assignedTo={tasks.assignedTo}
+        createdBy={tasks.createdBy}
         userRole="other"
       />
     </PageLayout>
