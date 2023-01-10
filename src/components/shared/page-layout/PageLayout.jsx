@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SideBar from "../side-bar/SideBar";
 import SidebarRight from "../side-bar-right/SidebarRight";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getLoggedUserAction } from "../../../store/app/app.slice";
 
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -28,10 +28,12 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const PageLayout = (props) => {
-  // const [data, setData] = useState([]);
-  // setData( useSelector((state) => state.app.auth.loggedUser.userInfo));
-  const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
+const PageLayout = (props ) => {
+    const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
+    console.log(data)
+
+
+ 
   return (
     <StyledBox>
       <Box className="page-main-container">

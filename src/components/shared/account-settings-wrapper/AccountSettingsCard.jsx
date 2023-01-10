@@ -3,17 +3,10 @@ import React from "react";
 import { Box } from "@mui/material";
 import SvgProfile from "../../../assets/icons/Profile";
 import SvgMessage from "../../../assets/icons/Message";
-import Button from "../button/Button";
-import { useDispatch } from "react-redux";
-import { modalTypes } from "../../../store/app/constants";
-import { openModal } from "../../../store/app/app.slice"
-import ToggleSwitch from "../toggle-switch/ToggleSwitch";
 import VarModal from "../../modals/VarModal";
 
 
 const AccountSettingsCard = (props) => {
-    const { variant } = props;
-    const dispatch = useDispatch();
     return (
         <Box
             sx={{
@@ -154,7 +147,7 @@ const AccountSettingsCard = (props) => {
                    
                         
                     }}>
-                        <VarModal variant="editProfile" />
+                        <VarModal variant="editProfile" data={props.userData} />
                     {/* <Button  
                         onClick={() => dispatch(openModal(modalTypes[variant="editTask"]))}
                         sx={{width:"150px"}} 

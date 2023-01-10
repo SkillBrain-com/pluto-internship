@@ -12,7 +12,8 @@ import { openModal, closeModal } from "../../store/app/app.slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const VarModal = (props) => {
-  const { variant } = props;
+  const { variant, data } = props;
+  
   const dispatch = useDispatch();
   const open = useSelector((state) => state.app.ui.modal.isOpen);
   const modalType = useSelector((state) => state.app.ui.modal.modalType);
@@ -61,6 +62,7 @@ const VarModal = (props) => {
             handleClose={handleClose}
             open={open}
             variant={modalType}
+            data={data}
           />
         );
       case modalTypes.addTeam:

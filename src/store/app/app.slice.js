@@ -71,7 +71,7 @@ export const appSlice = createSlice({
       state.auth.error = null;
       state.auth.loggedUser.accessToken = action.payload;
     },
-    getLoggUsersSuccess: (state, action) => {
+     getLoggUsersSuccess: (state, action) => {
       state.auth.isLoading = false;
       state.auth.loggedUser.userInfo = action.payload;
     },
@@ -124,6 +124,7 @@ export const getLoggedUserAction = () => async (dispatch, getState) => {
   dispatch(loginStart());
   const state = getState();
   const token = state.app.auth.loggedUser.accessToken.accessToken;
+ 
   try {
     const response = await axios.get(`${API_BASE_URL}/user/logged-user`, {
       headers: {
@@ -141,11 +142,13 @@ export const updateLoggedUser =
     dispatch(updateUserStart());
     const state = getState();
     const token = state.app.auth.loggedUser.accessToken.accessToken;
+    console.log("tokennnnnnnnnnnnnnnnnnnnn" , token)
+    console.log("update user aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ", payload)
     try {
       const response = await axios.patch(
         `${API_BASE_URL}/user/update`,
         {
-          ...payload,
+          ...payload
         },
         {
           headers: {
@@ -153,7 +156,7 @@ export const updateLoggedUser =
           },
         }
       );
-      dispatch(updateUserSuccess(response.data));
+      updateUserSuccess(response.data);
       if (onSuccess) {
         onSuccess();
       }
