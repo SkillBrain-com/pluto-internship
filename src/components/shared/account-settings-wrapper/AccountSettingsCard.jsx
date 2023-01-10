@@ -3,10 +3,17 @@ import React from "react";
 import { Box } from "@mui/material";
 import SvgProfile from "../../../assets/icons/Profile";
 import SvgMessage from "../../../assets/icons/Message";
+import Button from "../button/Button";
+import { useDispatch } from "react-redux";
+import { modalTypes } from "../../../store/app/constants";
+import { openModal } from "../../../store/app/app.slice"
+import ToggleSwitch from "../toggle-switch/ToggleSwitch";
+import VarModal from "../../modals/VarModal";
 
 
 const AccountSettingsCard = (props) => {
-
+    const { variant } = props;
+    const dispatch = useDispatch();
     return (
         <Box
             sx={{
@@ -126,8 +133,40 @@ const AccountSettingsCard = (props) => {
                 }}>
                     <p>Password</p>
                 </Box>
-            </Box>
+                <Box 
+                    sx={{
+                        // display: "flex",
+                        // flexDirection: "column",
+                        // justifyContent: "center",
+                        // alignItems: "center",
+                        // padding: "15px 74px",
+                        // gap: "10px",
+
+                        // position: "absolute",
+                        // width: "125px",
+                        // height: "49px",
+                        // left: "706px",
+                        // top: "177px",
+                      
+                        position: "absolute",
+                        marginTop: "20px",
+                        left: "550px",
+                   
+                        
+                    }}>
+                        <VarModal variant="editProfile" />
+                    {/* <Button  
+                        onClick={() => dispatch(openModal(modalTypes[variant="editTask"]))}
+                        sx={{width:"150px"}} 
+                        variant="contained" >
+                            
+                    </Button> */}
+                    
+
         </Box>
+            </Box>
+            </Box>
+        
 
     
     );
