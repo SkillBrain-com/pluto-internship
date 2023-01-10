@@ -4,15 +4,24 @@ import Badge from "@mui/material/Badge";
 import PropTypes from "prop-types";
 import { AntTab } from "./AntTab.styles";
 import { AntTabs } from "./AntTabs.styles";
-import { useDispatch, useSelector } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchTasksAction } from "../../store/task/task.slice";
+import { all } from "q";
 
-const CountPendingTasks = (data) => {
-  let pending = 0;
+const getStatusList = (data) => {
+  const allStatuses = [{ status: "All Tasks", count: data.length }];
+
   for (let i = 0; i < data.length; i++) {
-    if (data.status === "Pending") pending = pending + 1;
+    let statusFound = allStatuses.find(
+      (item) => item.status === data[i].status
+    );
+    if (statusFound !== undefined) {
+      statusFound.count++;
+    } else {
+      allStatuses.push({ status: data[i].status, count: 1 });
+    }
   }
-  return pending;
+  return allStatuses;
 };
 
 const STATIC_TAB_LIST = [
@@ -24,14 +33,6 @@ const STATIC_TAB_LIST = [
   "Tab 6",
   "Tab 7",
   "Tab 8",
-];
-
-const DINAMIC_TAB_LIST = [
-  { id: "Tab 1", nr: 20, status: "All" },
-  { id: "Tab 2", nr: 7, status: "ToDo" },
-  { id: "Tab 3", nr: 3, status: "In Progress" },
-  { id: "Tab 4", nr: 2, status: "Pending" },
-  { id: "Tab 5", nr: 8, status: "Completed" },
 ];
 
 export default function CustomTabs({ type }) {
@@ -48,18 +49,21 @@ export default function CustomTabs({ type }) {
   }, [dispatch]);
 
   const tasks = useSelector((state) => state.entities.tasks.data);
-  const pendingTasks = CountPendingTasks(tasks);
+  console.log(getStatusList(tasks));
+
+  const allStatuses = getStatusList(tasks);
+
   //trying to count pending tasks
 
   return type ? (
     <Box>
       <AntTabs value={value} onChange={handleChange}>
-        {DINAMIC_TAB_LIST.map((item) => {
+        {allStatuses.map((item) => {
           return (
             <AntTab
-              key={item.id}
-              label={item.id}
-              icon={<Badge badgeContent={pendingTasks} color="primary" />}
+              key={item.status}
+              label={item.status}
+              icon={<Badge badgeContent={item.count} color="primary" />}
               iconPosition="end"
             />
           );
