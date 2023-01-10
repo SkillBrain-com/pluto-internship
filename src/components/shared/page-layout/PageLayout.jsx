@@ -6,6 +6,7 @@ import SidebarRight from "../side-bar-right/SidebarRight";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
+
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
@@ -35,9 +36,11 @@ const PageLayout = (props) => {
     <StyledBox>
       <Box className="page-main-container">
         <SideBar />
+        
         <Box className="page-main-col">
           <Box>Search bar</Box>
           {props.children}
+          {/* <AccountSettingsWrapper /> */}
         </Box>
       </Box>
       <SidebarRight userInfo={data} />
