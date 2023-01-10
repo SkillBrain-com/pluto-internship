@@ -7,12 +7,7 @@ const CalendarReact = () => {
 
   return (
     <div>
-      <Calendar
-        calendarType="US"
-        onChange={onChange}
-        value={value}
-        // allowPartialRange="selectRange"
-      />
+      <Calendar calendarType="US" onChange={onChange} value={value} />
     </div>
   );
 };

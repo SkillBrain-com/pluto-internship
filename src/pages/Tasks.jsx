@@ -1,9 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import PageLayout from "../components/shared/page-layout/PageLayout";
 import TaskViewer from "../components/shared/task-viewer/TaskViewer";
 import { fetchTasksAction } from "../store/task/task.slice";
 import { useDispatch, useSelector } from "react-redux";
+import TabContent from "../components/tab-content/TabContent";
 
 const Tasks = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const Tasks = () => {
         Titlu , search bar , taburi + taskviewer + right bar cu calder pick si
         numele tau si mail
       </p>
+      <TabContent type={true} />
       <TaskViewer tasksData={tasks} />
 
       {/* la click pe task => redirect in TaskCardDetailsPage link task/1 etc  */}
