@@ -75,8 +75,11 @@ const selectBadgeColor = (status) => {
 const calculateUserRoles = (a, b, c, status) => {
   switch (status) {
     case "Unasigned":
-      if (a === c) return "assigner";
-      else return "other";
+      if (a === c) {
+        return "assigner";
+      } else {
+        return "other";
+      }
     case "Pending":
       if (a === b) {
         return "developer";
@@ -109,7 +112,12 @@ const calculateUserRoles = (a, b, c, status) => {
 };
 
 const renderRoles = (status, currentUser, assignedTo, createdBy) => {
-  const userRole = calculateUserRoles(currentUser, assignedTo, createdBy);
+  const userRole = calculateUserRoles(
+    currentUser,
+    assignedTo,
+    createdBy,
+    status
+  );
   if (status === "Pending" && userRole === "developer") {
     return (
       <Badge
@@ -179,7 +187,12 @@ const renderRoles = (status, currentUser, assignedTo, createdBy) => {
 };
 
 const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
-  const userRole = calculateUserRoles(currentUser, assignedTo, createdBy);
+  const userRole = calculateUserRoles(
+    currentUser,
+    assignedTo,
+    createdBy,
+    status
+  );
   switch (status) {
     case "Unasigned":
       if (userRole === "other") {
@@ -365,7 +378,7 @@ const TaskDetailsCard = ({
       <Box>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            {title} {currentUser.id}
+            {title}
           </Typography>
           <Box>
             <Badge

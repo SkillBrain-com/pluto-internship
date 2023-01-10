@@ -13,7 +13,10 @@ export const TaskDetailsCardPage = () => {
     >
       <TaskDetailsCard
         status="Unasigned"
-        userRole="assigner"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="1"
+        //userRole="assigner"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -21,7 +24,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="Unasigned"
-        userRole="other"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="3"
+        //userRole="other"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -30,7 +36,10 @@ export const TaskDetailsCardPage = () => {
 
       <TaskDetailsCard
         status="Pending"
-        userRole="developer"
+        currentUser="1"
+        assignedTo="1"
+        createdBy="3"
+        //userRole="developer"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -38,7 +47,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="Pending"
-        userRole="assigner"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="1"
+        // userRole="assigner"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -46,7 +58,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="Pending"
-        userRole="other"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="3"
+        //userRole="other"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -55,7 +70,10 @@ export const TaskDetailsCardPage = () => {
 
       <TaskDetailsCard
         status="In Progress"
-        userRole="developer"
+        currentUser="1"
+        assignedTo="1"
+        createdBy="3"
+        //userRole="developer"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -63,7 +81,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="In Progress"
-        userRole="assigner"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="1"
+        //userRole="assigner"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -71,7 +92,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="In Progress"
-        userRole="other"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="3"
+        //userRole="other"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -80,7 +104,10 @@ export const TaskDetailsCardPage = () => {
 
       <TaskDetailsCard
         status="In Review"
-        userRole="developer"
+        currentUser="1"
+        assignedTo="1"
+        createdBy="3"
+        //userRole="developer"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -88,7 +115,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="In Review"
-        userRole="assigner"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="1"
+        // userRole="assigner"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -96,7 +126,10 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="In Review"
-        userRole="other"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="3"
+        //userRole="other"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"
@@ -105,6 +138,10 @@ export const TaskDetailsCardPage = () => {
 
       <TaskDetailsCard
         status="Completed"
+        currentUser="1"
+        assignedTo="2"
+        createdBy="3"
+        //userRole="other"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
         createdAt="22/03/22"

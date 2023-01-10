@@ -47,10 +47,6 @@ const TasksBoard = () => {
     (state) => state.app.auth.loggedUser.userInfo
   );
 
-  console.log("current user:", currentUser);
-
-  console.log("Taasks:", tasks);
-
   return (
     <PageLayout>
       <Breadcrumbs
@@ -97,7 +93,6 @@ const TasksBoard = () => {
         currentUser={currentUser}
         assignedTo={tasks.assignedTo}
         createdBy={tasks.createdBy}
-        userRole="other"
       />
     </PageLayout>
   );
