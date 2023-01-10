@@ -8,6 +8,28 @@ import { useParams } from "react-router-dom";
 import { fetchTasksAction } from "../store/task/task.slice";
 import { useDispatch, useSelector } from "react-redux";
 
+const renderBadgeStatus = (status) => {
+  switch (status) {
+    case "UNNASIGNED":
+      return "Unasigned";
+    case "PENDING":
+      return "Pending";
+    case "IN_PROGRESS":
+      return "In Progress";
+    case "IN_REVIEW":
+      return "In Review";
+    case "COMPLETED":
+      return "Completed";
+    default:
+      return "In Progress";
+  }
+};
+
+const renderDate = (d) => {
+  let noTimeDate = d.split("T")[0];
+  return noTimeDate;
+};
+
 const TasksBoard = () => {
   const params = useParams();
   console.log("PARAMS:", params.id);
@@ -21,7 +43,9 @@ const TasksBoard = () => {
     state.entities.tasks.data.find((item) => item.id === parseInt(params.id))
   );
 
-  console.log("tasks:", tasks);
+  const currentUser = useSelector(
+    (state) => state.app.auth.loggedUser.userInfo
+  );
 
   return (
     <PageLayout>
@@ -63,10 +87,12 @@ const TasksBoard = () => {
       <TaskDetailsCard
         title={tasks.title}
         description={tasks.description}
-        createdAt={tasks.createdAt}
-        dueDate={tasks.dueDate}
-        status="Unasigned"
-        userRole="other"
+        createdAt={renderDate(tasks.createdAt)}
+        dueDate={renderDate(tasks.dueDate)}
+        status={renderBadgeStatus(tasks.status)}
+        currentUser={currentUser}
+        assignedTo={tasks.assignedTo}
+        createdBy={tasks.createdBy}
       />
     </PageLayout>
   );
