@@ -8,15 +8,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllUserAction } from "../../store/app/app.slice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getAllUserAction } from "../../store/app/app.slice";
 
 const AssignTaskModal = (props) => {
   const { handleClose, open, variant, title } = props;
   //const dispatch = useDispatch();
   // const userList = useSelector((state) => state.app.auth.getUser.allUsers);
 
-  // const allUserList = getAllUserAction();
+  // const allUserList = dispatch(getAllUserAction());
   // console.log("all USER LIST:", allUserList);
 
   return (
