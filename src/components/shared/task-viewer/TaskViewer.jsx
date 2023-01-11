@@ -24,6 +24,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, 270px)",
+    marginTop: "30px",
     gridTemplateRows: "repeat(auto-fill, 170px)",
     width: "100%",
     backgroundColor: "#F5F7FE",

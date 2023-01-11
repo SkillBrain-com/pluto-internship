@@ -56,11 +56,11 @@ const SidebarRight = (props) => {
   return (
     <Box>
       <StyledBox>
-        <StyledAvatar
+        {/* <StyledAvatar
           variant="initials"
           firstName={name[0]}
           lastName={name[1]}
-        />
+        /> */}
 
         <NameTypography>{props.userInfo.fullName}</NameTypography>
         <MailTypography>{props.userInfo.email}</MailTypography>

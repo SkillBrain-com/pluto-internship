@@ -1,11 +1,12 @@
+
 import React from "react";
 import { Box } from "@mui/material";
 import SvgProfile from "../../../assets/icons/Profile";
 import SvgMessage from "../../../assets/icons/Message";
+import VarModal from "../../modals/VarModal";
 
 
-const AccountSettingsCard = () => {
-
+const AccountSettingsCard = (props) => {
     return (
         <Box
             sx={{
@@ -72,7 +73,7 @@ const AccountSettingsCard = () => {
                         order: "0",
                         flexGrow: "0",
                     }}>
-                        <SvgProfile /> <p>FullName</p>
+                        <SvgProfile /> <p>{props.userData.fullName}</p>
                         
 
                 </Box>
@@ -98,7 +99,7 @@ const AccountSettingsCard = () => {
                         flexGrow: "0",
                     }}>
                         <SvgMessage />
-                        <p>Email</p>
+                        <p>{props.userData.email}</p>
                         
                 </Box>
                 <Box sx={{
@@ -125,8 +126,40 @@ const AccountSettingsCard = () => {
                 }}>
                     <p>Password</p>
                 </Box>
-            </Box>
+                <Box 
+                    sx={{
+                        // display: "flex",
+                        // flexDirection: "column",
+                        // justifyContent: "center",
+                        // alignItems: "center",
+                        // padding: "15px 74px",
+                        // gap: "10px",
+
+                        // position: "absolute",
+                        // width: "125px",
+                        // height: "49px",
+                        // left: "706px",
+                        // top: "177px",
+                      
+                        position: "absolute",
+                        marginTop: "20px",
+                        left: "550px",
+                   
+                        
+                    }}>
+                        <VarModal variant="editProfile" data={props.userData} />
+                    {/* <Button  
+                        onClick={() => dispatch(openModal(modalTypes[variant="editTask"]))}
+                        sx={{width:"150px"}} 
+                        variant="contained" >
+                            
+                    </Button> */}
+                    
+
         </Box>
+            </Box>
+            </Box>
+        
 
     
     );

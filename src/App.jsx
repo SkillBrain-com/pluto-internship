@@ -15,11 +15,13 @@ import { TaskDetailsCardPage } from "./pages/TaskDetailsCardPage";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
-import SearchBar from "./components/shared/searchBar";
-import SidebarRightPage from "./pages/SidebarRightPage";
+
 import Users from "./pages/Users";
 import Badges from "./pages/Badges";
 import TasksBoard from "./pages/TasksBoard";
+import { SidebarPage } from "./pages/SidebarPage";
+import { PageLayoutPage } from "./pages/PageLayout";
+import { Checkboxes } from "./pages/Checkboxes";
 
 const App = () => {
   return (
@@ -46,7 +48,9 @@ const App = () => {
         <Route path="/inputs" element={<Inputs />} />
         <Route path="/tasks-board/:id" element={<TasksBoard />} />
         <Route path="/taskdetails" element={<TaskDetailsCardPage />} />
-        <Route path="/sidebarright" element={<SidebarRightPage />} />
+        <Route path="/sidebarleft" element={<SidebarPage />} />
+        <Route path="/pagelayout" element={<PageLayoutPage />} />
+        <Route path="/checkboxes" element={<Checkboxes />} />
       </Routes>
     </div>
   );

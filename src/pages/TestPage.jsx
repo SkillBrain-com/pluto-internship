@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Paper, Typography, Box } from "@mui/material";
+import { Container, Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Button from "../components/shared/button/Button";
 import RecoverPassword from "../components/shared/recover-password/RecoverPassword";
@@ -17,7 +17,6 @@ import ForgotPassword from "../components/shared/forgot-password/ForgotPassword"
 import Card from "../components/shared/card-component/Card-Component";
 import CheckBox from "../components/shared/check-box/CheckBox";
 import ToggleSwitch from "../components/shared/toggle-switch/ToggleSwitch";
-import TableComponent from "../components/shared/table-component/TableComponent";
 import TaskDetailsCard from "../components/shared/task-details-card/TaskDetailsCard";
 
 function Test() {
