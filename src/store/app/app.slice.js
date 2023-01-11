@@ -31,6 +31,9 @@ export const appSlice = createSlice({
         accessToken: null,
         userInfo: null,
       },
+      getUser: {
+        allUsers: null,
+      },
     },
   },
   reducers: {
@@ -71,9 +74,13 @@ export const appSlice = createSlice({
       state.auth.error = null;
       state.auth.loggedUser.accessToken = action.payload;
     },
-     getLoggUsersSuccess: (state, action) => {
+    getLoggUsersSuccess: (state, action) => {
       state.auth.isLoading = false;
       state.auth.loggedUser.userInfo = action.payload;
+    },
+    getAllUsersSuccess: (state, action) => {
+      state.auth.isLoading = false;
+      state.auth.getUser.allUsers = action.payload;
     },
     uploadPictureSuccess: (state, action) => {
       state.auth.isLoading = false;
@@ -114,6 +121,7 @@ export const {
   loginError,
   logOut,
   getLoggUsersSuccess,
+  getAllUsersSuccess,
   uploadPictureSuccess,
   updateUserStart,
   updateUserError,
@@ -124,7 +132,7 @@ export const getLoggedUserAction = () => async (dispatch, getState) => {
   dispatch(loginStart());
   const state = getState();
   const token = state.app.auth.loggedUser.accessToken.accessToken;
- 
+
   try {
     const response = await axios.get(`${API_BASE_URL}/user/logged-user`, {
       headers: {
@@ -137,18 +145,35 @@ export const getLoggedUserAction = () => async (dispatch, getState) => {
   }
 };
 
+export const getAllUserAction = () => async (dispatch, getState) => {
+  dispatch(loginStart());
+  const state = getState();
+  const token = state.app.auth.loggedUser.accessToken.accessToken;
+
+  try {
+    const response = await axios.get(`${API_BASE_URL}/user/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    dispatch(getAllUsersSuccess(response.data));
+  } catch (e) {
+    dispatch(loginError(e.message));
+  }
+};
+
 export const updateLoggedUser =
   (payload, onSuccess, onError) => async (dispatch, getState) => {
     dispatch(updateUserStart());
     const state = getState();
     const token = state.app.auth.loggedUser.accessToken.accessToken;
-    console.log("tokennnnnnnnnnnnnnnnnnnnn" , token)
-    console.log("update user aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ", payload)
+    console.log("tokennnnnnnnnnnnnnnnnnnnn", token);
+    console.log("update user aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ", payload);
     try {
       const response = await axios.patch(
         `${API_BASE_URL}/user/update`,
         {
-          ...payload
+          ...payload,
         },
         {
           headers: {

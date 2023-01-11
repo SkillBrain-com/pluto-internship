@@ -187,7 +187,7 @@ const renderRoles = (status, currentUser, assignedTo, createdBy) => {
   }
 };
 
-const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
+const renderSwitch = (status, currentUser, assignedTo, createdBy, title) => {
   const userRole = calculateUserRoles(
     currentUser,
     assignedTo,
@@ -211,7 +211,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             {/* <Button size="medium" variant="contained">
               Assign this task
             </Button> */}
-            <VarModal variant="assignTask" />
+            <VarModal variant="assignTask" title={title} />
             <TaskActions trash edit message />
           </CardActions>
         );
@@ -395,7 +395,7 @@ const TaskDetailsCard = ({
             {description}
           </Typography>
         </CardContent>
-        {renderSwitch(status, currentUser, assignedTo, createdBy)}
+        {renderSwitch(status, currentUser, assignedTo, createdBy, title)}
       </Box>
       <Box>
         <Box className="dates-div">
