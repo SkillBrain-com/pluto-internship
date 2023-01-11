@@ -23,16 +23,27 @@ const AssignTaskModal = (props) => {
       >
         <CustomDialogTitle onClose={handleClose}>Assign task</CustomDialogTitle>
         <DialogContent>
-          <br />
-          <br />
-          <br />
-          <Typography gutterBottom>
+          <Typography
+            gutterBottom
+            sx={{
+              background: "#F7F7F7",
+              borderRadius: "8px",
+              padding: "8px 12px",
+              fontWeight: 500,
+              fontSize: "16px",
+              lineHeight: "19px",
+              letterSpacing: "-0.02em",
+              color: "#000000",
+              marginBottom: "24px",
+            }}
+          >
             Preview of Users to Add shows up here component.
           </Typography>
+          <Typography>Email or Username of User to Assign Task</Typography>
         </DialogContent>
         <DialogActions>
           <Button variant="contained" autoFocus onClick={handleClose}>
-            Add Team
+            Assign Task
           </Button>
         </DialogActions>
       </Dialog>

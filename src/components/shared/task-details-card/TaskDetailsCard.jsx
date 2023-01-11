@@ -76,32 +76,32 @@ const selectBadgeColor = (status) => {
 const calculateUserRoles = (a, b, c, status) => {
   switch (status) {
     case "Unasigned":
-      if (a === c) {
+      if (a.id === c.id) {
         return "assigner";
       } else {
         return "other";
       }
     case "Pending":
-      if (a === b) {
+      if (a.id === b.id) {
         return "developer";
       } else {
-        if (a === c) {
+        if (a.id === c.id) {
           return "assigner";
         } else return "other";
       }
     case "In Progress":
-      if (a === c) {
+      if (a.id === c.id) {
         return "assigner";
       } else {
-        if (a === b) {
+        if (a.id === b.id) {
           return "developer";
         } else return "other";
       }
     case "In Review":
-      if (a === c) {
+      if (a.id === c.id) {
         return "assigner";
       } else {
-        if (a === b) {
+        if (a.id === b.id) {
           return "developer";
         } else return "other";
       }

@@ -13,9 +13,9 @@ export const TaskDetailsCardPage = () => {
     >
       <TaskDetailsCard
         status="Unasigned"
-        currentUser="1"
-        assignedTo="2"
-        createdBy="1"
+        currentUser="{id: 1}"
+        assignedTo="{id: 2}"
+        createdBy="{id: 1}"
         //userRole="assigner"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
@@ -24,9 +24,9 @@ export const TaskDetailsCardPage = () => {
       />
       <TaskDetailsCard
         status="Unasigned"
-        currentUser="1"
-        assignedTo="2"
-        createdBy="3"
+        currentUser="{id: 1}"
+        assignedTo="{id: 2}"
+        createdBy="{id: 3}"
         //userRole="other"
         title="Create a design system form Enum Workspce"
         description="Lorem ipsum sit dolor met lorem ipsum"
