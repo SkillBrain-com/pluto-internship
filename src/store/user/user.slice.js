@@ -20,11 +20,11 @@ export const userSlice = createSlice({
     },
     registerError: (state, action) => {
       state.user.isLoading = false;
-      state.user.error = action.payload;
+      state.user.errors = action.payload;
     },
     registerSuccess: (state) => {
       state.user.isLoading = false;
-      state.user.error = null;
+      state.user.errors = null;
     },
   },
 });

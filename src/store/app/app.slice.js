@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const API_BASE_URL = "https://semicolon-task-manager.herokuapp.com";
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 export const appSlice = createSlice({
   name: "app",
@@ -120,21 +120,9 @@ export const {
   updateUserSuccess,
 } = appSlice.actions;
 
-export const getLoggedUserAction = () => async (dispatch, getState) => {
+export const getLoggedUserAction = (payload) =>  (dispatch) => {
   dispatch(loginStart());
-  const state = getState();
-  const token = state.app.auth.loggedUser.accessToken.accessToken;
- 
-  try {
-    const response = await axios.get(`${API_BASE_URL}/user/logged-user`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    dispatch(getLoggUsersSuccess(response.data));
-  } catch (e) {
-    dispatch(loginError(e.message));
-  }
+    dispatch(getLoggUsersSuccess(payload.data));
 };
 
 export const updateLoggedUser =
@@ -142,8 +130,6 @@ export const updateLoggedUser =
     dispatch(updateUserStart());
     const state = getState();
     const token = state.app.auth.loggedUser.accessToken.accessToken;
-    console.log("tokennnnnnnnnnnnnnnnnnnnn" , token)
-    console.log("update user aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ", payload)
     try {
       const response = await axios.patch(
         `${API_BASE_URL}/user/update`,
@@ -168,15 +154,12 @@ export const updateLoggedUser =
     }
   };
 
-export const logInAction = (payload) => async (dispatch) => {
+export const logInAction = (payload) =>  (dispatch) => {
   dispatch(loginStart());
   try {
-    const response = await axios.post(`${API_BASE_URL}/auth/signin`, {
-      email: payload.email,
-      password: payload.password,
-    });
-    console.log(response.data);
-    await dispatch(logInSuccess(response.data));
+  
+    dispatch(logInSuccess(payload));
+
     dispatch(getLoggedUserAction());
   } catch (e) {
     dispatch(loginError(e.message));

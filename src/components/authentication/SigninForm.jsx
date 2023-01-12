@@ -15,8 +15,13 @@ import CheckBox from "@mui/material/Checkbox";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useDispatch, useSelector } from "react-redux";
-import { logInAction } from "../../store/app/app.slice";
+import { logInAction, getLoggedUserAction } from "../../store/app/app.slice";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+
+const API_BASE_URL = process.env.REACT_APP_API_URL;
+
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -42,16 +47,29 @@ const SigninForm = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      dispatch(logInAction(values));
-      navigate("/dashboard");
+    onSubmit: async (values) => {
+      try {
+        let res = await axios.post(`${API_BASE_URL}/auth/signin`, {
+          email: values.email,
+          password: values.password,
+        })
+        dispatch(logInAction(res.data))
+        let res2 = await axios.get(`${API_BASE_URL}/user/logged-user`, {
+          headers: {
+            Authorization: `Bearer ${res.data.accessToken}`,
+          },
+        })
+        dispatch(getLoggedUserAction(res2))
+        navigate("/dashboard");
+      } catch (err) {
+        console.log(err)
+      }
     },
   });
 
