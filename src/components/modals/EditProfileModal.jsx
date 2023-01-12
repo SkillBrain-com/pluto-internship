@@ -23,7 +23,7 @@ const modalInputsStyle = {
 
 const EditProfileModal = (props) => {
   const { handleClose, open, variant, data } = props;
-  
+
   return (
     <div>
       <Dialog onClose={handleClose} open={open} sx={modalInputsStyle}>
@@ -31,7 +31,7 @@ const EditProfileModal = (props) => {
           Edit Profile
         </CustomDialogTitle>
         <DialogContent>
-          <SignupForm buttonText="Save" data={data} />
+          <SignupForm buttonText="Save" close={handleClose} data={data} />
         </DialogContent>
       </Dialog>
     </div>
