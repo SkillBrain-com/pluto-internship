@@ -22,6 +22,7 @@ import TasksBoard from "./pages/TasksBoard";
 import { SidebarPage } from "./pages/SidebarPage";
 import { PageLayoutPage } from "./pages/PageLayout";
 import { Checkboxes } from "./pages/Checkboxes";
+import AllUsers from "./pages/AllUsers";
 
 const App = () => {
   return (
@@ -41,7 +42,7 @@ const App = () => {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/modals" element={<Modals />} />
 
-        <Route path="/users" element={<Users />} />
+        <Route path="/userstable" element={<Users />} />
         <Route path="/badges" element={<Badges />} />
         <Route path="/avatars" element={<Avatars />} />
         <Route path="/alerts" element={<Alerts />} />
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/sidebarleft" element={<SidebarPage />} />
         <Route path="/pagelayout" element={<PageLayoutPage />} />
         <Route path="/checkboxes" element={<Checkboxes />} />
+        <Route path="/users" element={<AllUsers />} />
       </Routes>
     </div>
   );
