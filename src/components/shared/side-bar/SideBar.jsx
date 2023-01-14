@@ -104,10 +104,8 @@ const SideBar = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.app.ui.sidebar.isOpen);
   console.log("isOpen", isOpen);
-  // const [open, setOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
-    // setOpen((open) => !open);
     dispatch(tooggleSidebar(isOpen));
   };
 
