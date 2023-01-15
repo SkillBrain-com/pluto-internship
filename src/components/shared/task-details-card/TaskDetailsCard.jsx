@@ -201,6 +201,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Request Task
             </Button>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -227,6 +228,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               <Button size="medium" variant="contained">
                 Work on it
               </Button>
+              <TaskActions trash edit />
             </CardActions>
           </>
         );
@@ -250,6 +252,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Work on it Now
             </Button>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -270,6 +273,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               >
                 Send for Review
               </Button>
+              <TaskActions trash edit />
             </CardActions>
           </>
         );
@@ -298,6 +302,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             >
               Send for Review
             </Button>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -315,6 +320,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
                 The assigner of your task gets to tell if if it’s done or not.
                 Kindly check back later.
               </Typography>
+              <TaskActions trash edit />
             </CardActions>
           </>
         );
