@@ -7,7 +7,6 @@
   --ag-row-hover-color: #f6f8fd;
   --ag-font-family: Gelion;
   --ag-borders: none;
-  --ag-grid-size: 0px;
 }
 
 .ag-header-cell-text {
@@ -29,5 +28,5 @@ div.ag-theme-alpine div.ag-row {
   display: flex;
   justify-content: center;
   border: none;
-  padding: 8px;
+  padding: 40px;
 }

@@ -30,8 +30,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const PageLayout = (props) => {
   const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
   console.log(data);
-  // const isOpen = useSelector((state) => state.ui.sidebar.isOpen);
-  // console.log("isOpen", isOpen);
 
   return (
     <StyledBox>
