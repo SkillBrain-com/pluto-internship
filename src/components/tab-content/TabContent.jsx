@@ -49,7 +49,7 @@ export default function CustomTabs({ type }) {
   }, [dispatch]);
 
   const tasks = useSelector((state) => state.entities.tasks.data);
-  console.log(getStatusList(tasks));
+  // console.log(getStatusList(tasks));
 
   const allStatuses = getStatusList(tasks);
 

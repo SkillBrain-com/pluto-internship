@@ -76,12 +76,9 @@ const AccountSettingsWrapper = (props) => {
           top: "100px",
         }}
       >
-        {/* <Button sx={{color: "white"}} variant="logout" onClick={logOutFn}>
-                        Log Out
-                    </Button> */}
         <ColorButton
           onClick={logOutFn}
-          sx={{ width: "160px", borderRadius: "12px", height: "54px" }}
+          sx={{ width: "125px", height: "54px" }}
           variant="contained"
         >
           Log Out

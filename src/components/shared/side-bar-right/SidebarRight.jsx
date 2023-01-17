@@ -52,7 +52,7 @@ const MyProfileButton = styled(Button)(({ theme }) => ({
 }));
 
 const SidebarRight = (props) => {
-  const name = props.userInfo.fullName.split(" ");
+  const name = props.userInfo?.fullName.split(" ");
   return (
     <Box>
       <StyledBox>
@@ -62,8 +62,8 @@ const SidebarRight = (props) => {
           lastName={name[1]}
         /> */}
 
-        <NameTypography>{props.userInfo.fullName}</NameTypography>
-        <MailTypography>{props.userInfo.email}</MailTypography>
+        <NameTypography>{props.userInfo?.fullName}</NameTypography>
+        <MailTypography>{props.userInfo?.email}</MailTypography>
         <MyProfileButton size="medium" variant="contained">
           My Profile
         </MyProfileButton>

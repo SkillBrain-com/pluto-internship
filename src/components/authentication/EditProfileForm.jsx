@@ -12,8 +12,10 @@ import {
 import Button from "../shared/button/Button";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { registerAction } from "../../store/user/user.slice";
+import { fn } from "moment/moment";
+import { updateLoggedUser, logOut } from "../../store/app/app.slice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API_BASE_URL = "https://semicolon-task-manager.herokuapp.com";
@@ -23,40 +25,59 @@ const validationSchema = Yup.object({
     .max(15, "Must be 15 characters or less")
     .required("Required"),
   email: Yup.string().email("Invalid email address").required("Required"),
-  password: Yup.string()
-    .max(20, "Must be 20 characters or less")
-    .required("Required"),
+  // password: Yup.string()
+  //   .max(20, "Must be 20 characters or less")
+  //   .required("Required"),
 });
 
-const SignupForm = (props) => {
+const EditProfileForm = (props) => {
   const dispatch = useDispatch();
-  const { buttonText } = props;
+  const navigate = useNavigate();
+  const { buttonText, handleClose, data } = props;
 
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  // const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  // const handleMouseDownPassword = (event) => {
+  //   event.preventDefault();
+  // };
+
+  const usertoken = useSelector(
+    (state) => state.app.auth.loggedUser.accessToken
+  );
+  // console.log(usertoken, "din EditProfileForm");
 
   const formik = useFormik({
     initialValues: {
-      fullName: "",
-      email: "",
-      password: "",
+      fullName: data?.fullName || "",
+      email: data?.email || "",
+      // password: data.password || "",
     },
     validationSchema: validationSchema,
+    // onSubmit: (values) => {
+    //   alert(JSON.stringify(values, null, 2));
+    //   dispatch(updateLoggedUser(values));
+    // },
     onSubmit: async (values) => {
-      // alert(JSON.stringify(values, null, 2));
       try {
-        let response = await axios.post(`${API_BASE_URL}/auth/signup`, {
-          fullName: values.fullName,
-          email: values.email,
-          password: values.password,
-        });
-        registerAction(response.data);
-        alert("Success created account. Go to Log In page!");
+        let response = await axios.patch(
+          `${API_BASE_URL}/user/update`,
+          {
+            ...values,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${usertoken.accessToken}`,
+            },
+          }
+        );
+        updateLoggedUser(response.data);
+
+        // close modal, logOut and go to Login Page;
+        dispatch(handleClose);
+        dispatch(logOut());
+        navigate("/login");
       } catch (err) {
         console.log(err);
       }
@@ -99,30 +120,32 @@ const SignupForm = (props) => {
 
       <InputLabel htmlFor="password">Password</InputLabel>
       <OutlinedInput
+        disabled
         fullWidth
         id="password"
         name="password"
-        type={showPassword ? "text" : "password"}
-        {...formik.getFieldProps("password")}
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
-            >
-              {showPassword ? <Visibility /> : <VisibilityOff />}
-            </IconButton>
-          </InputAdornment>
-        }
+        type="text"
+        // type={showPassword ? "text" : "password"}
+        // {...formik.getFieldProps("password")}
+        // endAdornment={
+        //   <InputAdornment position="end">
+        //     <IconButton
+        //       aria-label="toggle password visibility"
+        //       onClick={handleClickShowPassword}
+        //       onMouseDown={handleMouseDownPassword}
+        //     >
+        //       {showPassword ? <Visibility /> : <VisibilityOff />}
+        //     </IconButton>
+        //   </InputAdornment>
+        // }
       />
-      <FormHelperText>
+      {/* <FormHelperText>
         {formik.touched.password && formik.errors.password ? (
           <div>This field is {formik.errors.password.toLocaleLowerCase()}</div>
         ) : (
           "Upto 8 characters with an Uppercase, symbol and number"
         )}
-      </FormHelperText>
+      </FormHelperText> */}
 
       <Button
         fullWidth
@@ -136,4 +159,4 @@ const SignupForm = (props) => {
   );
 };
 
-export default SignupForm;
+export default EditProfileForm;

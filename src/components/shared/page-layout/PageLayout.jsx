@@ -6,7 +6,6 @@ import SidebarRight from "../side-bar-right/SidebarRight";
 import { useSelector, useDispatch } from "react-redux";
 import { getLoggedUserAction } from "../../../store/app/app.slice";
 
-
 const StyledBox = styled(Box)(({ theme }) => ({
   "&": {
     display: "grid",
@@ -28,17 +27,17 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const PageLayout = (props ) => {
-    const data = useSelector((state) => state.app.auth.loggedUser.userInfo);
-    console.log(data)
+const PageLayout = (props) => {
+  const data = useSelector(
+    (state) => state.app.auth.loggedUser.userInfo || null
+  );
+  // console.log(data);
 
-
- 
   return (
     <StyledBox>
       <Box className="page-main-container">
         <SideBar />
-        
+
         <Box className="page-main-col">
           <Box>Search bar</Box>
           {props.children}

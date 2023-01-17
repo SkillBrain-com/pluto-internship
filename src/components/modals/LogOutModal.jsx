@@ -38,7 +38,7 @@ const LogOutModal = (props) => {
         <DialogContent>
           <DialogContentText>
             You can always log on to your task manager and continue from where
-            you left off..
+            you left off.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

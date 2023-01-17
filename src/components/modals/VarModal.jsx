@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+import { IconButton } from "@mui/material";
+import SvgTrashBin from "../../assets/icons/TrashBin";
+import SvgEditPen from "../../assets/icons/EditPen";
 import Button from "../shared/button/Button";
 import CreateTaskModal from "./CreateTaskModal";
 import EditTaskModal from "./EditTaskModal";
@@ -12,8 +15,8 @@ import { openModal, closeModal } from "../../store/app/app.slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const VarModal = (props) => {
-  const { variant, data } = props;
-  
+  const { variant, data, currentTask } = props;
+
   const dispatch = useDispatch();
   const open = useSelector((state) => state.app.ui.modal.isOpen);
   const modalType = useSelector((state) => state.app.ui.modal.modalType);
@@ -38,6 +41,7 @@ const VarModal = (props) => {
             handleClose={handleClose}
             open={open}
             variant={modalType}
+            currentTask={currentTask}
           />
         );
       case modalTypes.deleteTask:
@@ -46,6 +50,7 @@ const VarModal = (props) => {
             handleClose={handleClose}
             open={open}
             variant={modalType}
+            currentTask={currentTask}
           />
         );
       case modalTypes.logOut:
@@ -86,15 +91,51 @@ const VarModal = (props) => {
     }
   };
 
+  const getModalButtonType = () => {
+    switch (modalTypes[variant]) {
+      case modalTypes.editTask:
+        return (
+          <Button
+            sx={{ width: "80px", background: "#FFF5F5" }}
+            onClick={() => dispatch(openModal(modalTypes[variant]))}
+          >
+            <SvgEditPen />
+          </Button>
+        );
+      case modalTypes.deleteTask:
+        return (
+          <Button
+            sx={{ width: "80px", background: "#FFF5F5" }}
+            onClick={() => dispatch(openModal(modalTypes[variant]))}
+          >
+            <SvgTrashBin />
+          </Button>
+        );
+      case modalTypes.logOut:
+        return (
+          <Button
+            variant="contained"
+            sx={{ width: "125px", background: "#B80020" }}
+            onClick={() => dispatch(openModal(modalTypes[variant]))}
+          >
+            {modalTypes[variant]}
+          </Button>
+        );
+      default:
+        return (
+          <Button
+            variant="contained"
+            onClick={() => dispatch(openModal(modalTypes[variant]))}
+          >
+            {modalTypes[variant]}
+          </Button>
+        );
+    }
+  };
+
   return (
     <div>
-      <Button
-        variant="contained"
-        onClick={() => dispatch(openModal(modalTypes[variant]))}
-      >
-        {modalTypes[variant]}
-      </Button>
-
+      {getModalButtonType()}
       {getModalContent()}
     </div>
   );

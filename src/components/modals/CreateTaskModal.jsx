@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { createTaskAction } from "../../store/task/task.slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const validationSchema = Yup.object({
@@ -28,7 +29,7 @@ const validationSchema = Yup.object({
   taskDescription: Yup.string()
     .max(50, "Must be 50 characters or less")
     .required("Required"),
-  taskPriority: Yup.string().required("Required"),
+  // taskPriority: Yup.string().required("Required"),
   dueDate: Yup.date().required("Required"),
 });
 
@@ -42,13 +43,13 @@ const CreateTaskModal = (props) => {
     initialValues: {
       taskName: "",
       taskDescription: "Type your content here....",
-      taskPriority: "Normal",
+      // taskPriority: "Normal",
       dueDate: date.toLocaleString(),
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      // dispatch(updateLoggedUser(values));
+      // alert(JSON.stringify(values, null, 2));
+      dispatch(createTaskAction(values));
       // dispatch(handleClose);
     },
   });
