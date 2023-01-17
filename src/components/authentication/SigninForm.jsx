@@ -19,6 +19,7 @@ import { logInAction, getLoggedUserAction } from "../../store/app/app.slice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const validationSchema = Yup.object({
@@ -53,16 +54,23 @@ const SigninForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        let res = await axios.post(`${API_BASE_URL}/auth/signin`, {
-          email: values.email,
-          password: values.password,
-        });
+        let res = await axios.post(
+          `https://semicolon-task-manager.herokuapp.com/auth/signin`,
+          {
+            email: values.email,
+            password: values.password,
+          }
+        );
         dispatch(logInAction(res.data));
-        let res2 = await axios.get(`${API_BASE_URL}/user/logged-user`, {
-          headers: {
-            Authorization: `Bearer ${res.data.accessToken}`,
-          },
-        });
+        let res2 = await axios.get(
+          `https://semicolon-task-manager.herokuapp.com/user/logged-user`,
+          {
+            headers: {
+              Authorization: `Bearer ${res.data.accessToken}`,
+            },
+          }
+        );
+
         dispatch(getLoggedUserAction(res2));
         navigate("/dashboard");
       } catch (err) {

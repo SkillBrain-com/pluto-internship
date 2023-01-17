@@ -75,32 +75,32 @@ const selectBadgeColor = (status) => {
 const calculateUserRoles = (a, b, c, status) => {
   switch (status) {
     case "Unasigned":
-      if (a === c) {
+      if (a.id === c.id) {
         return "assigner";
       } else {
         return "other";
       }
     case "Pending":
-      if (a === b) {
+      if (a.id === b.id) {
         return "developer";
       } else {
-        if (a === c) {
+        if (a.id === c.id) {
           return "assigner";
         } else return "other";
       }
     case "In Progress":
-      if (a === c) {
+      if (a.id === c.id) {
         return "assigner";
       } else {
-        if (a === b) {
+        if (a.id === b.id) {
           return "developer";
         } else return "other";
       }
     case "In Review":
-      if (a === c) {
+      if (a.id === c.id) {
         return "assigner";
       } else {
-        if (a === b) {
+        if (a.id === b.id) {
           return "developer";
         } else return "other";
       }
@@ -201,6 +201,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Request Task
             </Button>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -227,6 +228,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               <Button size="medium" variant="contained">
                 Work on it
               </Button>
+              <TaskActions trash edit />
             </CardActions>
           </>
         );
@@ -250,6 +252,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Work on it Now
             </Button>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -270,6 +273,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               >
                 Send for Review
               </Button>
+              <TaskActions trash edit />
             </CardActions>
           </>
         );
@@ -298,6 +302,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             >
               Send for Review
             </Button>
+            <TaskActions trash edit />
           </CardActions>
         );
       }
@@ -315,6 +320,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
                 The assigner of your task gets to tell if if it’s done or not.
                 Kindly check back later.
               </Typography>
+              <TaskActions trash edit />
             </CardActions>
           </>
         );
