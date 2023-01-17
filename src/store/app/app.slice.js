@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = "https://semicolon-task-manager.herokuapp.com";
 
 export const appSlice = createSlice({
   name: "app",
@@ -124,48 +124,63 @@ export const {
 export const getLoggedUserAction = (payload) => (dispatch) => {
   dispatch(loginStart());
   dispatch(getLoggUsersSuccess(payload.data));
-  console.log("Payload.data:", payload);
 };
 
-export const updateLoggedUser =
-  (payload, onSuccess, onError) => async (dispatch, getState) => {
-    dispatch(updateUserStart());
-    const state = getState();
-    const token = state.app.auth.loggedUser.accessToken.accessToken;
-    try {
-      const response = await axios.patch(
-        `${API_BASE_URL}/user/update`,
-        {
-          ...payload,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      updateUserSuccess(response.data);
-      if (onSuccess) {
-        onSuccess();
-      }
-    } catch (e) {
-      dispatch(updateUserError(e.response.data.message));
-      if (onError) {
-        onError(e.message);
-      }
+export const updateLoggedUser = (payload, onSuccess, onError) => (dispatch) => {
+  dispatch(updateUserStart());
+  try {
+    updateUserSuccess(payload);
+    if (onSuccess) {
+      onSuccess();
     }
-  };
+  } catch (e) {
+    dispatch(updateUserError(e.payload.message));
+    if (onError) {
+      onError(e.message);
+
+    }
+  }
+};
 
 export const logInAction = (payload) => (dispatch) => {
   dispatch(loginStart());
   try {
-    console.log("PAYLOAD:", payload);
+
     dispatch(logInSuccess(payload));
 
-    dispatch(getLoggedUserAction());
+    // dispatch(getLoggedUserAction());
   } catch (e) {
     dispatch(loginError(e.message));
   }
 };
+
+// export const updateLoggedUser =
+//   (payload, onSuccess, onError) => async (dispatch, getState) => {
+//     dispatch(updateUserStart());
+//     const state = getState();
+//     const token = state.app.auth.loggedUser.accessToken.accessToken;
+//     try {
+//       const response = await axios.patch(
+//         `${API_BASE_URL}/user/update`,
+//         {
+//           ...payload,
+//         },
+//         {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         }
+//       );
+//       updateUserSuccess(response.data);
+//       if (onSuccess) {
+//         onSuccess();
+//       }
+//     } catch (e) {
+//       dispatch(updateUserError(e.response.data.message));
+//       if (onError) {
+//         onError(e.message);
+//       }
+//     }
+//   };
 
 export default appSlice.reducer;

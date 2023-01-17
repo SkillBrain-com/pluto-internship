@@ -55,7 +55,7 @@ const MyProfileButton = styled(Button)(({ theme }) => ({
 
 
 const SidebarRight = (props) => {
-  const name = props.userInfo.fullName.split(" ");
+  const name = props.userInfo?.fullName.split(" ");
   return (
     <Box>
       <StyledBox>

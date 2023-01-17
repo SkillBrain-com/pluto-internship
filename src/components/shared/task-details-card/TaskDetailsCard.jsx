@@ -186,7 +186,13 @@ const renderRoles = (status, currentUser, assignedTo, createdBy) => {
   }
 };
 
-const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
+const renderSwitch = (
+  currentTask,
+  status,
+  currentUser,
+  assignedTo,
+  createdBy
+) => {
   const userRole = calculateUserRoles(
     currentUser,
     assignedTo,
@@ -201,7 +207,8 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Request Task
             </Button>
-            <TaskActions trash edit />
+            <TaskActions trash edit currentTask={currentTask} />
+
           </CardActions>
         );
       }
@@ -211,7 +218,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Assign this task
             </Button>
-            <TaskActions trash edit message />
+            <TaskActions trash edit message currentTask={currentTask} />
           </CardActions>
         );
       }
@@ -228,7 +235,8 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               <Button size="medium" variant="contained">
                 Work on it
               </Button>
-              <TaskActions trash edit />
+              <TaskActions trash edit currentTask={currentTask} />
+
             </CardActions>
           </>
         );
@@ -241,7 +249,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               <Button size="medium" variant="outlined">
                 Re-assign task
               </Button>
-              <TaskActions trash edit message />
+              <TaskActions trash edit message currentTask={currentTask} />
             </CardActions>
           </>
         );
@@ -252,7 +260,8 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             <Button size="medium" variant="contained">
               Work on it Now
             </Button>
-            <TaskActions trash edit />
+            <TaskActions trash edit currentTask={currentTask} />
+
           </CardActions>
         );
       }
@@ -273,7 +282,8 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               >
                 Send for Review
               </Button>
-              <TaskActions trash edit />
+              <TaskActions trash edit currentTask={currentTask} />
+
             </CardActions>
           </>
         );
@@ -288,7 +298,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             >
               Mark As Done
             </Button>
-            <TaskActions trash edit />
+            <TaskActions trash edit currentTask={currentTask} />
           </CardActions>
         );
       }
@@ -302,7 +312,8 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
             >
               Send for Review
             </Button>
-            <TaskActions trash edit />
+            <TaskActions trash edit currentTask={currentTask} />
+
           </CardActions>
         );
       }
@@ -320,7 +331,8 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
                 The assigner of your task gets to tell if if it’s done or not.
                 Kindly check back later.
               </Typography>
-              <TaskActions trash edit />
+              <TaskActions trash edit currentTask={currentTask} />
+
             </CardActions>
           </>
         );
@@ -337,7 +349,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
               >
                 Mark As Done
               </Button>
-              <TaskActions trash edit message />
+              <TaskActions trash edit message currentTask={currentTask} />
             </CardActions>
           </>
         );
@@ -361,7 +373,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
           >
             This task has been completed
           </Typography>
-          <TaskActions trash edit />
+          <TaskActions trash edit currentTask={currentTask} />
         </CardActions>
       );
     default:
@@ -370,6 +382,7 @@ const renderSwitch = (status, currentUser, assignedTo, createdBy) => {
 };
 
 const TaskDetailsCard = ({
+  currentTask,
   title,
   description,
   createdAt,
@@ -399,7 +412,7 @@ const TaskDetailsCard = ({
             {description}
           </Typography>
         </CardContent>
-        {renderSwitch(status, currentUser, assignedTo, createdBy)}
+        {renderSwitch(currentTask, status, currentUser, assignedTo, createdBy)}
       </Box>
       <Box>
         <Box className="dates-div">

@@ -8,8 +8,14 @@ import addFirstTask from "../assets/images/add-first-task.png";
 import arrowRightBig from "../assets/images/arrow-right-big.png";
 import arrowRightBlack from "../assets/images/arrow-right-black.png";
 import Button from "../components/shared/button/Button";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
+  const data = useSelector(
+    (state) => state.app.auth.loggedUser.userInfo || null
+  );
+  const name = data?.fullName.split(" ");
+
   return (
     <PageLayout>
       <Box
@@ -38,7 +44,7 @@ const Dashboard = () => {
               color: "#000000",
             }}
           >
-            Hi Faith,
+            {`Hi ${name[0]}`}
           </Typography>
           <Typography
             sx={{
@@ -137,7 +143,7 @@ const Dashboard = () => {
               color: "#3754DB",
             }}
           >
-            Hey Faith, Update your Profile Picture
+            {`Hey ${name[0]}, Update your Profile Picture`}
           </Typography>
         </Box>
         <Box

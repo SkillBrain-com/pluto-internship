@@ -1,19 +1,19 @@
 import React from "react";
 import { IconButton } from "@mui/material";
-import TrashBin from "../../../assets/icons/TrashBin";
-import EditPen from "../../../assets/icons/EditPen";
 import MessageBox from "../../../assets/icons/MessegeBox";
 import VarModal from "../../modals/VarModal";
 
-const renderTrashIcon = (icon) => {
+const renderTrashIcon = (icon, currentTask) => {
   if (icon) {
-    return <VarModal variant="deleteTask" />;
+    return <VarModal variant="deleteTask" currentTask={currentTask} />;
+
   }
 };
 
-const renderEditIcon = (icon) => {
+const renderEditIcon = (icon, currentTask) => {
   if (icon) {
-    return <VarModal variant="editTask" />;
+    return <VarModal variant="editTask" currentTask={currentTask} />;
+
   }
 };
 
@@ -27,11 +27,11 @@ const renderMessageIcon = (icon) => {
   }
 };
 
-const TaskActions = ({ trash, edit, message }) => {
+const TaskActions = ({ trash, edit, message, currentTask }) => {
   return (
     <>
-      {renderTrashIcon(trash)}
-      {renderEditIcon(edit)}
+      {renderTrashIcon(trash, currentTask)}
+      {renderEditIcon(edit, currentTask)}
       {renderMessageIcon(message)}
     </>
   );

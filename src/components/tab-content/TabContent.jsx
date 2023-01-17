@@ -53,6 +53,7 @@ export default function CustomTabs({ type, onTabChange }) {
 
   const tasks = useSelector((state) => state.entities.tasks.data);
 
+
   const allStatuses = getStatusList(tasks);
 
   return type ? (

@@ -30,6 +30,8 @@ const Tasks = () => {
     dispatch(fetchTasksAction());
   }, [dispatch]);
 
+  const tasks = useSelector((state) => state.entities.tasks.data);
+
   return (
     <PageLayout>
       <p>

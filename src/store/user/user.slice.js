@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { loginError, loginStart, uploadPictureSuccess } from "../app/app.slice";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = "https://semicolon-task-manager.herokuapp.com";
 
 export const userSlice = createSlice({
   name: "app",
@@ -32,26 +32,20 @@ export const userSlice = createSlice({
 export const { registerSuccess, registerStart, registerError } =
   userSlice.actions;
 
-export const registerAction =
-  (payload, onSuccess, onError) => async (dispatch) => {
-    dispatch(loginStart());
-    try {
-      await axios.post(`${API_BASE_URL}/auth/signup`, {
-        email: payload.email,
-        password: payload.password,
-        fullName: payload.name,
-      });
-      dispatch(registerSuccess());
-      if (onSuccess) {
-        onSuccess();
-      }
-    } catch (e) {
-      dispatch(loginError(e.response.data.message));
-      if (onError) {
-        onError(e.response.data.message);
-      }
+export const registerAction = (payload, onSuccess, onError) => (dispatch) => {
+  dispatch(registerStart());
+  try {
+    dispatch(registerSuccess(payload));
+    if (onSuccess) {
+      onSuccess();
     }
-  };
+  } catch (e) {
+    dispatch(loginError(e.response.data.message));
+    if (onError) {
+      onError(e.response.data.message);
+    }
+  }
+};
 
 export const uploadProfilePicture =
   (payload, onSuccess, onError) => async (dispatch, getState) => {

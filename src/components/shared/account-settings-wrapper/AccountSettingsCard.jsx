@@ -70,7 +70,7 @@ const AccountSettingsCard = (props) => {
             flexGrow: "0",
           }}
         >
-          <SvgProfile /> <p>{props.userData.fullName}</p>
+          <SvgProfile /> <p>{props.userData?.fullName}</p>
         </Box>
         <Box
           sx={{
@@ -95,7 +95,7 @@ const AccountSettingsCard = (props) => {
           }}
         >
           <SvgMessage />
-          <p>{props.userData.email}</p>
+          <p>{props.userData?.email}</p>
         </Box>
         <Box
           sx={{
@@ -143,13 +143,6 @@ const AccountSettingsCard = (props) => {
           }}
         >
           <VarModal variant="editProfile" data={props.userData} />
-          {/* <VarModal variant="logOut" /> */}
-          {/* <Button  
-                        onClick={() => dispatch(openModal(modalTypes[variant="editTask"]))}
-                        sx={{width:"150px"}} 
-                        variant="contained" >
-                            
-                    </Button> */}
         </Box>
       </Box>
     </Box>

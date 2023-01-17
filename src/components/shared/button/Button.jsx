@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
-import { red } from '@mui/material/colors';
+import { red } from "@mui/material/colors";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   borderRadius: 12,
@@ -24,15 +24,14 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(red[500]),
+  borderRadius: 12,
+  textTransform: "capitalize",
   backgroundColor: red[500],
-  '&:hover': {
+  "&:hover": {
     backgroundColor: red[700],
   },
 }));
 
-
-
 export default StyledButton;
 
-export {ColorButton};
+export { ColorButton };
