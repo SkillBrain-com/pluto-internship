@@ -208,6 +208,7 @@ const renderSwitch = (
               Request Task
             </Button>
             <TaskActions trash edit currentTask={currentTask} />
+
           </CardActions>
         );
       }
@@ -235,6 +236,7 @@ const renderSwitch = (
                 Work on it
               </Button>
               <TaskActions trash edit currentTask={currentTask} />
+
             </CardActions>
           </>
         );
@@ -259,6 +261,7 @@ const renderSwitch = (
               Work on it Now
             </Button>
             <TaskActions trash edit currentTask={currentTask} />
+
           </CardActions>
         );
       }
@@ -280,6 +283,7 @@ const renderSwitch = (
                 Send for Review
               </Button>
               <TaskActions trash edit currentTask={currentTask} />
+
             </CardActions>
           </>
         );
@@ -309,6 +313,7 @@ const renderSwitch = (
               Send for Review
             </Button>
             <TaskActions trash edit currentTask={currentTask} />
+
           </CardActions>
         );
       }
@@ -327,6 +332,7 @@ const renderSwitch = (
                 Kindly check back later.
               </Typography>
               <TaskActions trash edit currentTask={currentTask} />
+
             </CardActions>
           </>
         );

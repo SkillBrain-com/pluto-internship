@@ -64,6 +64,7 @@ const SigninForm = () => {
             Authorization: `Bearer ${res.data.accessToken}`,
           },
         });
+
         dispatch(getLoggedUserAction(res2));
         navigate("/dashboard");
       } catch (err) {

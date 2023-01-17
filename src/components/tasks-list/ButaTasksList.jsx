@@ -12,7 +12,7 @@ export const ButaTasksList = () => {
       <Link underline="hover" href="../">
         Home
       </Link>
-      <Link underline="hover" href="../users">
+      <Link underline="hover" href="../userstable">
         Table Component
       </Link>
 

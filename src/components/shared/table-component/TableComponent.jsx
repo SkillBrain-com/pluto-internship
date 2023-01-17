@@ -59,7 +59,11 @@ const TableComponent = () => {
 
   return (
     <div className="ag-theme-alpine" style={{ height: 500 }}>
-      <AgGridReact rowData={rowData} columnDefs={columnDefs} />{" "}
+      <AgGridReact
+        rowData={rowData}
+        columnDefs={columnDefs}
+        onDisplayedColumnsChanged={(event) => event.api.sizeColumnsToFit()}
+      />{" "}
     </div>
   );
 };

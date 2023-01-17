@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import CalendarReact from "../calendar-react/CalendarReact";
 import { Avatar } from "../../avatar/Avatar";
 import Button from "../button/Button";
+import { Link} from "react-router-dom";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   width: "258px",
@@ -51,6 +52,8 @@ const MyProfileButton = styled(Button)(({ theme }) => ({
   whiteSpace: "nowrap",
 }));
 
+
+
 const SidebarRight = (props) => {
   const name = props.userInfo?.fullName.split(" ");
   return (
@@ -62,11 +65,13 @@ const SidebarRight = (props) => {
           lastName={name[1]}
         /> */}
 
-        <NameTypography>{props.userInfo?.fullName}</NameTypography>
-        <MailTypography>{props.userInfo?.email}</MailTypography>
+        <NameTypography>{props.userInfo.fullName}</NameTypography>
+        <MailTypography>{props.userInfo.email}</MailTypography>
+        <Link to="/dashboard">
         <MyProfileButton size="medium" variant="contained">
           My Profile
         </MyProfileButton>
+        </Link>
         <CalendarReact></CalendarReact>
       </StyledBox>
     </Box>

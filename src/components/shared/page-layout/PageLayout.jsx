@@ -28,10 +28,11 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const PageLayout = (props) => {
+
   const data = useSelector(
     (state) => state.app.auth.loggedUser.userInfo || null
   );
-  // console.log(data);
+
 
   return (
     <StyledBox>

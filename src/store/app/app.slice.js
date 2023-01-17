@@ -69,7 +69,8 @@ export const appSlice = createSlice({
       state.auth.isLoggedIn = true;
       state.auth.isLoading = false;
       state.auth.error = null;
-      state.auth.loggedUser.accessToken = action.payload;
+      state.auth.loggedUser.accessToken = "action.payload.accessToken";
+      console.log("ACTION PAYLOAD", action.payload.accessToken);
     },
     getLoggUsersSuccess: (state, action) => {
       state.auth.isLoading = false;
@@ -136,6 +137,7 @@ export const updateLoggedUser = (payload, onSuccess, onError) => (dispatch) => {
     dispatch(updateUserError(e.payload.message));
     if (onError) {
       onError(e.message);
+
     }
   }
 };
@@ -143,6 +145,7 @@ export const updateLoggedUser = (payload, onSuccess, onError) => (dispatch) => {
 export const logInAction = (payload) => (dispatch) => {
   dispatch(loginStart());
   try {
+
     dispatch(logInSuccess(payload));
 
     // dispatch(getLoggedUserAction());

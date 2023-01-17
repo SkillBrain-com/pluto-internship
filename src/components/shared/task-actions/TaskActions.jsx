@@ -6,12 +6,14 @@ import VarModal from "../../modals/VarModal";
 const renderTrashIcon = (icon, currentTask) => {
   if (icon) {
     return <VarModal variant="deleteTask" currentTask={currentTask} />;
+
   }
 };
 
 const renderEditIcon = (icon, currentTask) => {
   if (icon) {
     return <VarModal variant="editTask" currentTask={currentTask} />;
+
   }
 };
 

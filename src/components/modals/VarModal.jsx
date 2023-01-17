@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 const VarModal = (props) => {
   const { variant, data, currentTask } = props;
 
+
   const dispatch = useDispatch();
   const open = useSelector((state) => state.app.ui.modal.isOpen);
   const modalType = useSelector((state) => state.app.ui.modal.modalType);
